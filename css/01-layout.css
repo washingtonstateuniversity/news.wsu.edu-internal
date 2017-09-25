@@ -1,5 +1,73 @@
+html {
+	background-color: #f2f2f2;
+}
+
 main section {
 	background: #fff;
+}
+
+.primary-categories ul {
+	list-style: none;
+	font-size: 15px;
+	font-weight: 400;
+	padding: 0;
+	text-transform: uppercase;
+}
+
+.primary-categories a {
+	color: #da1e00;
+}
+
+.article-header {
+	margin-bottom: 4rem;
+}
+
+.article-header hgroup.source {
+	color: #191919;
+	font-size: 14px;
+	font-weight: 400;
+	padding: 0;
+	text-transform: none;
+}
+
+article header time,
+article header cite {
+	display: block;
+}
+
+.social-share-bar,
+.social-share-bar ul,
+.social-share-bar li,
+.social-share-bar li a {
+	height: auto;
+	line-height: normal;
+	width: auto;
+}
+
+.social-share-bar {
+	bottom: 0;
+	display: inline-block;
+	right: calc(-50% - 2rem - 3px);
+	position: absolute;
+}
+
+.social-share-bar span {
+	color: #da1e00;
+	display: block;
+	font-size: 16.5px;
+	font-weight: 400;
+	margin: 5px 3px;
+	text-align: left;
+}
+
+.social-share-bar ul {
+	background: #f2f2f2;
+	display: inline-block;
+	padding: 1rem;
+}
+
+.social-share-bar li:first-of-type {
+	margin-left: 0;
 }
 
 .single-post .row .column.one .featured-image {
@@ -31,6 +99,6 @@ main section {
 @media screen and (min-width: 990px) {
 
 	main {
-		border-left: 20px solid #f9f9f9;
+		border-left: 20px solid #f2f2f2;
 	}
 }

@@ -2,3 +2,8 @@ main {
 	color: #191919;
 	font: 300 18px/28px "Source Sans Pro", sans-serif;
 }
+
+h1 {
+	font-size: 72px;
+	font-weight: 900;
+}
