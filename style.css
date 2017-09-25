@@ -8,6 +8,42 @@
  Version:        0.0.1
 */
 
+main section {
+	background: #fff;
+}
+
+.single-post .row .column.one .featured-image {
+	box-sizing: border-box;
+	float: right;
+	margin-bottom: 2rem;
+	margin-right: calc(-2rem - 50%);
+	max-width: 594px;
+	padding: 0 2rem;
+	width: 50vw;
+}
+
+.single-post .featured-image img {
+	display: block;
+}
+
+@media screen and (max-width: 693px) {
+
+	.single-post .row .column.one .featured-image {
+		float: none;
+		margin-left: -2rem;
+		margin-right: -2rem;
+		max-width: none;
+		padding: 0;
+		width: 100vw;
+	}
+}
+
+@media screen and (min-width: 990px) {
+
+	main {
+		border-left: 20px solid #f9f9f9;
+	}
+}
 
 main {
 	color: #191919;
