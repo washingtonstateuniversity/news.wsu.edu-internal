@@ -58,7 +58,7 @@ figure img,
 	text-align: left;
 }
 
-.social-share-bar span {
+.social-share-bar div > span {
 	display: block;
 	margin: 5px 3px;
 }
@@ -66,7 +66,11 @@ figure img,
 .social-share-bar ul {
 	background: #f2f2f2;
 	display: inline-block;
-	padding: 1rem;
+	padding: 12px 20px;
+}
+
+.social-share-bar li {
+	margin-left: 16px;
 }
 
 .social-share-bar li:first-of-type {
@@ -124,6 +128,10 @@ figure.alignnone {
 
 .article-footer dl dt:after {
 	content: none;
+}
+
+.social-media-icons {
+	display: none;
 }
 
 @media screen and (min-width: 990px) and (max-width: 1386px) {
@@ -258,6 +266,26 @@ figcaption {
 
 .social-share-bar a {
 	border-bottom: none;
+}
+
+.social-share-bar .linkedin svg {
+	fill: #007bb6;
+}
+
+.social-share-bar .twitter svg {
+	fill: #00aced;
+}
+
+.social-share-bar .facebook svg {
+	fill: #3b5998;
+}
+
+.social-share-bar a:hover svg {
+	fill: #da1e00;
+}
+
+svg path {
+	fill: inherit;
 }
 
 .article-footer dl {

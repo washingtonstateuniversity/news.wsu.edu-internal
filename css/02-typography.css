@@ -98,6 +98,26 @@ figcaption {
 	border-bottom: none;
 }
 
+.social-share-bar .linkedin svg {
+	fill: #007bb6;
+}
+
+.social-share-bar .twitter svg {
+	fill: #00aced;
+}
+
+.social-share-bar .facebook svg {
+	fill: #3b5998;
+}
+
+.social-share-bar a:hover svg {
+	fill: #da1e00;
+}
+
+svg path {
+	fill: inherit;
+}
+
 .article-footer dl {
 	color: #191919;
 	font-size: 14px;
