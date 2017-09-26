@@ -2,9 +2,21 @@
 
 include_once __DIR__ . '/includes/theme-images.php';
 
+add_filter( 'spine_child_theme_version', 'internal_news_theme_version' );
+/**
+ * Provides a theme version for use in cache busting.
+ *
+ * @since 0.0.1
+ *
+ * @return string
+ */
+function internal_news_theme_version() {
+	return '0.0.1';
+}
+
 add_action( 'wp_enqueue_scripts', 'internal_news_enqueue_scripts' );
 /**
- * Enqueue custom styles.
+ * Enqueues custom styles.
  *
  * @since 0.0.1
  */
