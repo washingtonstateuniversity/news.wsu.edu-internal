@@ -6,32 +6,15 @@ main section {
 	background: #fff;
 }
 
-.primary-categories ul {
-	list-style: none;
-	font-size: 15px;
-	font-weight: 400;
-	padding: 0;
-	text-transform: uppercase;
-}
-
-.primary-categories a {
-	color: #da1e00;
-}
-
-.article-header {
+.single-post .article-header {
 	margin-bottom: 4rem;
 }
 
-.article-header hgroup.source {
-	color: #191919;
-	font-size: 14px;
-	font-weight: 400;
-	padding: 0;
-	text-transform: none;
-}
-
 article header time,
-article header cite {
+article header cite,
+figure img,
+.single-post .featured-image img,
+.article-footer dt {
 	display: block;
 }
 
@@ -52,10 +35,7 @@ article header cite {
 }
 
 .social-share-bar span {
-	color: #da1e00;
 	display: block;
-	font-size: 16.5px;
-	font-weight: 400;
 	margin: 5px 3px;
 	text-align: left;
 }
@@ -70,6 +50,11 @@ article header cite {
 	margin-left: 0;
 }
 
+.single-post .article-body {
+	position: relative;
+	margin-bottom: 5rem;
+}
+
 .single-post .row .column.one .featured-image {
 	box-sizing: border-box;
 	float: right;
@@ -80,11 +65,61 @@ article header cite {
 	width: 50vw;
 }
 
-.single-post .featured-image img {
-	display: block;
+figure.alignright,
+figure.alignleft,
+figure.aligncenter,
+figure.alignnone {
+	background: #f9f9f9;
+	border-radius: 12px;
+	box-sizing: border-box;
+	float: left;
+	margin: 0 1em 1em 0;
+	padding: 12px;
+}
+
+.single-post .article-body p:last-of-type:after {
+	background: #a60f2d;
+	content: "";
+	display: inline-block;
+	height: 15px;
+	margin-left: .5em;
+	width: 15px;
+	vertical-align: middle;
+}
+
+.article-footer {
+	background: #f2f2f2;
+	border: none;
+	margin: 0 0 0 -2rem;
+	padding: 3rem 2rem;
+	width: 150.25%;
+}
+
+.article-footer dd {
+	padding-bottom: .75rem;
+}
+
+@media screen and (min-width: 990px) and (max-width: 1386px) {
+
+	.single-post .row .column.one .featured-image {
+		width: calc(50vw - 99px);
+	}
 }
 
 @media screen and (max-width: 693px) {
+
+	.single-post .article-header {
+		text-align: right;
+	}
+
+	.single-post .article-header hgroup {
+		text-align: left;
+	}
+
+	.social-share-bar {
+		right: -2rem;
+		position: relative;
+	}
 
 	.single-post .row .column.one .featured-image {
 		float: none;

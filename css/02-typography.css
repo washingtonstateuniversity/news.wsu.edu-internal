@@ -3,7 +3,93 @@ main {
 	font: 300 18px/28px "Source Sans Pro", sans-serif;
 }
 
+.hentry a {
+	border-bottom: 1px solid #da1e00;
+	color: #191919;
+	font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 900;
+}
+
+h3,
+h5 {
+	text-transform: uppercase;
+}
+
 h1 {
 	font-size: 72px;
-	font-weight: 900;
+}
+
+h2 {
+	font-size: 40px;
+}
+
+h3 {
+	font-size: 25px;
+}
+
+h4 {
+	font-size: 23px;
+}
+
+h5,
+h6 {
+	font-size: 18px;
+}
+
+figcaption {
+	color: #717171;
+	font-size: .7em;
+	font-style: italic;
+	font-weight: 400;
+	letter-spacing: .02em;
+	line-height: normal;
+	padding: .75rem 1rem;
+}
+
+.primary-categories ul {
+	list-style: none;
+	font-size: 15px;
+	font-weight: 400;
+	padding: 0;
+	text-transform: uppercase;
+}
+
+.primary-categories a {
+	color: #da1e00;
+}
+
+.article-header hgroup.source {
+	color: #191919;
+	font-size: 14px;
+	font-weight: 400;
+	padding: 0;
+	text-transform: none;
+}
+
+.social-share-bar span {
+	color: #da1e00;
+	font-size: 16.5px;
+	font-weight: 400;
+}
+
+.social-share-bar a {
+	border-bottom: none;
+}
+
+.article-footer dl {
+	color: #191919;
+	font-size: 14px;
+	line-height: normal;
+}
+
+.article-footer a {
+	border-bottom: none;
 }
