@@ -26,6 +26,29 @@ figure img,
 	display: block;
 }
 
+article header time:before {
+	content: "";
+	display: inline-block;
+	height: 28px;
+	margin-right: 6px;
+	vertical-align: bottom;
+	width: 1em;
+}
+
+article header time:after {
+	content: none;
+}
+
+article header cite:before {
+	background: url(images/icons/people.svg) center/85% no-repeat;
+	content: "";
+	display: inline-block;
+	height: 28px;
+	margin-right: 6px;
+	vertical-align: bottom;
+	width: 1em;
+}
+
 .social-share-bar,
 .social-share-bar ul,
 .social-share-bar li,
@@ -48,7 +71,7 @@ figure img,
 	text-align: left;
 }
 
-.social-share-bar span {
+.social-share-bar div > span {
 	display: block;
 	margin: 5px 3px;
 }
@@ -56,7 +79,11 @@ figure img,
 .social-share-bar ul {
 	background: #f2f2f2;
 	display: inline-block;
-	padding: 1rem;
+	padding: 12px 20px;
+}
+
+.social-share-bar li {
+	margin-left: 16px;
 }
 
 .social-share-bar li:first-of-type {
@@ -114,6 +141,10 @@ figure.alignnone {
 
 .article-footer dl dt:after {
 	content: none;
+}
+
+.social-media-icons {
+	display: none;
 }
 
 @media screen and (min-width: 990px) and (max-width: 1386px) {
