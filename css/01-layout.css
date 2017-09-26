@@ -6,6 +6,14 @@ main section {
 	background: #fff;
 }
 
+.single-post #binder .single .column.one {
+	padding: 3rem 3rem 0;
+}
+
+.single-post .article-container article {
+	width: 70%;
+}
+
 .single-post .article-header {
 	margin-bottom: 4rem;
 }
@@ -29,15 +37,20 @@ figure img,
 
 .social-share-bar {
 	bottom: 0;
-	display: inline-block;
-	right: calc(-50% - 2rem - 3px);
+	margin-right: -3rem;
 	position: absolute;
+	right: -43%;
+	text-align: right;
+}
+
+.social-share-bar div {
+	display: inline-block;
+	text-align: left;
 }
 
 .social-share-bar span {
 	display: block;
 	margin: 5px 3px;
-	text-align: left;
 }
 
 .social-share-bar ul {
@@ -59,9 +72,9 @@ figure img,
 	box-sizing: border-box;
 	float: right;
 	margin-bottom: 2rem;
-	margin-right: calc(-2rem - 50%);
+	margin-right: calc(-43% - 3rem);
 	max-width: 594px;
-	padding: 0 2rem;
+	padding: 0 3rem;
 	width: 50vw;
 }
 
@@ -90,13 +103,17 @@ figure.alignnone {
 .article-footer {
 	background: #f2f2f2;
 	border: none;
-	margin: 0 0 0 -2rem;
-	padding: 3rem 2rem;
-	width: 150.25%;
+	margin-left: -3rem;
+	padding: 3rem;
+	width: 143%;
 }
 
 .article-footer dd {
 	padding-bottom: .75rem;
+}
+
+.article-footer dl dt:after {
+	content: none;
 }
 
 @media screen and (min-width: 990px) and (max-width: 1386px) {
@@ -108,23 +125,18 @@ figure.alignnone {
 
 @media screen and (max-width: 693px) {
 
-	.single-post .article-header {
-		text-align: right;
-	}
-
-	.single-post .article-header hgroup {
-		text-align: left;
+	.single-post .article-container article {
+		width: 100%;
 	}
 
 	.social-share-bar {
-		right: -2rem;
+		right: 0;
 		position: relative;
 	}
 
 	.single-post .row .column.one .featured-image {
 		float: none;
-		margin-left: -2rem;
-		margin-right: -2rem;
+		margin-left: -3rem;
 		max-width: none;
 		padding: 0;
 		width: 100vw;
