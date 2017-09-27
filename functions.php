@@ -1,6 +1,8 @@
 <?php
 
 include_once __DIR__ . '/includes/theme-images.php';
+include_once __DIR__ . '/includes/content-syndicate.php';
+include_once __DIR__ . '/includes/featured-stories.php';
 
 add_filter( 'spine_child_theme_version', 'internal_news_theme_version' );
 /**
@@ -11,7 +13,7 @@ add_filter( 'spine_child_theme_version', 'internal_news_theme_version' );
  * @return string
  */
 function internal_news_theme_version() {
-	return '0.0.2';
+	return '0.1.0';
 }
 
 add_action( 'wp_enqueue_scripts', 'internal_news_enqueue_scripts' );
