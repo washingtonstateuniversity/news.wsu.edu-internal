@@ -2,6 +2,7 @@
 
 include_once __DIR__ . '/includes/theme-images.php';
 include_once __DIR__ . '/includes/content-syndicate.php';
+include_once __DIR__ . '/includes/featured-stories.php';
 
 add_filter( 'spine_child_theme_version', 'internal_news_theme_version' );
 /**
