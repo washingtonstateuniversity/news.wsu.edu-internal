@@ -5,7 +5,7 @@
  Author:         WSU University Communications
  Author URI:     https://web.wsu.edu
  Template:       spine
- Version:        0.1.1
+ Version:        0.1.2
 */
 
 html {
@@ -29,6 +29,10 @@ main section {
 
 .single-post #binder .single .column.one {
 	padding: 3rem 3rem 0;
+}
+
+.single-post .article-container {
+	padding-bottom: 0;
 }
 
 .single-post .article-container article {
@@ -125,12 +129,12 @@ figure.alignnone {
 	vertical-align: middle;
 }
 
-.article-footer {
+.single-post .article-footer {
 	background: #f2f2f2;
 	border: none;
 	margin-left: -3rem;
 	padding: 3rem;
-	width: 143%;
+	width: 156%;
 }
 
 .article-footer dd {
@@ -187,34 +191,12 @@ figure.alignnone {
 	margin-bottom: .5rem;
 }
 
-.content-item-byline-date,
-.content-item-excerpt {
-	display: block;
-	font-size: .9rem;
-	line-height: 1.5;
-}
-
-.content-item-excerpt {
-	font-weight: 400;
-}
-
 .content-item-categories {
 	margin-bottom: 1rem;
 }
 
-.hentry .content-item-categories a {
-	color: #da1e00;
-	font-size: .9rem;
-	text-transform: uppercase;
-}
-
 .content-item-title {
 	margin-bottom: .5rem;
-}
-
-.hentry .content-item-title a,
-.hentry .content-item-categories a {
-	border: none;
 }
 
 /* --- home page --- */
@@ -369,6 +351,29 @@ figcaption {
 	border-bottom: none;
 }
 
+/* --- Content syndicate cards --- */
+.hentry .content-item-categories {
+	color: #da1e00;
+	font-size: .9rem;
+	font-weight: 400;
+	text-transform: uppercase;
+}
+
+.hentry .content-item-title a {
+	border: none;
+}
+
+.content-item-byline-date,
+.content-item-excerpt {
+	display: block;
+	font-size: .9rem;
+	line-height: 1.5;
+}
+
+.content-item-excerpt {
+	font-weight: 400;
+}
+
 /* --- home page styles --- */
 .home .home-head {
 	font-size: 7rem;
@@ -414,17 +419,18 @@ figcaption {
 }
 
 article header time:before,
-article header cite:before {
-	background: center/85% no-repeat;
+article header cite:before,
+.content-item-byline-date:before {
+	background: center/100% no-repeat;
 	content: "";
 	display: inline-block;
-	height: 28px;
-	margin-right: 6px;
-	vertical-align: bottom;
-	width: 1em;
+	height: 12px;
+	margin: 0 6px -1px 0;
+	width: 12px;
 }
 
-article header time:before {
+article header time:before,
+.content-item-byline-date:before {
 	background-image: url(images/icons/date.svg);
 }
 

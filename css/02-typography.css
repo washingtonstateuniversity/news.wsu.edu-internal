@@ -106,6 +106,29 @@ figcaption {
 	border-bottom: none;
 }
 
+/* --- Content syndicate cards --- */
+.hentry .content-item-categories {
+	color: #da1e00;
+	font-size: .9rem;
+	font-weight: 400;
+	text-transform: uppercase;
+}
+
+.hentry .content-item-title a {
+	border: none;
+}
+
+.content-item-byline-date,
+.content-item-excerpt {
+	display: block;
+	font-size: .9rem;
+	line-height: 1.5;
+}
+
+.content-item-excerpt {
+	font-weight: 400;
+}
+
 /* --- home page styles --- */
 .home .home-head {
 	font-size: 7rem;
