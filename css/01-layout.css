@@ -171,34 +171,12 @@ figure.alignnone {
 	margin-bottom: .5rem;
 }
 
-.content-item-byline-date,
-.content-item-excerpt {
-	display: block;
-	font-size: .9rem;
-	line-height: 1.5;
-}
-
-.content-item-excerpt {
-	font-weight: 400;
-}
-
 .content-item-categories {
 	margin-bottom: 1rem;
 }
 
-.hentry .content-item-categories a {
-	color: #da1e00;
-	font-size: .9rem;
-	text-transform: uppercase;
-}
-
 .content-item-title {
 	margin-bottom: .5rem;
-}
-
-.hentry .content-item-title a,
-.hentry .content-item-categories a {
-	border: none;
 }
 
 /* --- home page --- */
