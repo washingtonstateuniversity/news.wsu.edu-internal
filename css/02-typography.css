@@ -78,16 +78,6 @@ figcaption {
 	border-bottom: 1px solid #da1e00;
 }
 
-.primary-categories a:after {
-	background: url(images/icons/link.svg) center/90% no-repeat;
-	content: "";
-	display: inline-block;
-	height: 19px;
-	margin-left: 4px;
-	vertical-align: bottom;
-	width: 1em;
-}
-
 .article-header hgroup.source {
 	color: #191919;
 	font-size: 14px;
@@ -104,26 +94,6 @@ figcaption {
 
 .social-share-bar a {
 	border-bottom: none;
-}
-
-.social-share-bar .linkedin svg {
-	fill: #007bb6;
-}
-
-.social-share-bar .twitter svg {
-	fill: #00aced;
-}
-
-.social-share-bar .facebook svg {
-	fill: #3b5998;
-}
-
-.social-share-bar a:hover svg {
-	fill: #da1e00;
-}
-
-svg path {
-	fill: inherit;
 }
 
 .article-footer dl {
