@@ -31,6 +31,10 @@ main section {
 	padding: 3rem 3rem 0;
 }
 
+.single-post .article-container {
+	padding-bottom: 0;
+}
+
 .single-post .article-container article {
 	width: 70%;
 }
@@ -125,12 +129,12 @@ figure.alignnone {
 	vertical-align: middle;
 }
 
-.article-footer {
+.single-post .article-footer {
 	background: #f2f2f2;
 	border: none;
 	margin-left: -3rem;
 	padding: 3rem;
-	width: 143%;
+	width: 156%;
 }
 
 .article-footer dd {
