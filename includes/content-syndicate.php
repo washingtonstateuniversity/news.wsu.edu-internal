@@ -132,7 +132,7 @@ function wsuwp_json_output( $content, $data, $atts ) {
 						<?php
 						$category_output = array();
 						foreach ( $content->categories as $category ) {
-							$category_output[] = '<a href="' . esc_url( $category->url ) . '">' . esc_html( $category->name ) . '</a>';
+							$category_output[] = esc_html( $category->name );
 						}
 
 						$category_output = implode( ', ', $category_output );
