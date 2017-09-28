@@ -135,6 +135,12 @@ figure.alignnone {
 	display: none;
 }
 
+.hentry figure > a {
+	border-bottom: none;
+	display: block;
+	position: relative;
+}
+
 /* --- Content syndicate cards --- */
 
 /* CSS Grid fallback */

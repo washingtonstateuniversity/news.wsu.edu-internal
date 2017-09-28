@@ -63,13 +63,14 @@
 			<?php
 			if ( spine_has_featured_image() ) {
 				$featured_image_src = spine_get_featured_image_src();
-				$featured_image_position = get_post_meta( get_the_ID(), '_featured_image_position', true );
-				$caption = get_post( get_post_thumbnail_id() )->post_excerpt;
+				$featured_image_caption = get_post( get_post_thumbnail_id() )->post_excerpt;
 				?>
 				<figure class="featured-image">
-					<?php spine_the_featured_image(); ?>
-					<?php if ( $caption ) { ?>
-					<figcaption class="wp-caption-text"><?php echo esc_html( $caption ); ?></figcaption>
+					<a href="<?php echo esc_url( $featured_image_src ); ?>">
+						<?php spine_the_featured_image(); ?>
+					</a>
+					<?php if ( $featured_image_caption ) { ?>
+					<figcaption class="wp-caption-text"><?php echo esc_html( $featured_image_caption ); ?></figcaption>
 					<?php } ?>
 				</figure>
 				<?php
