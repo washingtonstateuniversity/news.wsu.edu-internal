@@ -124,7 +124,7 @@ figure.alignnone {
 	border: none;
 	margin-left: -3rem;
 	padding: 3rem;
-	width: 156%;
+	width: 100vw;
 }
 
 .article-footer dd {
@@ -224,5 +224,10 @@ figure.alignnone {
 
 	main {
 		border-left: 20px solid #f2f2f2;
+	}
+
+	.single-post .article-footer {
+		width: calc(100vw - 198px - 20px); /* 100vw - Spine width - <main> left border width */
+		max-width: 1168px;
 	}
 }
