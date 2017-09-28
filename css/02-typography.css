@@ -29,7 +29,8 @@ h1 {
 	font-size: 72px;
 }
 
-h2 {
+h2,
+.news-features .content-item-title {
 	font-size: 40px;
 }
 
