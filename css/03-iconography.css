@@ -62,3 +62,7 @@ article header cite:before {
 svg path {
 	fill: inherit;
 }
+
+figcaption {
+	background: url(images/icons/photo.svg) 2px 12px / 14px no-repeat;
+}
