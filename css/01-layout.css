@@ -37,29 +37,6 @@ figure img,
 	display: block;
 }
 
-article header time:before {
-	content: "";
-	display: inline-block;
-	height: 28px;
-	margin-right: 6px;
-	vertical-align: bottom;
-	width: 1em;
-}
-
-article header time:after {
-	content: none;
-}
-
-article header cite:before {
-	background: url(images/icons/people.svg) center/85% no-repeat;
-	content: "";
-	display: inline-block;
-	height: 28px;
-	margin-right: 6px;
-	vertical-align: bottom;
-	width: 1em;
-}
-
 .social-share-bar,
 .social-share-bar ul,
 .social-share-bar li,
@@ -216,16 +193,6 @@ figure.alignnone {
 .hentry .content-item-title a,
 .hentry .content-item-categories a {
 	border: none;
-}
-
-.hentry .content-item-title a:after {
-	background: url(images/icons/link.svg) .1em/70% no-repeat;
-	content: "";
-	display: inline-block;
-	height: 1em;
-	margin: 0 0 -.05em .1em;
-	vertical-align: bottom;
-	width: 1em;
 }
 
 /* --- home page --- */

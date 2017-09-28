@@ -1,0 +1,64 @@
+.primary-categories a:after,
+.hentry .content-item-title a:after {
+	background: url(images/icons/link.svg) no-repeat;
+	content: "";
+	display: inline-block;
+	height: 1em;
+	vertical-align: bottom;
+	width: 1em;
+}
+
+.primary-categories a:after {
+	background-position: center;
+	background-size: 90%;
+	margin: 0 0 2px 4px;
+}
+
+.hentry .content-item-title a:after {
+	background-position: .1em;
+	background-size: 70%;
+	margin: 0 0 -.05em .1em;
+}
+
+article header time:before,
+article header cite:before {
+	background: center/85% no-repeat;
+	content: "";
+	display: inline-block;
+	height: 28px;
+	margin-right: 6px;
+	vertical-align: bottom;
+	width: 1em;
+}
+
+article header time:before {
+	background-image: url(images/icons/date.svg);
+}
+
+article header time:after {
+	content: none;
+}
+
+article header cite:before {
+	background-image: url(images/icons/people.svg);
+}
+
+.social-share-bar .linkedin svg {
+	fill: #007bb6;
+}
+
+.social-share-bar .twitter svg {
+	fill: #00aced;
+}
+
+.social-share-bar .facebook svg {
+	fill: #3b5998;
+}
+
+.social-share-bar a:hover svg {
+	fill: #da1e00;
+}
+
+svg path {
+	fill: inherit;
+}
