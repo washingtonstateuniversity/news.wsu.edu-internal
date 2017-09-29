@@ -34,6 +34,9 @@ add_action( 'wp_footer', 'internal_news_social_media_icons' );
  * @since 0.0.1
  */
 function internal_news_social_media_icons() {
+	if ( ! is_single() ) {
+		return;
+	}
 	?>
 	<svg xmlns="http://www.w3.org/2000/svg" class="social-media-icons">
 
