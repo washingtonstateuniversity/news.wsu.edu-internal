@@ -2,8 +2,28 @@
 
 namespace WSU\News\Internal\Featured_Stories;
 
+add_action( 'pre_get_posts', 'WSU\News\Internal\Featured_Stories\filter_query_for_featured_posts', 10 );
 add_action( 'add_meta_boxes', 'WSU\News\Internal\Featured_Stories\add_meta_boxes', 10 );
 add_action( 'save_post', 'WSU\News\Internal\Featured_Stories\save_post', 10, 2 );
+
+/**
+ * @param \WP_Query $query
+ */
+function filter_query_for_featured_posts( $query ) {
+	if ( ! $query->is_main_query() || ! $query->is_category() ) {
+		return;
+	}
+
+	// The most recent featured story displays on the top of every paginated
+	// category archive page.
+	$query->set( 'posts_per_page', 1 );
+	$query->set( 'meta_query', array(
+		array(
+			'key' => '_news_internal_featured',
+			'value' => 'yes',
+		),
+	) );
+}
 
 /**
  * Adds meta boxes used to manage featured stories.
