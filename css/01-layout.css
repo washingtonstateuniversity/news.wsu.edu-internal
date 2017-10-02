@@ -196,6 +196,10 @@ figure.alignnone {
 	columns: auto;
 }
 
+.news-features .content-syndicate-item {
+	border: none;
+}
+
 .news-features .content-item-image {
 	float: right;
 	padding-left: 1rem;
@@ -227,7 +231,7 @@ figure.alignnone {
 	background-size: 45%;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
 
 	.news-features .content-item-title,
 	.news-features .content-item-categories,
@@ -238,6 +242,14 @@ figure.alignnone {
 		padding-left: 0;
 		width: 100%;
 		float: none;
+	}
+
+	.single main section.primary-categories {
+		padding-bottom: 0;
+	}
+
+	.featured-image figcaption {
+		margin-left: 1.5rem;
 	}
 }
 
