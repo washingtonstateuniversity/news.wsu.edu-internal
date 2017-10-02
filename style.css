@@ -176,7 +176,7 @@ figure.alignnone {
 	display: grid;
 	-webkit-columns: auto;
 	        columns: auto;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 	grid-gap: 2rem;
 }
 
