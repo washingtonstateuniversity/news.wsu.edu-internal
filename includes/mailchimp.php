@@ -7,6 +7,8 @@ add_shortcode( 'insider_subscribe_home', 'WSU\News\Internal\MailChimp\display_in
 /**
  * Display a subscription form on the home page.
  *
+ * @since 0.2.0
+ *
  * @return string
  */
 function display_insider_home_subscription_form() {
