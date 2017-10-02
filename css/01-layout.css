@@ -17,6 +17,11 @@ main section {
 	padding-bottom: 2rem;
 }
 
+main section.bg-none {
+	background: none;
+	margin: 1rem 0;
+}
+
 .single-post #binder .single .column.one {
 	padding: 3rem 3rem 0;
 }
@@ -157,6 +162,14 @@ figure.alignnone {
 }
 
 /* CSS Grid */
+.top-four .content-syndicate-wrapper {
+	display: grid;
+	columns: auto;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 2rem;
+}
+
+/* Pintrist style */
 .content-syndicate-wrapper {
 	columns: 225px 4;
 	column-gap: 2rem;
@@ -196,7 +209,8 @@ figure.alignnone {
 	columns: auto;
 }
 
-.news-features .content-syndicate-item {
+.news-features .content-syndicate-item,
+.top-four .content-syndicate-item {
 	border: none;
 }
 
@@ -260,6 +274,11 @@ figure.alignnone {
 
 .home .top-head {
 	padding-top: 5rem;
+}
+
+.bg-none #mc_embed_signup {
+	background: none;
+	text-align: center;
 }
 
 /* Bottom section divider */
