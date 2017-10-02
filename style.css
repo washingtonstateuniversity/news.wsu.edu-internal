@@ -210,6 +210,10 @@ figure.alignnone {
 	        columns: auto;
 }
 
+.news-features .content-syndicate-item {
+	border: none;
+}
+
 .news-features .content-item-image {
 	float: right;
 	padding-left: 1rem;
@@ -241,7 +245,7 @@ figure.alignnone {
 	background-size: 45%;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
 
 	.news-features .content-item-title,
 	.news-features .content-item-categories,
@@ -252,6 +256,14 @@ figure.alignnone {
 		padding-left: 0;
 		width: 100%;
 		float: none;
+	}
+
+	.single main section.primary-categories {
+		padding-bottom: 0;
+	}
+
+	.featured-image figcaption {
+		margin-left: 1.5rem;
 	}
 }
 
@@ -368,6 +380,17 @@ h6 {
 	font-size: 18px;
 }
 
+@media screen and (max-width: 700px) {
+
+	h1 {
+		font-size: 3rem;
+	}
+
+	h2 {
+		font-size: 2rem;
+	}
+}
+
 .sub-call {
 	font-size: inherit;
 	margin-top: .5rem;
@@ -437,6 +460,11 @@ figcaption {
 
 .hentry .content-item-title a {
 	border: none;
+	transition: color .3s ease;
+}
+
+.hentry .content-item-title a:hover {
+	color: #ca1237;
 }
 
 .content-item-byline-date,
