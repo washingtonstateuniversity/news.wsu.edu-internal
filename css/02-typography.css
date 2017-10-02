@@ -175,6 +175,7 @@ input#mce-EMAIL {
 
 #mc_embed_signup_scroll input[type="submit"] {
 	margin-top: 0;
+	height: 40px;
 }
 
 /* --- Content syndicate cards --- */
