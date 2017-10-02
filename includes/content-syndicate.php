@@ -75,10 +75,11 @@ function manage_subset_data( $subset, $post ) {
  * for a post pulled in with content syndicate.
  *
  * @param \stdClass $content
+ * @param array     $atts    Array of attributes passed to the shortcode.
  *
  * @return string
  */
-function get_image_url( $content ) {
+function get_image_url( $content, $atts = array() ) {
 	// If no embedded featured media exists, use the full thumbnail.
 	if ( ! isset( $content->featured_media )
 		|| ! isset( $content->featured_media->media_details )
@@ -87,6 +88,21 @@ function get_image_url( $content ) {
 	}
 
 	$sizes = $content->featured_media->media_details->sizes;
+
+	// Use a larger featured image for featured stories.
+	if ( isset( $atts['featured'] ) && 'yes' === $atts['featured'] ) {
+		if ( isset( $sizes->{'spine-large_size'} ) ) {
+			return $sizes->{'spine-large_size'}->source_url;
+		}
+
+		if ( isset( $sizes->{'large'} ) ) {
+			return $sizes->{'large'}->source_url;
+		}
+
+		if ( isset( $sizes->{'medium_large'} ) ) {
+			return $sizes->{'medium_large'}->source_url;
+		}
+	}
 
 	if ( isset( $sizes->{'spine-small_size'} ) ) {
 		return $sizes->{'spine-small_size'}->source_url;
@@ -140,7 +156,7 @@ function wsuwp_json_output( $content, $data, $atts ) {
 						?>
 					</span>
 					<?php if ( ! empty( $content->thumbnail ) ) : ?>
-					<?php $image_url = get_image_url( $content ); ?>
+					<?php $image_url = get_image_url( $content, $atts ); ?>
 					<figure class="content-item-image">
 						<a href="<?php echo esc_url( $content->link ); ?>"><img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $content->featured_media->alt_text ); ?>"></a>
 					</figure>
