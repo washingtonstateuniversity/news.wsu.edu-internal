@@ -51,7 +51,7 @@ global $is_top_feature;
 				// 4 posts are output in the secondary section.
 				if ( 0 === $output_post_count ) {
 					?>
-					<section class="row single gutter pad-top">
+					<section class="row single gutter pad-top top-four">
 						<div class="column one">
 							<div class="content-syndicate-wrapper">
 					<?php
