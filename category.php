@@ -1,7 +1,7 @@
 <?php
 
 get_header();
-
+global $is_top_feature;
 ?>
 	<main id="wsuwp-main" class="spine-category-index">
 
@@ -19,8 +19,8 @@ get_header();
 
 						<?php
 						$skip_post_id[] = get_post()->ID;
-						get_template_part( 'articles/post', get_post_type() );
-
+						$is_top_feature = true;
+						get_template_part( 'parts/category-post-content' );
 						?>
 
 					<?php endwhile; ?>
@@ -31,8 +31,9 @@ get_header();
 			<?php
 		}
 
+		$is_top_feature = false;
 		$archive_query = new WP_Query( array(
-			'posts_per_page' => 9,
+			'posts_per_page' => 20, // Start with a high number until pagination.
 			'category_name' => get_query_var( 'category_name' ),
 			'post__not_in' => $skip_post_id,
 		) );
@@ -61,7 +62,7 @@ get_header();
 					<?php
 				}
 
-				get_template_part( 'articles/post', get_post_type() );
+				get_template_part( 'parts/category-post-content' );
 
 				$output_post_count++;
 			}
