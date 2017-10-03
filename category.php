@@ -15,6 +15,8 @@ global $is_top_feature;
 
 				<div class="column one">
 
+					<div class="content-syndicate-wrapper">
+
 					<?php while ( have_posts() ) : the_post(); ?>
 
 						<?php
@@ -24,6 +26,8 @@ global $is_top_feature;
 						?>
 
 					<?php endwhile; ?>
+
+					</div>
 
 				</div><!--/column-->
 
@@ -49,16 +53,19 @@ global $is_top_feature;
 					?>
 					<section class="row single gutter pad-top">
 						<div class="column one">
+							<div class="content-syndicate-wrapper">
 					<?php
 				}
 
 				// Remaining posts are output as a river.
 				if ( 4 === $output_post_count ) {
 					?>
+							</div>
 						</div>
 					</section>
 					<section class="row single gutter pad-top news-river">
 						<div class="column one">
+							<div class="content-syndicate-wrapper">
 					<?php
 				}
 
@@ -67,6 +74,7 @@ global $is_top_feature;
 				$output_post_count++;
 			}
 			?>
+					</div>
 				</div>
 			</section>
 			<?php
