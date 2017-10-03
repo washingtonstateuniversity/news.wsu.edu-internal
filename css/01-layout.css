@@ -162,25 +162,22 @@ figure.alignnone {
 }
 
 /* CSS Grid */
-.top-four .content-syndicate-wrapper {
+.content-syndicate-wrapper {
 	display: grid;
 	columns: auto;
 	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
 	grid-gap: 2rem;
 }
 
-/* Pintrist style */
-.content-syndicate-wrapper {
-	columns: 225px 4;
-	column-gap: 2rem;
-}
-
 /* - allow aligning elements within an item - */
 .content-syndicate-item {
-	border-bottom: .25rem solid rgba(0, 0, 0, .05);
 	column-span: none;
 	margin-bottom: 1rem;
 	padding-bottom: .25rem;
+}
+
+.content-syndicate-item:nth-child(-n+4) {
+	border-bottom: .25rem solid rgba(0, 0, 0, .05);
 }
 
 .content-item-image {
