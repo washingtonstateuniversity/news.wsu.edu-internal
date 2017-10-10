@@ -174,8 +174,8 @@ textarea {
 /* - MailChimp embed - */
 #mc_embed_signup_scroll label {
 	display: block;
-	font-size: 1.25rem;
-	margin-bottom: 1rem;
+	font-size: 1rem;
+	margin-bottom: .5rem;
 }
 
 input#mce-EMAIL {
