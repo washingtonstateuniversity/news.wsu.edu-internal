@@ -96,7 +96,7 @@ global $is_top_feature;
 		<footer class="main-footer archive-footer">
 			<section class="row side-right pager prevnext gutter">
 				<div class="column one">
-					<?php echo paginate_links( $args ); ?>
+					<?php echo paginate_links( $args ); // @codingStandardsIgnoreLine ?>
 				</div>
 				<div class="column two">
 					<!-- intentionally empty -->
