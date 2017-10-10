@@ -2,6 +2,31 @@ html {
 	background-color: #f2f2f2;
 }
 
+.site-header {
+	background-color: #fff;
+	box-sizing: border-box;
+	margin-left: 198px;
+	padding: 2rem;
+}
+
+.home .site-header {
+	display: none;
+}
+
+.site-title {
+	background-image: url(images/wsu-insider-beta.svg);
+	background-position: right;
+	background-repeat: no-repeat;
+	height: 2rem;
+	position: relative;
+	text-indent: -9999px;
+}
+
+.page-header {
+	background-color: #fff;
+	padding: 4rem 2rem 2rem;
+}
+
 main *,
 main *:before,
 main *:after {
@@ -188,7 +213,8 @@ figure.alignnone {
 	margin-bottom: 1rem;
 }
 
-.cat-sec .content-item-categories {
+.cat-sec .content-item-categories,
+.category main .content-item-categories {
 	display: none;
 }
 
@@ -270,12 +296,21 @@ figure.alignnone {
 }
 
 .home .top-head {
-	padding-top: 5rem;
+	padding-top: 3.5rem;
+}
+
+.home .news-features {
+	padding-top: 2rem;
 }
 
 .bg-none #mc_embed_signup {
 	background: none;
 	text-align: center;
+}
+
+#mc_embed_signup form {
+	margin-top: -.5rem;
+	padding: 0 0 0 2rem;
 }
 
 /* Bottom section divider */
@@ -318,10 +353,36 @@ main .bottom-divider {
 		padding: 0;
 		width: 100vw;
 	}
+
+	#mc_embed_signup form {
+		margin-top: 1rem;
+		padding: 0;
+	}
+}
+
+@media screen and (max-width: 989px) {
+
+	.site-header {
+		margin-top: 50px;
+		margin-left: 0;
+	}
+
+	#binder.fluid main {
+		margin-top: 0;
+	}
+
+	.home #binder.fluid main {
+		margin-top: 50px;
+	}
+
+	.page-header {
+		padding: 2rem;
+	}
 }
 
 @media screen and (min-width: 990px) {
 
+	.site-header,
 	main {
 		border-left: 20px solid #f2f2f2;
 	}
