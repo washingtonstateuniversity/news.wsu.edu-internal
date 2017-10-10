@@ -19,10 +19,6 @@ html {
 	padding: 2rem;
 }
 
-.home .site-header {
-	display: none;
-}
-
 .site-title {
 	background-image: url(images/wsu-insider-beta.svg);
 	background-position: right;
