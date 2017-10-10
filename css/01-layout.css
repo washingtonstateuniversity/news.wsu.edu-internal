@@ -63,10 +63,6 @@ main section.bg-none {
 	margin-bottom: 4rem;
 }
 
-.single .main-header {
-	display: none;
-}
-
 article header time,
 article header cite,
 figure img,
@@ -291,10 +287,6 @@ figure.alignnone {
 }
 
 /* --- home page --- */
-.home .main-header {
-	display: none;
-}
-
 .home .top-head {
 	padding-top: 3.5rem;
 }
