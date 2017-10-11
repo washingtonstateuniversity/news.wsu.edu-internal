@@ -526,9 +526,9 @@ figcaption {
 main a.button,
 main a.button:focus,
 main button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+main input[type="button"],
+main input[type="reset"],
+main input[type="submit"] {
 	background: none;
 	border: 1px solid;
 	border-radius: 4px;
@@ -540,20 +540,20 @@ input[type="submit"] {
 }
 
 main a.button:hover,
-button:hover,
-input[type="button"]:hover,
-input[type="reset"]:hover,
-input[type="submit"]:hover {
+main button:hover,
+main input[type="button"]:hover,
+main input[type="reset"]:hover,
+main input[type="submit"]:hover {
 	background: #ca1237;
 	border: 1px solid #ca1237;
 	color: #fff;
 }
 
-input[type="email"],
-input[type="password"],
-input[type="text"],
-select,
-textarea {
+main input[type="email"],
+main input[type="password"],
+main input[type="text"],
+main select,
+main textarea {
 	border: 1px solid #ccc;
 	padding: 6px 4px;
 	outline: 0;
