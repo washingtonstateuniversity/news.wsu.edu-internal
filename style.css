@@ -525,7 +525,7 @@ figcaption {
 
 main a.button,
 main a.button:focus,
-button,
+main button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
