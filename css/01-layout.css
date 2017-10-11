@@ -9,10 +9,6 @@ html {
 	padding: 2rem;
 }
 
-.home .site-header {
-	display: none;
-}
-
 .site-title {
 	background-image: url(images/wsu-insider-beta.svg);
 	background-position: right;
@@ -61,10 +57,6 @@ main section.bg-none {
 
 .single-post .article-header {
 	margin-bottom: 4rem;
-}
-
-.single .main-header {
-	display: none;
 }
 
 article header time,
@@ -291,10 +283,6 @@ figure.alignnone {
 }
 
 /* --- home page --- */
-.home .main-header {
-	display: none;
-}
-
 .home .top-head {
 	padding-top: 3.5rem;
 }

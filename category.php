@@ -5,9 +5,11 @@ global $is_top_feature;
 ?>
 	<main id="wsuwp-main" class="spine-category-index">
 
+		<header class="page-header">
+			<h1><?php echo esc_html( single_cat_title( '', false ) ); ?></h1>
+		</header>
 		<?php
 
-		get_template_part( 'parts/headers' );
 		$skip_post_id = array();
 		if ( have_posts() ) {
 			?>
@@ -94,7 +96,7 @@ global $is_top_feature;
 		<footer class="main-footer archive-footer">
 			<section class="row side-right pager prevnext gutter">
 				<div class="column one">
-					<?php echo paginate_links( $args ); ?>
+					<?php echo paginate_links( $args ); // @codingStandardsIgnoreLine ?>
 				</div>
 				<div class="column two">
 					<!-- intentionally empty -->
