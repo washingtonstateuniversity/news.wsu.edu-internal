@@ -17,14 +17,14 @@ global $is_top_feature;
 
 				<div class="column one">
 
-					<div class="content-syndicate-wrapper">
+					<div class="deck deck--featured">
 
 					<?php while ( have_posts() ) : the_post(); ?>
 
 						<?php
 						$skip_post_id[] = get_post()->ID;
 						$is_top_feature = true;
-						get_template_part( 'parts/category-post-content' );
+						get_template_part( 'parts/card-content' );
 						?>
 
 					<?php endwhile; ?>
@@ -55,7 +55,7 @@ global $is_top_feature;
 					?>
 					<section class="row single gutter pad-top top-four">
 						<div class="column one">
-							<div class="content-syndicate-wrapper">
+							<div class="deck">
 					<?php
 				}
 
@@ -67,11 +67,11 @@ global $is_top_feature;
 					</section>
 					<section class="row single gutter pad-top news-river">
 						<div class="column one">
-							<div class="content-syndicate-wrapper">
+							<div class="deck">
 					<?php
 				}
 
-				get_template_part( 'parts/category-post-content' );
+				get_template_part( 'parts/card-content' );
 
 				$output_post_count++;
 			}

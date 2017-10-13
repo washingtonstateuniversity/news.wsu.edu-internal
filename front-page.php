@@ -1,4 +1,6 @@
 <?php
+global $is_top_feature;
+$is_top_feature = false;
 
 get_header();
 ?>
@@ -42,211 +44,91 @@ get_header();
 		</div>
 	</section>
 
-	<section class="row single gutter pad-top news-features">
-		<div class="column one ">
-			<div class="deck deck--featured">
-				<article class="card card-news">
-					<span class="card-categories"></span>
-					<figure class="card-image">
-						<a href=""><img src="" alt=""></a>
-					</figure>
-					<header class="card-title">
-						<a href=""></a>
-					</header>
-					<span class="card-byline">
-						<span class="card-date">Month 00, 0000</span>
-					</span>
-					<div class="card-excerpt">
-						<p></p>
-					</div>
-				</article>
+	<?php
+	$exclude_post_ids = array();
+	$featured_query = new WP_Query( array(
+		'post_type' => 'post',
+		'posts_per_page' => 5,
+		'post_status' => 'publish',
+		'meta_query' => array(
+			array(
+				'key' => '_news_internal_featured',
+				'value' => 'yes',
+			),
+		),
+	) );
+
+	if ( $featured_query->have_posts() ) {
+		?>
+		<section class="row single gutter pad-top news-features">
+			<div class="column one ">
+				<div class="deck deck--featured">
+				<?php
+
+				$featured_count = 0;
+				while( $featured_query->have_posts() ) {
+					$featured_query->the_post();
+					$exclude_post_ids[] = get_the_ID();
+
+					if ( 0 === $featured_count ) {
+						$is_top_feature = true;
+					} else {
+						$is_top_feature = false;
+					}
+
+					get_template_part( 'parts/card-content' );
+
+					$featured_count++;
+				}
+				wp_reset_postdata();
+				$is_top_feature = false;
+				?>
+				</div>
 			</div>
-		</div>
-	</section>
+		</section>
+		<?php
+	}
 
-	<section class="row single gutter pad-top cat-sec">
-		<div class="column one ">
+	// @todo identify bg-none and bottom-divider
+	// @todo no bottom-divider on last category
+	$query_cats = array( 'news-updates', 'events', 'benefits', 'wellness', 'training', 'coug-life', 'cheers' );
 
-			<header>
-				<h2>News &amp; updates</h2>
-			</header>
+	foreach ( $query_cats as $category_slug ) {
+		$category_query_args = array(
+			'post_type' => 'post',
+			'posts_per_page' => 4,
+			'post_status' => 'publish',
+			'post__not_in' => $exclude_post_ids,
+			'category_name' => $category_slug,
+		);
+		$category_query = new WP_Query( $category_query_args );
 
-			<div class="deck">
-				<article class="card card-news">
-					<span class="card-categories"></span>
-					<header class="card-title">
-						<a href=""></a>
+		if ( $category_query->have_posts() ) {
+			$category_data = get_term_by( 'slug', $category_slug, 'category' );
+			?>
+			<section class="row single gutter pad-top cat-sec">
+				<div class="column one ">
+
+					<header>
+						<h2><?php echo esc_html( $category_data->name ); ?></h2>
 					</header>
-					<span class="card-byline">
-						<span class="card-date">October 12, 2017</span>
-					</span>
-					<div class="card-excerpt">
-						<p></p>
+					<div class="deck">
+					<?php
+					while( $category_query->have_posts() ) {
+						$category_query->the_post();
+						get_template_part( 'parts/card-content' );
+					}
+					wp_reset_postdata();
+					?>
 					</div>
-				</article>
-			</div>
-
-			<p><a class="button" href="https://news.wsu.edu/insider/category/news-updates/">View all News and Updates</a></p>
-		</div>
-	</section>
-
-	<section class="row single gutter pad-top bg-none cat-sec">
-		<div class="column one ">
-
-			<header>
-				<h2>Events</h2>
-			</header>
-
-			<div class="deck">
-				<article class="card card-news">
-					<span class="card-categories"></span>
-					<header class="card-title">
-						<a href=""></a>
-					</header>
-					<span class="card-byline">
-						<span class="card-date">October 12, 2017</span>
-					</span>
-					<div class="card-excerpt">
-						<p></p>
-					</div>
-				</article>
-			</div>
-
-			<p><a class="button" href="https://news.wsu.edu/insider/category/events/">View all Events</a></p>
-		</div>
-	</section>
-
-	<section class="row single gutter pad-top bottom-divider cat-sec">
-		<div class="column one ">
-
-			<header>
-				<h2>Benefits &amp; Perks</h2>
-			</header>
-
-			<div class="deck">
-				<article class="card card-news">
-					<span class="card-categories"></span>
-					<header class="card-title">
-						<a href=""></a>
-					</header>
-					<span class="card-byline">
-						<span class="card-date">October 12, 2017</span>
-					</span>
-					<div class="card-excerpt">
-						<p></p>
-					</div>
-				</article>
-			</div>
-
-			<p><a class="button" href="https://news.wsu.edu/insider/category/benefits/">View all Benefits and Perks</a></p>
-		</div>
-	</section>
-
-	<section class="row single gutter pad-top cat-sec bottom-divider">
-		<div class="column one ">
-
-			<header>
-				<h2>Wellness</h2>
-			</header>
-
-			<div class="deck">
-				<article class="card card-news">
-					<span class="card-categories"></span>
-					<header class="card-title">
-						<a href=""></a>
-					</header>
-					<span class="card-byline">
-						<span class="card-date">October 12, 2017</span>
-					</span>
-					<div class="card-excerpt">
-						<p></p>
-					</div>
-				</article>
-			</div>
-
-			<p><a class="button" href="https://news.wsu.edu/insider/category/wellness/">View all Wellness</a></p>
-		</div>
-	</section>
-
-	<section class="row single gutter pad-top bottom-divider cat-sec">
-
-		<div class="column one ">
-
-			<header>
-				<h2>Tools &amp; Training</h2>
-			</header>
-
-			<div class="deck">
-				<article class="card card-news">
-					<span class="card-categories"></span>
-					<header class="card-title">
-						<a href=""></a>
-					</header>
-					<span class="card-byline">
-						<span class="card-date">October 12, 2017</span>
-					</span>
-					<div class="card-excerpt">
-						<p></p>
-					</div>
-				</article>
-			</div>
-
-			<p><a class="button" href="https://news.wsu.edu/insider/category/training/">View all Tools and Training</a></p>
-		</div>
-	</section>
-
-	<section class="row single gutter pad-top bottom-divider cat-sec">
-		<div class="column one ">
-
-			<header>
-				<h2>Coug Life</h2>
-			</header>
-
-			<div class="deck">
-				<article class="card card-news">
-					<span class="card-categories"></span>
-					<header class="card-title">
-						<a href=""></a>
-					</header>
-					<span class="card-byline">
-						<span class="card-date">October 12, 2017</span>
-					</span>
-					<div class="card-excerpt">
-						<p></p>
-					</div>
-				</article>
-			</div>
-
-			<p><a class="button" href="https://news.wsu.edu/insider/category/coug-life/">View all Coug Life</a></p>
-
-		</div>
-	</section>
-
-	<section class="row single gutter pad-top cat-sec">
-		<div class="column one ">
-
-			<header>
-				<h2>Cheers</h2>
-			</header>
-
-			<div class="deck">
-				<article class="card card-news">
-					<span class="card-categories"></span>
-					<header class="card-title">
-						<a href=""></a>
-					</header>
-					<span class="card-byline">
-						<span class="card-date">October 12, 2017</span>
-					</span>
-					<div class="card-excerpt">
-						<p></p>
-					</div>
-				</article>
-			</div>
-
-			<p><a class="button" href="https://news.wsu.edu/insider/category/cheers/">View all Cheers</a></p>
-		</div>
-	</section>
+					<p><a class="button" href="<?php echo esc_url( get_term_link( $category_data->term_id ) ); ?>">View all <?php echo esc_html( $category_data->name ); ?></a></p>
+				</div>
+			</section>
+			<?php
+		}
+		wp_reset_postdata();
+	}
+	?>
 </main>
 <?php
 
