@@ -60,7 +60,7 @@ get_header();
 
 	if ( $featured_query->have_posts() ) {
 		?>
-		<section class="row single gutter pad-top news-features">
+		<section class="row single gutter pad-top bottom-divider">
 			<div class="column one ">
 				<div class="deck deck--featured">
 				<?php
@@ -89,14 +89,59 @@ get_header();
 		<?php
 	}
 
-	// @todo identify bg-none and bottom-divider
-	// @todo no bottom-divider on last category
-	$query_cats = array( 'news-updates', 'events', 'benefits', 'wellness', 'training', 'coug-life', 'cheers' );
+	$query_cats = array(
+		'news-updates' => array(
+			'count' => 8,
+			'background' => 1,
+			'classes' => array(),
+		),
+		'events' => array(
+			'count' => 8,
+			'background' => 0,
+			'classes' => array(
+				'bg-none',
+			),
+		),
+		'benefits' => array(
+			'count' => 8,
+			'background' => 1,
+			'classes' => array(
+				'bottom-divider',
+			),
+		),
+		'wellness' => array(
+			'count' => 8,
+			'background' => 1,
+			'classes' => array(
+				'bottom-divider',
+			),
+		),
+		'training' => array(
+			'count' => 8,
+			'background' => 1,
+			'classes' => array(
+				'bottom-divider',
+			),
+		),
+		'coug-life' => array(
+			'count' => 8,
+			'background' => 1,
+			'classes' => array(
+				'bottom-divider',
+			),
+		),
+		'cheers' => array(
+			'count' => 8,
+			'background' => 1,
+			'classes' => array(),
+		),
+	);
 
-	foreach ( $query_cats as $category_slug ) {
+
+	foreach ( $query_cats as $category_slug => $category_options ) {
 		$category_query_args = array(
 			'post_type' => 'post',
-			'posts_per_page' => 4,
+			'posts_per_page' => (int) $category_options['count'],
 			'post_status' => 'publish',
 			'post__not_in' => $exclude_post_ids,
 			'category_name' => $category_slug,
@@ -105,8 +150,17 @@ get_header();
 
 		if ( $category_query->have_posts() ) {
 			$category_data = get_term_by( 'slug', $category_slug, 'category' );
+
+			$section_classes = array(
+				'row',
+				'single',
+				'gutter',
+				'pad-top',
+				'cat-sec',
+			);
+			$section_classes = array_merge( $section_classes, $category_options['classes'] );
 			?>
-			<section class="row single gutter pad-top cat-sec">
+			<section class="<?php echo esc_attr( implode( ' ', $section_classes ) ); ?>">
 				<div class="column one ">
 
 					<header>
