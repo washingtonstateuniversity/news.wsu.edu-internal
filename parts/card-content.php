@@ -1,5 +1,5 @@
 <?php
-global $is_top_feature;
+global $is_top_feature, $is_river;
 ?>
 <article class="card card--news">
 	<span class="card-categories"><?php
@@ -12,7 +12,7 @@ global $is_top_feature;
 	echo $category_html; // @codingStandardsIgnoreLine
 	?></span>
 
-	<?php if ( spine_has_featured_image() ) { ?>
+	<?php if ( spine_has_featured_image() && false === $is_river ) { ?>
 	<figure class="card-image">
 		<a href="<?php the_permalink(); ?>"><?php if ( $is_top_feature ) { the_post_thumbnail( 'spine-large_size' ); } else { the_post_thumbnail( 'spine-small_size' ); } ?></a>
 	</figure>
