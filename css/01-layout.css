@@ -214,7 +214,7 @@ main .cat-sec .card-categories,
 	margin-bottom: .5rem;
 }
 
-/* Home top featured item */
+/* featured item */
 .deck--featured .card:first-child {
 	grid-column-start: 1;
 	grid-column-end: -1;
@@ -271,6 +271,29 @@ main .deck--featured .card:first-child .card-title a:after {
 	.featured-image figcaption {
 		margin-left: 1.5rem;
 	}
+}
+
+/* --- river layout --- */
+.deck--river {
+	display: block;
+	max-width: 778px;
+}
+
+.deck--river .card {
+	position: relative;
+	margin-bottom: 1.5rem;
+	padding-bottom: 1.2rem;
+}
+
+.deck--river .card:after {
+	content: "";
+	background: #f2f2f2;
+	height: .33rem;
+	width: 100%;
+	max-width: 584px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
 }
 
 /* --- home page --- */
