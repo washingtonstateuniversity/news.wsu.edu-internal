@@ -1,7 +1,6 @@
 <?php
 
 include_once __DIR__ . '/includes/theme-images.php';
-include_once __DIR__ . '/includes/curation.php';
 include_once __DIR__ . '/includes/content-syndicate.php';
 include_once __DIR__ . '/includes/featured-stories.php';
 include_once __DIR__ . '/includes/mailchimp.php';
