@@ -1,5 +1,5 @@
 .primary-categories a:after,
-.hentry .content-item-title a:after {
+main .card-title a:after {
 	background: url(images/icons/link.svg) no-repeat;
 	content: "";
 	display: inline-block;
@@ -14,7 +14,7 @@
 	margin: 0 0 2px 4px;
 }
 
-.hentry .content-item-title a:after {
+main .card-title a:after {
 	background-position: .1em;
 	background-size: 70%;
 	margin: 0 0 -.05em .1em;
@@ -22,7 +22,7 @@
 
 article header time:before,
 article header cite:before,
-.content-item-byline-date:before {
+.card-byline-date:before {
 	background: center/100% no-repeat;
 	content: "";
 	display: inline-block;
@@ -32,7 +32,7 @@ article header cite:before,
 }
 
 article header time:before,
-.content-item-byline-date:before {
+.card-byline-date:before {
 	background-image: url(images/icons/date.svg);
 }
 

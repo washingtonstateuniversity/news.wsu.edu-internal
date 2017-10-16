@@ -175,7 +175,7 @@ figure.alignnone {
 	display: none;
 }
 
-.hentry figure > a {
+main figure > a {
 	border-bottom: none;
 	display: block;
 	position: relative;
@@ -184,12 +184,12 @@ figure.alignnone {
 /* --- Content syndicate cards --- */
 
 /* CSS Grid fallback */
-.content-syndicate-wrapper > * {
+.deck > * {
 	display: inline-block;
 }
 
 /* CSS Grid */
-.content-syndicate-wrapper {
+.deck {
 	display: grid;
 	-webkit-columns: auto;
 	        columns: auto;
@@ -198,88 +198,78 @@ figure.alignnone {
 }
 
 /* - allow aligning elements within an item - */
-.content-syndicate-item {
+.card {
 	-webkit-column-span: none;
 	        column-span: none;
 	margin-bottom: 1rem;
 	padding-bottom: .25rem;
 }
 
-.content-item-image {
+.card-image {
 	margin: .35rem 0 1rem;
 }
 
-.content-item-byline-date {
+.card-byline-date {
 	margin-bottom: .5rem;
 }
 
-.content-item-categories {
+.card-categories {
 	margin-bottom: 1rem;
 }
 
-.cat-sec .content-item-categories,
-.category main .content-item-categories {
+main .cat-sec .card-categories,
+.category main .card-categories {
 	display: none;
 }
 
-.content-item-title {
+.card-title {
 	margin-bottom: .5rem;
 }
 
-/* Home top featured item */
-.news-features .content-syndicate-wrapper,
-.news-features .content-syndicate-item {
-	display: block;
+/* featured item */
+.deck--featured .card:first-child {
+	grid-column-start: 1;
+	grid-column-end: -1;
 }
 
-.news-features .content-syndicate-wrapper {
-	-webkit-columns: auto;
-	        columns: auto;
-}
-
-.news-features .content-syndicate-item,
-.top-four .content-syndicate-item {
-	border: none;
-}
-
-.news-features .content-item-image {
+.deck--featured .card:first-child figure {
 	float: right;
 	padding-left: 1rem;
 	width: 50%;
 }
 
-.news-features .content-item-image img {
+.deck--featured .card:first-child figure img {
 	width: 100%;
 }
 
-.news-features .content-item-title,
-.news-features .content-item-categories,
-.news-features .content-item-byline,
-.news-features .content-item-excerpt {
+.deck--featured .card:first-child .card-title,
+.deck--featured .card:first-child .card-categories,
+.deck--featured .card:first-child .card-byline,
+.deck--featured .card:first-child .card-excerpt {
 	display: block;
 	padding-right: 1rem;
 	width: 50%;
 }
 
-.news-features .content-item-excerpt {
+.deck--featured .card:first-child .card-excerpt {
 	font-size: 18px;
 }
 
-.news-features .content-item-title {
+.deck--featured .card:first-child .card-title {
 	line-height: 1.05;
 }
 
-.hentry .news-features .content-item-title a:after {
+main .deck--featured .card:first-child .card-title a:after {
 	background-size: 45%;
 }
 
 @media screen and (max-width: 700px) {
 
-	.news-features .content-item-title,
-	.news-features .content-item-categories,
-	.news-features .content-item-byline,
-	.news-features .content-item-excerpt,
-	.news-features .content-item-image {
+	.deck--featured .card:first-child .card-title,
+	.deck--featured .card:first-child .card-categories,
+	.deck--featured .card:first-child .card-byline,
+	.deck--featured .card:first-child .card-excerpt,
+	.deck--featured .card:first-child .card-image {
 		padding-right: 0;
 		padding-left: 0;
 		width: 100%;
@@ -295,12 +285,35 @@ figure.alignnone {
 	}
 }
 
+/* --- river layout --- */
+.deck--list {
+	display: block;
+	max-width: 778px;
+}
+
+.deck--list .card {
+	position: relative;
+	margin-bottom: 1.5rem;
+	padding-bottom: 1.2rem;
+}
+
+.deck--list .card:after {
+	content: "";
+	background: #f2f2f2;
+	height: .33rem;
+	width: 100%;
+	max-width: 584px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
 /* --- home page --- */
 .home .top-head {
 	padding-top: 3.5rem;
 }
 
-.home .news-features {
+.deck--featured {
 	padding-top: 2rem;
 }
 
@@ -394,19 +407,21 @@ main .bottom-divider {
 	}
 }
 
+/* --- river - vertical list of cards --- */
+
 main {
 	color: #191919;
 	font: 300 18px/28px "Source Sans Pro", sans-serif;
 }
 
-.hentry a {
+main a {
 	border-bottom: 1px solid #da1e00;
 	color: #191919;
 	font-weight: 400;
 	transition: color .3s ease;
 }
 
-.hentry a:hover {
+main a:hover {
 	color: #da1e00;
 }
 
@@ -416,8 +431,8 @@ h3,
 h4,
 h5,
 h6,
-.content-item-title,
-.content-item-title a {
+.card-title,
+.card-title a {
 	font-weight: 900;
 }
 
@@ -431,7 +446,7 @@ h1 {
 }
 
 h2,
-.news-features .content-item-title {
+.deck--featured .card:first-child .card-title {
 	font-size: 40px;
 }
 
@@ -440,7 +455,7 @@ header h2 {
 }
 
 h3,
-.content-item-title {
+.card-title {
 	font-size: 25px;
 }
 
@@ -582,12 +597,12 @@ input#mce-EMAIL {
 }
 
 #mc_embed_signup_scroll input[type="submit"] {
-	margin-top: 0;
+	margin: 0 0 0 10px;
 	height: 40px;
 }
 
 /* --- Content syndicate cards --- */
-.hentry .content-item-categories {
+main .card-categories {
 	color: #da1e00;
 	display: block;
 	font-size: .9rem;
@@ -596,23 +611,23 @@ input#mce-EMAIL {
 	text-transform: uppercase;
 }
 
-.hentry .content-item-title a {
+main .card-title a {
 	border: none;
 	transition: color .3s ease;
 }
 
-.hentry .content-item-title a:hover {
+main .card-title a:hover {
 	color: #ca1237;
 }
 
-.content-item-byline-date,
-.content-item-excerpt {
+.card-byline-date,
+.card-excerpt {
 	display: block;
 	font-size: .9rem;
 	line-height: 1.5;
 }
 
-.content-item-excerpt {
+.card-excerpt {
 	font-weight: 400;
 }
 
@@ -639,7 +654,7 @@ input#mce-EMAIL {
 }
 
 .primary-categories a:after,
-.hentry .content-item-title a:after {
+main .card-title a:after {
 	background: url(images/icons/link.svg) no-repeat;
 	content: "";
 	display: inline-block;
@@ -654,7 +669,7 @@ input#mce-EMAIL {
 	margin: 0 0 2px 4px;
 }
 
-.hentry .content-item-title a:after {
+main .card-title a:after {
 	background-position: .1em;
 	background-size: 70%;
 	margin: 0 0 -.05em .1em;
@@ -662,7 +677,7 @@ input#mce-EMAIL {
 
 article header time:before,
 article header cite:before,
-.content-item-byline-date:before {
+.card-byline-date:before {
 	background: center/100% no-repeat;
 	content: "";
 	display: inline-block;
@@ -672,7 +687,7 @@ article header cite:before,
 }
 
 article header time:before,
-.content-item-byline-date:before {
+.card-byline-date:before {
 	background-image: url(images/icons/date.svg);
 }
 
