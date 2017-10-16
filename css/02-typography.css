@@ -208,7 +208,7 @@ main .card-title a:hover {
 	border-color: currentColor;
 }
 
-.card-byline-date,
+.card-date,
 .card-excerpt {
 	display: block;
 	font-size: .9rem;
@@ -216,6 +216,7 @@ main .card-title a:hover {
 }
 
 .card-excerpt {
+	font-size: 1rem;
 	font-weight: 400;
 }
 

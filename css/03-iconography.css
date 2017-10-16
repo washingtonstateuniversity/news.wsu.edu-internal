@@ -22,7 +22,7 @@ main .card-title a:after {
 
 article header time:before,
 article header cite:before,
-.card-byline-date:before {
+.card-date:before {
 	background: center/100% no-repeat;
 	content: "";
 	display: inline-block;
@@ -32,7 +32,7 @@ article header cite:before,
 }
 
 article header time:before,
-.card-byline-date:before {
+.card-date:before {
 	background-image: url(images/icons/date.svg);
 }
 
