@@ -209,7 +209,7 @@ main figure > a {
 	margin: .35rem 0 1rem;
 }
 
-.card-byline-date {
+.card-date {
 	margin-bottom: .5rem;
 }
 
@@ -621,7 +621,7 @@ main .card-title a:hover {
 	border-color: currentColor;
 }
 
-.card-byline-date,
+.card-date,
 .card-excerpt {
 	display: block;
 	font-size: .9rem;
@@ -629,6 +629,7 @@ main .card-title a:hover {
 }
 
 .card-excerpt {
+	font-size: 1rem;
 	font-weight: 400;
 }
 
@@ -678,7 +679,7 @@ main .card-title a:after {
 
 article header time:before,
 article header cite:before,
-.card-byline-date:before {
+.card-date:before {
 	background: center/100% no-repeat;
 	content: "";
 	display: inline-block;
@@ -688,7 +689,7 @@ article header cite:before,
 }
 
 article header time:before,
-.card-byline-date:before {
+.card-date:before {
 	background-image: url(images/icons/date.svg);
 }
 
