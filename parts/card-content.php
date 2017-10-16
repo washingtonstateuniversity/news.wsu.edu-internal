@@ -27,7 +27,7 @@ global $is_top_feature, $is_river;
 	<span class="card-byline">
 		<span class="card-date"><?php echo get_the_date(); ?></span>
 	</span>
-	<span class="card-excerpt">
+	<div class="card-excerpt">
 		<?php the_excerpt(); ?>
-	</span>
+	</div>
 </article>

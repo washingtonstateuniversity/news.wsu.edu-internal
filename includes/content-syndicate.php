@@ -175,9 +175,9 @@ function wsuwp_json_output( $content, $data, $atts ) {
 					<span class="card-byline">
 						<span class="card-date"><?php echo esc_html( date( $atts['date_format'], strtotime( $content->date ) ) ); ?></span>
 					</span>
-					<span class="card-excerpt">
+					<div class="card-excerpt">
 						<?php echo wp_kses_post( $content->excerpt ); ?>
-					</span>
+					</div>
 				</article>
 				<?php
 			}
