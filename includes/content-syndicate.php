@@ -129,11 +129,17 @@ function get_image_url( $content, $atts = array() ) {
  * @return string
  */
 function wsuwp_json_output( $content, $data, $atts ) {
+	if ( isset( $atts['featured'] ) && 'yes' === $atts['featured'] ) {
+		$deck_class = 'deck--featured';
+	} else {
+		$deck_class = '';
+	}
+
 	// Provide a default output for when no `output` attribute is included.
 	if ( 'json' === $atts['output'] ) {
 		ob_start();
 		?>
-		<div class="content-syndicate-wrapper">
+		<div class="deck <?php echo esc_attr( $deck_class ); ?>">
 			<?php
 			$offset_x = 0;
 			foreach ( $data as $content ) {
@@ -143,8 +149,8 @@ function wsuwp_json_output( $content, $data, $atts ) {
 				}
 
 				?>
-				<article class="content-syndicate-item">
-					<span class="content-item-categories">
+				<article class="card card--news">
+					<span class="card-categories">
 						<?php
 						$category_output = array();
 						foreach ( $content->categories as $category ) {
@@ -157,17 +163,17 @@ function wsuwp_json_output( $content, $data, $atts ) {
 					</span>
 					<?php if ( ! empty( $content->thumbnail ) ) : ?>
 					<?php $image_url = get_image_url( $content, $atts ); ?>
-					<figure class="content-item-image">
+					<figure class="card-image">
 						<a href="<?php echo esc_url( $content->link ); ?>"><img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $content->featured_media->alt_text ); ?>"></a>
 					</figure>
 					<?php endif; ?>
-					<header class="content-item-title">
+					<header class="card-title">
 						<a href="<?php echo esc_url( $content->link ); ?>"><?php echo esc_html( $content->title ); ?></a>
 					</header>
-					<span class="content-item-byline">
-						<span class="content-item-byline-date"><?php echo esc_html( date( $atts['date_format'], strtotime( $content->date ) ) ); ?></span>
+					<span class="card-byline">
+						<span class="card-date"><?php echo esc_html( date( $atts['date_format'], strtotime( $content->date ) ) ); ?></span>
 					</span>
-					<span class="content-item-excerpt">
+					<span class="card-excerpt">
 						<?php echo wp_kses_post( $content->excerpt ); ?>
 					</span>
 				</article>
