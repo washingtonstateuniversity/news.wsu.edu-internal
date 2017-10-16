@@ -217,11 +217,6 @@ main figure > a {
 	margin-bottom: 1rem;
 }
 
-main .cat-sec .card-categories,
-.category main .card-categories {
-	display: none;
-}
-
 .card-title {
 	margin-bottom: .5rem;
 }
@@ -244,7 +239,6 @@ main .cat-sec .card-categories,
 
 .deck--featured .card:first-child .card-title,
 .deck--featured .card:first-child .card-categories,
-.deck--featured .card:first-child .card-byline,
 .deck--featured .card:first-child .card-excerpt {
 	display: block;
 	padding-right: 1rem;
@@ -267,7 +261,6 @@ main .deck--featured .card:first-child .card-title a:after {
 
 	.deck--featured .card:first-child .card-title,
 	.deck--featured .card:first-child .card-categories,
-	.deck--featured .card:first-child .card-byline,
 	.deck--featured .card:first-child .card-excerpt,
 	.deck--featured .card:first-child .card-image {
 		padding-right: 0;

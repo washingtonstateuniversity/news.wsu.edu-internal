@@ -172,9 +172,7 @@ function wsuwp_json_output( $content, $data, $atts ) {
 					<header class="card-title">
 						<a href="<?php echo esc_url( $content->link ); ?>"><?php echo esc_html( $content->title ); ?></a>
 					</header>
-					<span class="card-byline">
-						<span class="card-date"><?php echo esc_html( date( $atts['date_format'], strtotime( $content->date ) ) ); ?></span>
-					</span>
+					<span class="card-date"><?php echo esc_html( date( $atts['date_format'], strtotime( $content->date ) ) ); ?></span>
 					<div class="card-excerpt">
 						<?php echo wp_kses_post( $content->excerpt ); ?>
 					</div>
