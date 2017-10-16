@@ -150,6 +150,7 @@ function wsuwp_json_output( $content, $data, $atts ) {
 
 				?>
 				<article class="card card--news">
+					<?php if ( ! is_front_page() ) { ?>
 					<span class="card-categories">
 						<?php
 						$category_output = array();
@@ -161,6 +162,7 @@ function wsuwp_json_output( $content, $data, $atts ) {
 						echo $category_output; // @codingStandardsIgnoreLine
 						?>
 					</span>
+					<?php } ?>
 					<?php if ( ! empty( $content->thumbnail ) ) : ?>
 					<?php $image_url = get_image_url( $content, $atts ); ?>
 					<figure class="card-image">
