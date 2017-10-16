@@ -612,12 +612,13 @@ main .card-categories {
 }
 
 main .card-title a {
-	border: none;
-	transition: color .3s ease;
+	border-color: transparent;
+	transition: all .3s ease;
 }
 
 main .card-title a:hover {
 	color: #ca1237;
+	border-color: currentColor;
 }
 
 .card-byline-date,
