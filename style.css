@@ -286,18 +286,18 @@ main .deck--featured .card:first-child .card-title a:after {
 }
 
 /* --- river layout --- */
-.deck--river {
+.deck--list {
 	display: block;
 	max-width: 778px;
 }
 
-.deck--river .card {
+.deck--list .card {
 	position: relative;
 	margin-bottom: 1.5rem;
 	padding-bottom: 1.2rem;
 }
 
-.deck--river .card:after {
+.deck--list .card:after {
 	content: "";
 	background: #f2f2f2;
 	height: .33rem;
