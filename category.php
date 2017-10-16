@@ -67,6 +67,9 @@ global $is_top_feature;
 					</section>
 					<section class="row single gutter pad-top news-river">
 						<div class="column one">
+							<header>
+								<h2>More <?php echo esc_html( single_cat_title( '', false ) ); ?></h2>
+							</header>
 							<div class="deck deck--list">
 					<?php
 				}
