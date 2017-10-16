@@ -43,7 +43,7 @@ get_header();
 			</div>
 		</div>
 	</section>
-
+	<?php do_action( 'homepage' ); ?>
 	<?php
 	$exclude_post_ids = array();
 	$featured_query = new WP_Query( array(
