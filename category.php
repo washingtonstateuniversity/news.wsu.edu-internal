@@ -67,7 +67,7 @@ global $is_top_feature;
 					</section>
 					<section class="row single gutter pad-top news-river">
 						<div class="column one">
-							<div class="deck">
+							<div class="deck deck--list">
 					<?php
 				}
 
