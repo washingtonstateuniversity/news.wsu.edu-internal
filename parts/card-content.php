@@ -2,6 +2,7 @@
 global $is_top_feature, $is_river;
 ?>
 <article class="card card--news">
+	<?php if ( false === $is_top_feature ) { ?>
 	<span class="card-categories"><?php
 	$category_html = '';
 	foreach ( get_the_category() as $category ) {
@@ -11,6 +12,7 @@ global $is_top_feature, $is_river;
 	$category_html = rtrim( $category_html, ',' );
 	echo $category_html; // @codingStandardsIgnoreLine
 	?></span>
+	<?php } ?>
 
 	<?php if ( spine_has_featured_image() && false === $is_river ) { ?>
 	<figure class="card-image">
