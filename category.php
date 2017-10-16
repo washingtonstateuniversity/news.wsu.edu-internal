@@ -1,7 +1,7 @@
 <?php
 
 get_header();
-global $is_top_feature;
+global $is_top_feature, $is_river;
 ?>
 	<main id="wsuwp-main" class="spine-category-index">
 
@@ -24,6 +24,7 @@ global $is_top_feature;
 						<?php
 						$skip_post_id[] = get_post()->ID;
 						$is_top_feature = true;
+						$is_river = false;
 						get_template_part( 'parts/card-content' );
 						?>
 
@@ -38,6 +39,7 @@ global $is_top_feature;
 		}
 
 		$is_top_feature = false;
+		$is_river = false;
 		$archive_query = new WP_Query( array(
 			'posts_per_page' => 20, // Start with a high number until pagination.
 			'category_name' => get_query_var( 'category_name' ),
@@ -52,6 +54,7 @@ global $is_top_feature;
 
 				// 4 posts are output in the secondary section.
 				if ( 0 === $output_post_count ) {
+					$is_river = false;
 					?>
 					<section class="row single gutter pad-top top-four">
 						<div class="column one">
@@ -61,6 +64,7 @@ global $is_top_feature;
 
 				// Remaining posts are output as a river.
 				if ( 4 === $output_post_count ) {
+					$is_river = true;
 					?>
 							</div>
 						</div>

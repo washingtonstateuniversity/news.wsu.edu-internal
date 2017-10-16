@@ -1,7 +1,8 @@
 <?php
-global $is_top_feature;
+global $is_top_feature, $is_river;
 ?>
 <article class="card card--news">
+	<?php if ( ! is_category() && is_front_page() ) { ?>
 	<span class="card-categories"><?php
 	$category_html = '';
 	foreach ( get_the_category() as $category ) {
@@ -11,8 +12,9 @@ global $is_top_feature;
 	$category_html = rtrim( $category_html, ',' );
 	echo $category_html; // @codingStandardsIgnoreLine
 	?></span>
+	<?php } ?>
 
-	<?php if ( spine_has_featured_image() ) { ?>
+	<?php if ( spine_has_featured_image() && false === $is_river ) { ?>
 	<figure class="card-image">
 		<a href="<?php the_permalink(); ?>"><?php if ( $is_top_feature ) { the_post_thumbnail( 'spine-large_size' ); } else { the_post_thumbnail( 'spine-small_size' ); } ?></a>
 	</figure>
@@ -22,10 +24,9 @@ global $is_top_feature;
 		<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 	</header>
 
-	<span class="card-byline">
-		<span class="card-date"><?php echo get_the_date(); ?></span>
-	</span>
-	<span class="card-excerpt">
+	<span class="card-date"><?php echo get_the_date(); ?></span>
+
+	<div class="card-excerpt">
 		<?php the_excerpt(); ?>
-	</span>
+	</div>
 </article>
