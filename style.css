@@ -497,6 +497,7 @@ figcaption {
 
 .primary-categories a {
 	color: #da1e00;
+	border: none;
 }
 
 .primary-categories a:hover {
