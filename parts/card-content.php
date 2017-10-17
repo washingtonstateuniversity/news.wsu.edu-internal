@@ -24,7 +24,7 @@ global $is_top_feature, $is_river;
 		<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 	</header>
 
-	<span class="card-date"><?php echo get_the_date(); ?></span>
+	<div class="card-date"><?php echo get_the_date(); ?></div>
 
 	<div class="card-excerpt">
 		<?php the_excerpt(); ?>
