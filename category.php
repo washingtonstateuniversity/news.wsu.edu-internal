@@ -56,7 +56,7 @@ global $is_top_feature, $is_river;
 				if ( 0 === $output_post_count ) {
 					$is_river = false;
 					?>
-					<section class="row single gutter pad-top top-four">
+					<section class="row single gutter pad-top bottom-divider">
 						<div class="column one">
 							<div class="deck">
 					<?php
