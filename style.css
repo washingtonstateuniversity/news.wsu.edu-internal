@@ -320,6 +320,10 @@ main .deck--featured .card:first-child .card-title a:after {
 	padding: 0 0 0 2rem;
 }
 
+#mc_embed_signup_scroll input[type="submit"] {
+	margin-left: 10px;
+}
+
 /* Bottom section divider */
 main .bottom-divider {
 	padding-bottom: 0;
