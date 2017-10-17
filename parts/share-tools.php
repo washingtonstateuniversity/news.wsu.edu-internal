@@ -18,7 +18,7 @@ if ( ! empty( $spine_social_options['twitter'] ) ) {
 				<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo esc_url( $post_share_url ); ?>&amp;summary=<?php echo esc_attr( $post_share_title ); ?>&amp;source=undefined" target="_blank">
 					<span class="screen-reader-text">Share on Linkedin</span>
 					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">
-						<use href="#social-media-icon_linkedin" />
+						<use xlink:href="#social-media-icon_linkedin" />
 					</svg>
 				</a>
 			</li>
@@ -26,7 +26,7 @@ if ( ! empty( $spine_social_options['twitter'] ) ) {
 				<a href="https://twitter.com/intent/tweet?text=<?php echo esc_attr( $post_share_title ); ?>&amp;url=<?php echo esc_url( $post_share_url ); ?>&amp;via=<?php echo esc_attr( $twitter_handle ); ?>" target="_blank">
 					<span class="screen-reader-text">Share on Twitter</span>
 					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="16">
-						<use href="#social-media-icon_twitter" />
+						<use xlink:href="#social-media-icon_twitter" />
 					</svg>
 				</a>
 			</li>
@@ -34,7 +34,7 @@ if ( ! empty( $spine_social_options['twitter'] ) ) {
 				<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo esc_url( $post_share_url ); ?>" target="_blank">
 					<span class="screen-reader-text">Share on Facebook</span>
 					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">
-						<use href="#social-media-icon_facebook" />
+						<use xlink:href="#social-media-icon_facebook" />
 					</svg>
 				</a>
 			</li>
