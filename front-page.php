@@ -23,12 +23,11 @@ get_header();
 					</header>
 					<div class="deck">
 					<?php
-						while ( $section_query->have_posts() ) {
-							$section_query->the_post();
+					while ( $section_query->have_posts() ) {
+						$section_query->the_post();
 
-							get_template_part( 'parts/card-content' );
-
-						}
+						get_template_part( 'parts/card-content' );
+					}
 					?>
 					</div>
 				</div>
