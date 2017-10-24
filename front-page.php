@@ -16,6 +16,7 @@ get_header();
 		) );
 
 		if ( $section_query->have_posts() ) {
+			$category = get_category_by_slug( $section_slug );
 			?>
 			<section class="row single gutter pad-top <?php echo esc_attr( $front_section['classes'] ); ?> cat-sec">
 				<div class="column one">
@@ -31,6 +32,8 @@ get_header();
 					}
 					?>
 					</div>
+
+					<p><a class="button" href="<?php echo esc_url( get_category_link( $category->term_id ) ); ?>">View all <?php echo esc_html( $category->name ); ?></a></p>
 				</div>
 			</section>
 			<?php
