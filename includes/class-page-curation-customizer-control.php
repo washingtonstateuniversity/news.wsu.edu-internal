@@ -1,4 +1,14 @@
 <?php
+/**
+ * The custom Customizer Control used to manage the order and
+ * options for the display of category sections on a page.
+ *
+ * Thanks to the Homepage Control plugin for providing a good
+ * guide for the initial implementation. Some code here may be
+ * from that GPLv3 licensed project.
+ *
+ * https://github.com/woocommerce/homepage-control
+ */
 
 namespace WSU\News\Internal\Page_Curation\Customizer;
 
@@ -6,9 +16,8 @@ class Customizer_Control extends \WP_Customize_Control {
 
 	/**
 	 * Enqueue jQuery Sortable and its dependencies.
-	 * @access  public
-	 * @since   2.0.0
-	 * @return  void
+	 *
+	 * @since   0.5.0
 	 */
 	public function enqueue() {
 		wp_enqueue_script( 'jquery-ui-core' );
@@ -16,10 +25,10 @@ class Customizer_Control extends \WP_Customize_Control {
 	}
 
 	/**
-	 * Display list of ordered components.
-	 * @access  public
-	 * @since   2.0.0
-	 * @return  void
+	 * Output the inputs used to sort and capture data about the
+	 * display of category sections.
+	 *
+	 * @since   0.5.0
 	 */
 	public function render_content() {
 		$section_settings = $this->value();
@@ -73,6 +82,16 @@ class Customizer_Control extends \WP_Customize_Control {
 		<?php
 	}
 
+	/**
+	 * Apply the defaults used for each category section in the
+	 * Customizer.
+	 *
+	 * @since 0.5.0
+	 *
+	 * @param array $setting The existing setting.
+	 *
+	 * @return array The modified setting with defaults as required.
+	 */
 	private function _apply_unset_defaults( $setting ) {
 		$defaults = array(
 			'name' => 'Unknown',
