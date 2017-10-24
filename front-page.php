@@ -16,7 +16,7 @@ get_header();
 
 		if ( $section_query->have_posts() ) {
 			?>
-			<section class="row single gutter pad-top cat-sec">
+			<section class="row single gutter pad-top <?php echo esc_attr( $front_section['classes'] ); ?> cat-sec">
 				<div class="column one">
 					<header>
 						<h2><?php echo esc_html( $front_section['name'] ); ?></h2>
