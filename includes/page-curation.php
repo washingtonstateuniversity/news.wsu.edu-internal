@@ -11,22 +11,29 @@ namespace WSU\News\Internal\Page_Curation;
  * @return array
  */
 function get_sections() {
-	$sections = array();
+	$settings = get_option( 'page_curation' );
 
-	$settings = array();
-
-	foreach( get_categories() as $category ) {
-		$slug = $category->category_nicename;
-
-		$sections[ $slug ] = array(
-			'name' => $category->cat_name,
-			'enabled' => isset( $settings[ $slug ] ) ? $settings[ $slug ]['enabled'] : 1,
-			'count' => isset( $settings[ $slug ] ) ? $settings[ $slug ]['count'] : 4,
-			'classes' => isset( $settings[ $slug ] ) ? $settings[ $slug ]['classes'] : 'bottom-divider',
-		);
+	if ( ! empty( $settings ) ) {
+		$settings = json_decode( $settings, true );
+	} else {
+		$settings = array();
 	}
 
-	$sections = wp_json_encode( $sections );
+	foreach ( get_categories() as $category ) {
+		if ( isset( $settings[ $category->slug ] ) ) {
+			$settings[ $category->slug ]['name'] = $category->cat_name;
+		} else {
+			$settings[ $category->slug ] = array(
+				'name' => $category->cat_name,
+			);
+		}
+	}
 
-	return $sections;
+	foreach ( $settings as $slug => $setting ) {
+		$settings[ $slug ]['enabled'] = isset( $settings[ $slug ]['enabled'] ) ? $settings[ $slug ]['enabled'] : 1;
+		$settings[ $slug ]['count'] = isset( $settings[ $slug ]['count'] ) ? $settings[ $slug ]['count'] : 4;
+		$settings[ $slug ]['classes'] = isset( $settings[ $slug ]['classes'] ) ? $settings[ $slug ]['classes'] : 'bottom-divider';
+	}
+
+	return $settings;
 }

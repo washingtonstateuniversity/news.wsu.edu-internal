@@ -72,18 +72,3 @@ function enqueue_styles() {
 function sanitize_sections( $input ) {
 	return $input;
 }
-
-function format_defaults () {
-	$components = \WSU\News\Internal\Page_Curation\get_sections();
-	$defaults = array();
-
-	foreach ( $components as $k => $v ) {
-		if ( apply_filters( 'homepage_control_hide_' . $k, false ) ) {
-			$defaults[] = '[disabled]' . $k;
-		} else {
-			$defaults[] = $k;
-		}
-	}
-
-	return join( ',', $defaults );
-}

@@ -1,41 +1,23 @@
-jQuery(document).ready(function($) {
+jQuery( document ).ready( function( $ ) {
 	"use strict";
-	$( '.page-curation' ).sortable();
-	$( '.page-curation' ).disableSelection();
 
-	$( '.page-curation' ).bind( 'sortstop', function ( e, ui ) {
-		var components = new Array();
-		var disabled = '[disabled]';
+	let page_curation = $( ".page-curation" );
 
-		$( e.target ).find( 'li' ).each( function ( i, e ) {
-			if ( $( this ).hasClass( 'disabled' ) ) {
-				components.push( disabled + $( this ).attr( 'id' ) );
-			} else {
-				components.push( $( this ).attr( 'id' ) );
-			}
-		});
+	page_curation.sortable();
+	page_curation.disableSelection();
 
-		components = components.join( ',' );
+	page_curation.bind( "sortstop", function ( e, ui ) {
+		let sections = {};
 
-		$( 'input[data-customize-setting-link="page_curation"]' ).attr( 'value', components ).trigger( 'change' );
-	});
+		$( e.target ).find( "li" ).each( function ( i, e ) {
+			let section_id = $( this ).attr( "id" ).substr( 8 );
 
-	$( '.homepage-control .visibility' ).bind( 'click', function ( e ) {
-		var components = new Array();
-		var disabled = '[disabled]';
+			sections[ section_id ] = {};
+			sections[ section_id ]['count'] = $(this).find( ".section-count input" ).val();
+			sections[ section_id ]['classes'] = $(this).find( ".section-classes input" ).val();
+		} );
 
-		$( this ).parent( 'li' ).toggleClass( 'disabled' );
-
-		$( this ).parents( '.homepage-control' ).find( 'li' ).each( function ( i, e ) {
-			if ( $( this ).hasClass( 'disabled' ) ) {
-				components.push( disabled + $( this ).attr( 'id' ) );
-			} else {
-				components.push( $( this ).attr( 'id' ) );
-			}
-		});
-
-		components = components.join( ',' );
-
-		$( 'input[data-customize-setting-link="homepage_control"]' ).attr( 'value', components ).trigger( 'change' );
-	});
-});
+		sections = JSON.stringify( sections );
+		$( 'input[data-customize-setting-link="page_curation"]' ).attr( "value", sections ).trigger( "change" );
+	} );
+} );
