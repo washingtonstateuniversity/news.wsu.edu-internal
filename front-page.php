@@ -79,6 +79,10 @@ get_header();
 	wp_reset_postdata();
 
 	foreach ( WSU\News\Internal\Page_Curation\get_sections() as $section_slug => $front_section ) {
+		if ( 0 === (int) $front_section['count'] ) {
+			continue;
+		}
+
 		$section_query = new WP_Query( array(
 			'posts_per_page' => (int) $front_section['count'],
 			'category_name' => $section_slug,
