@@ -6,10 +6,10 @@ jQuery( document ).ready( function( $ ) {
 	page_curation.sortable();
 	page_curation.disableSelection();
 
-	page_curation.bind( "sortstop", function( e, ui ) {
+	let process_value = function() {
 		let sections = {};
 
-		$( e.target ).find( "li" ).each( function( i, e ) {
+		page_curation.find( "li" ).each( function( i, e ) {
 			let section_id = $( this ).attr( "id" ).substr( 8 );
 
 			sections[ section_id ] = {};
@@ -19,5 +19,8 @@ jQuery( document ).ready( function( $ ) {
 
 		sections = JSON.stringify( sections );
 		$( "input[data-customize-setting-link='page_curation']" ).attr( "value", sections ).trigger( "change" );
-	} );
+	};
+
+	page_curation.bind( "sortstop", process_value );
+	$( ".page-curation input" ).on( "change", process_value );
 } );
