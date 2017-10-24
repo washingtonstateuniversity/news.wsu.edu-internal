@@ -18,6 +18,7 @@ function customize_register( $wp_customize ) {
 	$wp_customize->add_section( 'page_curation', array(
 		'title' => 'Page Curation',
 		'priority' => 10,
+		'capability' => 'publish_pages',
 		'active_callback' => 'is_front_page',
 	) );
 
