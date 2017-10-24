@@ -22,14 +22,13 @@ class Customizer_Control extends \WP_Customize_Control {
 	 * @return  void
 	 */
 	public function render_content() {
-		//$section_settings = json_decode( $this->value(), true );
 		$section_settings = $this->value();
 
 		if ( empty( $section_settings ) ) {
 			$section_settings = json_decode( $this->input_attrs, true );
+		} else {
+			$section_settings = json_decode( $section_settings, true );
 		}
-		//$section_settings = explode( ',', $this->value() );
-
 
 		?>
 		<?php
