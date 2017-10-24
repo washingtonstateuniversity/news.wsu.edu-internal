@@ -30,7 +30,6 @@ function get_sections() {
 	}
 
 	foreach ( $settings as $slug => $setting ) {
-		$settings[ $slug ]['enabled'] = isset( $settings[ $slug ]['enabled'] ) ? $settings[ $slug ]['enabled'] : 1;
 		$settings[ $slug ]['count'] = isset( $settings[ $slug ]['count'] ) ? $settings[ $slug ]['count'] : 4;
 		$settings[ $slug ]['classes'] = isset( $settings[ $slug ]['classes'] ) ? $settings[ $slug ]['classes'] : 'bottom-divider';
 	}
