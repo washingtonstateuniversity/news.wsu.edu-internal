@@ -4,6 +4,7 @@ get_header();
 ?>
 
 <main>
+	<div>
 	<?php
 
 	foreach ( WSU\News\Internal\Page_Curation\get_sections() as $section_slug => $front_section ) {
@@ -38,6 +39,7 @@ get_header();
 	}
 
 	?>
+	</div>
 </main>
 
 <?php
