@@ -35,6 +35,7 @@ get_header();
 			</section>
 			<?php
 		}
+		wp_reset_postdata();
 	}
 
 	?>
