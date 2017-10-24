@@ -45,12 +45,44 @@ get_header();
 		</section>
 	<?php
 
+	$is_top_feature = false;
+	$is_river = false;
+	$featured_query = new WP_Query( array(
+		'posts_per_page' => 5,
+		'meta_query' => array(
+			array(
+				'key' => '_news_internal_featured',
+				'value' => 'yes',
+			),
+		),
+	) );
+
+	$skip_post_ids = array();
+
+	if ( $featured_query->have_posts() ) {
+		?>
+		<section class="row single gutter pad-top news-features bottom-divider">
+			<div class="column one">
+				<div class="deck deck--featured">
+					<?php
+					while ( $featured_query->have_posts() ) {
+						$featured_query->the_post();
+						$skip_post_ids[] = get_the_ID();
+						get_template_part( 'parts/card-content' );
+					}
+					?>
+				</div>
+			</div>
+		</section>
+		<?php
+	}
+	wp_reset_postdata();
+
 	foreach ( WSU\News\Internal\Page_Curation\get_sections() as $section_slug => $front_section ) {
-		$is_top_feature = false;
-		$is_river = false;
 		$section_query = new WP_Query( array(
 			'posts_per_page' => (int) $front_section['count'],
 			'category_name' => $section_slug,
+			'post__not_in' => $skip_post_ids,
 		) );
 
 		if ( $section_query->have_posts() ) {
