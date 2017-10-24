@@ -2,7 +2,7 @@
 global $is_top_feature, $is_river;
 ?>
 <article class="card card--news">
-	<?php if ( ! is_category() && is_front_page() ) { ?>
+	<?php if ( ! is_category() && ! is_front_page() ) { ?>
 	<span class="card-categories"><?php
 	$category_html = '';
 	foreach ( get_the_category() as $category ) {
