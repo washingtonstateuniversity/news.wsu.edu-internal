@@ -1,0 +1,45 @@
+.page-curation {
+	margin-top: 15px;
+}
+
+.page-curation li {
+	padding: 11px;
+	background: #fcfcfc;
+	color: #222;
+	border: 1px solid #e5e5e5;
+	cursor: move;
+	line-height: 16px;
+}
+
+.page-curation li:hover {
+	border-color: #aaa;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.1);
+	box-shadow: 0 1px 2px rgba(0,0,0,.1);
+}
+
+.page-curation .section-title {
+	font-size: 1.1em;
+	font-weight: 600;
+}
+
+.page-curation input[type="text"] {
+	font-weight: 400;
+}
+
+.page-curation .section-count {
+	margin-top: 10px;
+	margin-left: 10px;
+}
+.page-curation .section-count input {
+	width: 35px;
+	margin-left: 10px;
+}
+
+.page-curation .section-classes {
+	margin-top: 5px;
+	margin-left: 10px;
+}
+
+.page-curation .section-classes input {
+	margin-top: 5px
+}
