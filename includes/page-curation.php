@@ -29,6 +29,13 @@ function get_sections() {
 		}
 	}
 
+	// Remove old categories that have been deleted.
+	foreach ( $settings as $slug => $data ) {
+		if ( ! isset( $data['name'] ) ) {
+			unset( $settings[ $slug ] );
+		}
+	}
+
 	foreach ( $settings as $slug => $setting ) {
 		$settings[ $slug ]['count'] = isset( $settings[ $slug ]['count'] ) ? $settings[ $slug ]['count'] : 4;
 		$settings[ $slug ]['classes'] = isset( $settings[ $slug ]['classes'] ) ? $settings[ $slug ]['classes'] : 'bottom-divider';
