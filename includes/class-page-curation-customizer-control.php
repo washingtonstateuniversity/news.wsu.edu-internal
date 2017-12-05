@@ -39,7 +39,9 @@ class Customizer_Control extends \WP_Customize_Control {
 			$section_settings = json_decode( $section_settings, true );
 		}
 
-		foreach ( get_categories() as $category ) {
+		foreach ( get_categories( array(
+			'hide_empty' => false,
+		) ) as $category ) {
 			if ( isset( $section_settings[ $category->slug ] ) ) {
 				$section_settings[ $category->slug ]['name'] = $category->cat_name;
 			} else {
