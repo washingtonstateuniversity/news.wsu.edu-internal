@@ -51,6 +51,13 @@ class Customizer_Control extends \WP_Customize_Control {
 			}
 		}
 
+		// Remove old categories that have been deleted.
+		foreach ( $section_settings as $slug => $data ) {
+			if ( ! isset( $data['name'] ) ) {
+				unset( $section_settings[ $slug ] );
+			}
+		}
+
 		?>
 		<?php
 		if ( ! empty( $this->label ) ) : ?>
