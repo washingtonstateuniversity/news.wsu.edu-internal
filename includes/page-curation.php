@@ -43,3 +43,34 @@ function get_sections() {
 
 	return $settings;
 }
+
+/**
+ * Retrieve the current featured posts displayed on the front page.
+ *
+ * @since 0.6.0
+ *
+ * @return array
+ */
+function get_featured_posts() {
+	$featured_query = new \WP_Query( array(
+		'posts_per_page' => 5,
+		'meta_query' => array(
+			array(
+				'key' => '_news_internal_featured',
+				'value' => 'yes',
+			),
+		),
+	) );
+
+	$featured_posts = array();
+
+	if ( $featured_query->have_posts() ) {
+		while ( $featured_query->have_posts() ) {
+			$featured_query->the_post();
+			$featured_posts[] = get_the_ID();
+		}
+	}
+	wp_reset_postdata();
+
+	return $featured_posts;
+}
