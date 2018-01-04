@@ -73,25 +73,6 @@ class Featured_Posts_Control extends \WP_Customize_Control {
 			}
 		</style>
 
-		<script>
-			jQuery( function() {
-				$( ".featured-post-input" ).autocomplete( {
-					source: "<?php echo esc_js( get_rest_url( get_current_blog_id(), '/insider/v1/featured' ) ); ?>",
-					minLength: 2,
-					select: function( event, ui ) {
-						event.preventDefault();
-						jQuery( this ).val( ui.item.label );
-						// add value to hidden input / order
-					},
-					focus: function( event, ui ) {
-						event.preventDefault();
-						jQuery( this ).val( ui.item.label );
-						// add value to hidden input / order
-					}
-				} );
-			} );
-		</script>
-
 		<div class="featured-posts-selection">
 			<?php
 			for ( $i = 0; $i <= 4; $i++ ) {
@@ -112,6 +93,30 @@ class Featured_Posts_Control extends \WP_Customize_Control {
 			?>
 		</div>
 		<input type="hidden" <?php $this->link(); ?> value="<?php echo wp_json_encode( $post_ids ); ?>"/>
+		<script>
+			jQuery( function() {
+				var featured_post_input = $( ".featured-post-input" );
+				featured_post_input.autocomplete( {
+					source: "<?php echo esc_js( get_rest_url( get_current_blog_id(), '/insider/v1/featured' ) ); ?>",
+					minLength: 2,
+					// Add the selected item label to the input field rather than the value.
+					select: function( event, ui ) {
+						event.preventDefault();
+						$( this ).val( ui.item.label );
+						// add value to hidden input / order
+					},
+					// Don't change the input until one is actually selected.
+					focus: function( event, ui ) {
+						event.preventDefault();
+					}
+				} );
+
+				// Auto-highlight post title entry boxes whenever they're selected.
+				featured_post_input.on( "focus", function() {
+					$( this ).select();
+				} );
+			} );
+		</script>
 		<?php
 	}
 }
