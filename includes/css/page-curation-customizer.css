@@ -1,5 +1,19 @@
+.selected-featured-posts,
 .page-curation {
 	margin-top: 15px;
+}
+
+.featured-post-single {
+	border: 1px solid #e5e5e5;
+	background: #fcfcfc;
+	cursor: move;
+	color: #222;
+	margin-bottom: 1em;
+	padding: 0 .5em;
+}
+
+.featured-post-single p {
+	padding: 0;
 }
 
 .page-curation li {

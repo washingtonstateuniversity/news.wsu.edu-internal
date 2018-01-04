@@ -131,7 +131,7 @@ function customize_register( $wp_customize ) {
 }
 
 /**
- * Enqueue the additional scripts required for section curation in
+ * Enqueue the additional scripts required for front page curation in
  * the Customizer.
  *
  * @since 0.5.0
@@ -141,7 +141,7 @@ function enqueue_scripts() {
 }
 
 /**
- * Enqueue the additional styles required for section curation in
+ * Enqueue the additional styles required for front page curation in
  * the Customizer.
  *
  * @since 0.5.0

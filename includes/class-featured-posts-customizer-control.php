@@ -98,7 +98,7 @@ class Featured_Posts_Control extends \WP_Customize_Control {
 			?>
 		</div>
 
-		<input type="hidden" <?php $this->link(); ?> value="<?php echo wp_json_encode( $post_ids ); ?>"/>
+		<input type="hidden" <?php $this->link(); ?> value="<?php echo esc_attr( implode( ',', $post_ids ) ); ?>"/>
 
 		<script>
 			jQuery( function() {

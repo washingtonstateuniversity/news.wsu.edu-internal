@@ -23,4 +23,18 @@ jQuery( document ).ready( function( $ ) {
 
 	page_curation.bind( "sortstop", process_value );
 	$( ".page-curation input" ).on( "change", process_value );
+
+	let process_featured_posts = function ( ) {
+		let post_ids = [];
+		featured_posts.find( ".featured-post-single" ).each( function() {
+			post_ids.push( $( this ).data( "featured-post-id" ) );
+		} );
+
+		$( "input[data-customize-setting-link='featured_posts']" ).attr( "value", post_ids ).trigger( "change" );
+	};
+	let featured_posts = $( ".selected-featured-posts" );
+
+	featured_posts.sortable();
+
+	featured_posts.bind( "sortstop", process_featured_posts );
 } );
