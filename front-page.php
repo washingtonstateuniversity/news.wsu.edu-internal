@@ -47,6 +47,7 @@ get_header();
 
 	$is_top_feature = false;
 	$is_river = false;
+	$is_good_to_know = false;
 	$featured_posts = WSU\News\Internal\Page_Curation\get_featured_posts( 'query' );
 
 	$skip_post_ids = array();
@@ -92,6 +93,18 @@ get_header();
 			<div class="column two">
 				<div class="deck deck--numbered-list">
 					<header class="deck-header">Good to Know</header>
+					<?php
+					$gtk_posts = WSU\News\Internal\Page_Curation\get_gtk_posts( 'query' );
+					$is_good_to_know = true;
+					if ( $gtk_posts->have_posts() ) {
+						while ( $gtk_posts->have_posts() ) {
+							$gtk_posts->the_post();
+							get_template_part( 'parts/card-content' );
+						}
+					}
+					$is_good_to_know = false;
+					wp_reset_postdata();
+					?>
 				</div>
 			</div>
 		</section>

@@ -45,6 +45,40 @@ function get_sections() {
 }
 
 /**
+ * Retrieve the current Good to Know posts displayed on the front page.
+ *
+ * @since 0.6.0
+ *
+ * @return array|\WP_Query
+ */
+function get_gtk_posts( $output = 'ids' ) {
+	$args = array(
+		'post_type' => 'post',
+		'post_status' => 'publish',
+		'posts_per_page' => 4,
+	);
+
+	$gtk_post_ids = get_option( 'gtk_posts', false );
+
+	$gtk_post_ids = explode( ',', $gtk_post_ids );
+	$args['post__in'] = $gtk_post_ids;
+	$args['orderby'] = 'post__in';
+
+	if ( 'ids' === $output ) {
+		$args['fields'] = 'ids';
+	}
+
+	$gtk_query = new \WP_Query( $args );
+
+	if ( 'ids' === $output ) {
+		wp_reset_postdata();
+		return $gtk_query;
+	}
+
+	return $gtk_query;
+}
+
+/**
  * Retrieve the current featured posts displayed on the front page.
  *
  * @since 0.6.0

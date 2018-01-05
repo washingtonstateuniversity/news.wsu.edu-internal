@@ -3,6 +3,7 @@
 namespace WSU\News\Internal\Page_Curation\Customizer;
 
 add_filter( 'customize_register', 'WSU\News\Internal\Page_Curation\Customizer\register_featured_posts' );
+add_filter( 'customize_register', 'WSU\News\Internal\Page_Curation\Customizer\register_gtk_posts' );
 add_action( 'rest_api_init', 'WSU\News\Internal\Page_Curation\Customizer\register_rest_route' );
 
 add_filter( 'customize_register', 'WSU\News\Internal\Page_Curation\Customizer\customize_register' );
@@ -57,6 +58,35 @@ function rest_search_featured( $request ) {
 	}
 
 	return $posts;
+}
+
+
+function register_gtk_posts( $wp_customize ) {
+
+	$wp_customize->add_section( 'gtk_posts', array(
+		'title' => 'Good to Know Posts',
+		'priority' => 9,
+		'capability' => 'publish_pages',
+		'active_callback' => 'is_front_page',
+	) );
+
+	$wp_customize->add_setting( 'gtk_posts', array(
+		'default' => \WSU\News\Internal\Page_Curation\get_gtk_posts(),
+		'type' => 'option',
+		'capability' => 'publish_pages',
+	) );
+
+	include_once __DIR__ . '/class-good-to-know-customizer-control.php';
+
+	$wp_customize->add_control( new \WSU\News\Internal\Page_Curation\Customizer\Good_To_Know_Control( $wp_customize, 'gtk_posts', array(
+		'description'       => 'Curate Good to Know on the front page.',
+		'section'           => 'gtk_posts',
+		'settings'          => 'gtk_posts',
+		'input_attrs'       => \WSU\News\Internal\Page_Curation\get_gtk_posts(),
+		'priority'          => 10,
+		'type'              => 'hidden',
+		'sanitize_callback' => 'WSU\News\Internal\Page_Curation\Customizer\sanitize_sections',
+	) ) );
 }
 
 /**

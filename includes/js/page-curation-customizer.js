@@ -48,4 +48,29 @@ jQuery( document ).ready( function( $ ) {
 		process_featured_posts();
 		featured_posts.append( "<div class=\"featured-post-empty\">No featured post selected for this area.</div>" );
 	} );
+
+	let process_gtk_posts = function( ) {
+		let post_ids = [];
+		gtk_posts.find( ".gtk-post-single" ).each( function() {
+			post_ids.push( $( this ).data( "gtk-post-id" ) );
+		} );
+
+		$( "input[data-customize-setting-link='gtk_posts']" ).attr( "value", post_ids ).trigger( "change" );
+	};
+	let gtk_posts = $( ".selected-gtk-posts" );
+
+	gtk_posts.sortable( {
+		start: function( e, ui ) {
+			ui.placeholder.height( ui.item.height() );
+		}
+	} );
+
+	gtk_posts.bind( "sortstop", process_gtk_posts );
+
+	$( gtk_posts ).on( "click", ".remove-gtk", function( e ) {
+		e.preventDefault();
+		$( this ).parent().remove();
+		process_gtk_posts();
+		gtk_posts.append( "<div class=\"gtk-post-empty\">No post selected for this area.</div>" );
+	} );
 } );
