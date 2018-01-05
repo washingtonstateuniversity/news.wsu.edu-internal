@@ -67,8 +67,14 @@ h6 {
 		font-size: 3rem;
 	}
 
-	h2 {
+	h2,
+	.deck--featured .card:first-child .card-title {
 		font-size: 2rem;
+	}
+
+	h3,
+	.card-title {
+		font-size: 1.4rem;
 	}
 }
 
@@ -208,7 +214,7 @@ main textarea {
 	counter-increment: sheet-count;
 	content: counter(sheet-count);
 	position: absolute;
-	left: 2.5rem;
+	left: 0;
 	height: 2.5rem;
 	width: 2.5rem;
 	background: #820c23;
