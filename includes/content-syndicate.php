@@ -186,6 +186,54 @@ function wsuwp_json_output( $content, $data, $atts ) {
 		ob_end_clean();
 	}
 
+	// Handle the output of content syndicate items from WSU News.
+	if ( 'wsu-news' === $atts['output'] ) {
+		ob_start();
+
+		foreach ( $data as $content ) {
+			if ( $offset_x < absint( $atts['offset'] ) ) {
+				$offset_x++;
+				continue;
+			}
+
+			$excerpt = $content->excerpt;
+
+			// Most posts have an image, a strong tag, and possibly some other inline
+			// styles at the top. Make everything a paragraph.
+			$excerpt = strip_tags( $excerpt, '<p>' );
+
+			// Almost all posts start with things like "PULLMAN, WA.  – " and other
+			// pre-article content that we don't want to display. We can strip this
+			// off reliably enough and deal with other instances on a case by case basis.
+			$excerpt = str_replace( '&#8211;', ' – ', $excerpt );
+			$excerpt = explode( ' – ', $excerpt );
+			if ( 1 < count( $excerpt ) ) {
+				array_shift( $excerpt );
+			}
+
+			// Just in case the ' – ' was used elsewhere in the excerpt, we don't want
+			// everything to break.
+			$excerpt = implode( ' – ', $excerpt );
+
+			// Rebuild the paragraph that we broke.
+			$excerpt = '<p>' . $excerpt;
+			?>
+			<article class="card card--news">
+				<header class="card-title">
+					<a href="<?php echo esc_url( $content->link ); ?>"><?php echo esc_html( $content->title ); ?></a>
+				</header>
+				<div class="card-date"><?php echo esc_html( date( $atts['date_format'], strtotime( $content->date ) ) ); ?></div>
+				<div class="card-excerpt">
+					<?php echo wp_kses_post( $excerpt ); ?>
+				</div>
+			</article>
+			<?php
+		}
+
+		$content = ob_get_contents();
+		ob_end_clean();
+	}
+
 	return $content;
 }
 

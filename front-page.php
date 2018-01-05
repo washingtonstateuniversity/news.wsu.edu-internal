@@ -88,6 +88,7 @@ get_header();
 				</div>
 				<div class="deck deck--wsu-news">
 					<header class="deck-header card-categories">From WSU News</header>
+					<?php echo do_shortcode( '[wsuwp_json output="wsu-news" site="news.wsu.edu" count="3"]' ); ?>
 				</div>
 			</div>
 			<div class="column two">
