@@ -186,7 +186,7 @@ main figure > a {
 	display: grid;
 	columns: auto;
 	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-	grid-gap: 2rem;
+	grid-column-gap: 2rem;
 }
 
 /* - allow aligning elements within an item - */
@@ -213,38 +213,38 @@ main figure > a {
 }
 
 /* featured item */
-.deck--featured .card:first-child {
+.deck--featured .card {
 	grid-column-start: 1;
 	grid-column-end: -1;
 }
 
-.deck--featured .card:first-child figure {
+.deck--featured .card figure {
 	float: right;
 	padding-left: 1rem;
 	width: 50%;
 }
 
-.deck--featured .card:first-child figure img {
+.deck--featured .card figure img {
 	width: 100%;
 }
 
-.deck--featured .card:first-child .card-title,
-.deck--featured .card:first-child .card-categories,
-.deck--featured .card:first-child .card-excerpt {
+.deck--featured .card .card-title,
+.deck--featured .card .card-categories,
+.deck--featured .card .card-excerpt {
 	display: block;
 	padding-right: 1rem;
 	width: 50%;
 }
 
-.deck--featured .card:first-child .card-excerpt {
+.deck--featured .card .card-excerpt {
 	font-size: 18px;
 }
 
-.deck--featured .card:first-child .card-title {
+.deck--featured .card .card-title {
 	line-height: 1.05;
 }
 
-main .deck--featured .card:first-child .card-title a:after {
+main .deck--featured .card .card-title a:after {
 	background-size: 45%;
 }
 
@@ -290,6 +290,24 @@ main .deck--featured .card:first-child .card-title a:after {
 	position: absolute;
 	bottom: 0;
 	left: 0;
+}
+
+/* --- deck header --- */
+.deck-header {
+	grid-column-start: 1;
+	grid-column-end: last;
+	margin: 3rem 0 1.5rem;
+}
+
+/* --- deck--numbered-list --- */
+.deck.deck--numbered-list {
+	display: block;
+	border-left: 1px solid rgba(0, 0, 0, .1);
+	padding-left: 1.5rem;
+}
+
+.deck--numbered-list .deck-header {
+	margin: 0 0 3rem;
 }
 
 /* --- home page --- */
