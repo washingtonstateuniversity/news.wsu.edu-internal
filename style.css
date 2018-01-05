@@ -12,6 +12,11 @@ html {
 	background-color: #f2f2f2;
 }
 
+/* - home main mark - */
+#wsu-insider-coug-head-mark {
+	margin-top: -1rem;
+}
+
 .site-header {
 	background-color: #fff;
 	box-sizing: border-box;
@@ -29,8 +34,8 @@ html {
 	background-image: url(images/wsu-insider-mark.svg);
 	background-repeat: no-repeat;
 	display: block;
-	height: 2rem;
-	width: 320px;
+	height: 3.5rem;
+	width: 300px;
 	position: relative;
 	text-indent: -9999px;
 }
@@ -264,6 +269,22 @@ main .deck--featured .card .card-title a:after {
 	background-size: 45%;
 }
 
+/* --- multi deck --- */
+#binder .row.news-features .column.multi-deck {
+	display: grid;
+	grid-gap: 2rem;
+	grid-template-areas: "feature cheat" "news cheat";
+	grid-template-columns: 66% 34%;
+}
+
+.card--features {
+	grid-area: feature;
+}
+
+.deck.deck--wsu-news {
+	grid-area: news;
+}
+
 @media screen and (max-width: 700px) {
 
 	.deck--featured .card:first-child .card-title,
@@ -308,22 +329,45 @@ main .deck--featured .card .card-title a:after {
 	left: 0;
 }
 
-/* --- deck header --- */
+/* --- deck with a header --- */
 .deck-header {
 	grid-column-start: 1;
-	grid-column-end: last;
+	grid-column-end: -1;
 	margin: 3rem 0 1.5rem;
 }
 
 /* --- deck--numbered-list --- */
-.deck.deck--numbered-list {
+.deck--numbered-list {
 	display: block;
 	border-left: 1px solid rgba(0, 0, 0, .1);
-	padding-left: 1.5rem;
+	grid-area: cheat;
+	padding: 0 2rem 0 1.5rem;
 }
 
 .deck--numbered-list .deck-header {
 	margin: 0 0 3rem;
+}
+
+.deck--numbered-list .card--news {
+	position: relative;
+}
+
+@media screen and (max-width: 693px) {
+
+	#binder .row.news-features .column.multi-deck {
+		display: block;
+	}
+
+	.deck.deck--numbered-list {
+		background: #f2f2f2;
+		border: none;
+		margin: 0 -2rem;
+		padding: 2rem;
+	}
+
+	.news-features .deck-features article:nth-child(3) {
+		display: none;
+	}
 }
 
 /* --- home page --- */
@@ -482,7 +526,7 @@ article h2 {
 
 h3,
 .card-title {
-	font-size: 25px;
+	font-size: 1.2em;
 }
 
 h4 {
@@ -500,9 +544,20 @@ h6 {
 		font-size: 3rem;
 	}
 
-	h2 {
+	h2,
+	.deck--featured .card:first-child .card-title {
 		font-size: 2rem;
 	}
+
+	h3,
+	.card-title {
+		font-size: 1.4rem;
+	}
+}
+
+.insider-description {
+	color: #777;
+	font-size: .8em;
 }
 
 .sub-call {
@@ -638,7 +693,7 @@ main textarea {
 	counter-increment: sheet-count;
 	content: counter(sheet-count);
 	position: absolute;
-	left: 2.5rem;
+	left: 0;
 	height: 2.5rem;
 	width: 2.5rem;
 	background: #820c23;
