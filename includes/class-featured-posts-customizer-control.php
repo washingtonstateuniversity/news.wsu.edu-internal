@@ -46,7 +46,7 @@ class Featured_Posts_Control extends \WP_Customize_Control {
 
 		<div class="selected-featured-posts">
 			<?php
-			for ( $i = 0; $i <= 4; $i++ ) {
+			for ( $i = 0; $i <= 3; $i++ ) {
 				if ( isset( $post_ids[ $i ] ) ) {
 					?>
 					<div class="featured-post-single" data-featured-post-id="<?php echo esc_attr( $post_ids[ $i ] ); ?>">

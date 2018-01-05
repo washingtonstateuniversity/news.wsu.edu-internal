@@ -53,7 +53,7 @@ get_header();
 
 	if ( $featured_posts->have_posts() ) {
 		?>
-		<section class="row single gutter pad-top news-features bottom-divider">
+		<section class="row single gutter pad-top news-features">
 			<div class="column one">
 				<div class="deck deck--featured">
 					<?php
@@ -61,6 +61,7 @@ get_header();
 						$featured_posts->the_post();
 						$skip_post_ids[] = get_the_ID();
 						get_template_part( 'parts/card-content' );
+						break;
 					}
 					?>
 				</div>
@@ -68,8 +69,33 @@ get_header();
 		</section>
 		<?php
 	}
-	wp_reset_postdata(); // $featured_posts is a \WP_Query object.
 
+	?>
+		<section class="row side-right gutter pad-top news-features">
+			<div class="column one">
+				<div class="deck">
+					<?php
+					if ( $featured_posts->have_posts() ) {
+						while ( $featured_posts->have_posts() ) {
+							$featured_posts->the_post();
+							$skip_post_ids[] = get_the_ID();
+							get_template_part( 'parts/card-content' );
+						}
+					}
+					wp_reset_postdata(); // $featured_posts is a \WP_Query object.
+				?>
+				</div>
+				<div class="deck deck--wsu-news">
+					<header class="deck-header card-categories">From WSU News</header>
+				</div>
+			</div>
+			<div class="column two">
+				<div class="deck deck--numbered-list">
+					<header class="deck-header">Good to Know</header>
+				</div>
+			</div>
+		</section>
+	<?php
 	foreach ( WSU\News\Internal\Page_Curation\get_sections() as $section_slug => $front_section ) {
 		if ( 0 === (int) $front_section['count'] ) {
 			continue;

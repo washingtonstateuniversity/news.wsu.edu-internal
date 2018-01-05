@@ -55,7 +55,7 @@ function get_featured_posts( $output = 'ids' ) {
 	$args = array(
 		'post_type' => 'post',
 		'post_status' => 'publish',
-		'posts_per_page' => 5,
+		'posts_per_page' => 4,
 	);
 
 	$featured_post_ids = get_option( 'featured_posts', false );
