@@ -18,7 +18,7 @@
 .remove-featured {
 	position: absolute;
 	bottom: .25em;
-	right: 0.75em;
+	right: .35em;
 	width: 36%;
 	height: 25px;
 	margin: 0;
@@ -67,13 +67,13 @@ input.ui-autocomplete-input.open {
 }
 
 .featured-post-single p {
-	padding: 0 .5em 0 0;
+	padding: 0 .5em;
 	width: 60%;
 }
 
 .featured-post-single .no-image {
 	border: 1px solid #ccc;
-	width: 35%;
+	width: 34%;
 	margin: 1em 0 .5em 0;
 	height: 52px;
 }

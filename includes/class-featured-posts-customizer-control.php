@@ -101,7 +101,7 @@ class Featured_Posts_Control extends \WP_Customize_Control {
 						if ( false !== ui.item.image ) {
 							image_markup = "<figure><img src='" + ui.item.image + "'></figure>";
 						}
-						next_slot.html( "<p>" + ui.item.label + "</p>" + image_markup );
+						next_slot.html( "<p>" + ui.item.label + "</p>" + image_markup + "<button class=\"remove-featured\">Remove</button>" );
 
 						$( this ).val( "" );
 
