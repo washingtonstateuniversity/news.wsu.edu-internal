@@ -52,6 +52,7 @@ function rest_search_featured( $request ) {
 		$posts[] = array(
 			'value' => $post->ID,
 			'label' => trim( esc_html( strip_tags( get_the_title( $post ) ) ) ),
+			'image' => esc_url( get_the_post_thumbnail_url( $post, 'spine-small_size' ) ),
 		);
 	}
 

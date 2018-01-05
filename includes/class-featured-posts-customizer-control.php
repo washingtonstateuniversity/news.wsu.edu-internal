@@ -94,7 +94,13 @@ class Featured_Posts_Control extends \WP_Customize_Control {
 
 						next_slot.removeClass( "featured-post-empty" ).addClass( "featured-post-single" );
 						next_slot.data( "featured-post-id", ui.item.value );
-						next_slot.html( "<p>" + ui.item.label + "</p>" );
+
+						let image_markup = "<div class='no-image'><p>No image assigned</p></div>";
+
+						if ( false !== ui.item.image ) {
+							image_markup = "<figure><img src='" + ui.item.image + "'></figure>";
+						}
+						next_slot.html( "<p>" + ui.item.label + "</p>" + image_markup );
 
 						$( this ).val( "" );
 
