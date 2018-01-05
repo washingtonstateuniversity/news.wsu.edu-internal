@@ -191,11 +191,6 @@ function wsuwp_json_output( $content, $data, $atts ) {
 		ob_start();
 
 		foreach ( $data as $content ) {
-			if ( $offset_x < absint( $atts['offset'] ) ) {
-				$offset_x++;
-				continue;
-			}
-
 			$excerpt = $content->excerpt;
 
 			// Most posts have an image, a strong tag, and possibly some other inline
