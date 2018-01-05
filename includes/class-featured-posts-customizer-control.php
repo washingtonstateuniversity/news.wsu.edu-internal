@@ -27,6 +27,10 @@ class Featured_Posts_Control extends \WP_Customize_Control {
 	public function render_content() {
 		$post_ids = explode( ',', $this->value() );
 
+		if ( ! $post_ids ) {
+			$post_ids = array();
+		}
+
 		if ( ! empty( $this->label ) ) : ?>
 			<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
 		<?php endif;
@@ -85,6 +89,9 @@ class Featured_Posts_Control extends \WP_Customize_Control {
 					?>
 					<div class="featured-post-single" data-featured-post-id="<?php echo esc_attr( $post_ids[ $i ] ); ?>">
 						<p><?php echo esc_html( get_the_title( $post_ids[ $i ] ) ); ?></p>
+						<figure>
+							<img src="<?php echo esc_url( get_the_post_thumbnail_url( $post_ids[ $i ], 'spine-small_size' ) ); ?>" />
+						</figure>
 					</div>
 					<?php
 				} else {

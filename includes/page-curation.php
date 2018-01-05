@@ -49,28 +49,40 @@ function get_sections() {
  *
  * @since 0.6.0
  *
- * @return array
+ * @return array|\WP_Query
  */
-function get_featured_posts() {
-	$featured_query = new \WP_Query( array(
+function get_featured_posts( $output = 'ids' ) {
+	$args = array(
+		'post_type' => 'post',
+		'post_status' => 'publish',
 		'posts_per_page' => 5,
-		'meta_query' => array(
+	);
+
+	$featured_post_ids = get_option( 'featured_posts', false );
+
+	if ( false === $featured_post_ids || is_object( $featured_post_ids ) ) {
+		$args['meta_query'] = array(
 			array(
 				'key' => '_news_internal_featured',
 				'value' => 'yes',
 			),
-		),
-	) );
-
-	$featured_posts = array();
-
-	if ( $featured_query->have_posts() ) {
-		while ( $featured_query->have_posts() ) {
-			$featured_query->the_post();
-			$featured_posts[] = get_the_ID();
-		}
+		);
+	} else {
+		$featured_post_ids = explode( ',', $featured_post_ids );
+		$args['post__in'] = $featured_post_ids;
+		$args['orderby'] = 'post__in';
 	}
-	wp_reset_postdata();
 
-	return $featured_posts;
+	if ( 'ids' === $output ) {
+		$args['fields'] = 'ids';
+	}
+
+	$featured_query = new \WP_Query( $args );
+
+	if ( 'ids' === $output ) {
+		wp_reset_postdata();
+		return $featured_query;
+	}
+
+	return $featured_query;
 }
