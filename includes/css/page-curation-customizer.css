@@ -1,12 +1,15 @@
+.selected-gtk-posts,
 .selected-featured-posts,
 .page-curation {
 	margin-top: 15px;
 }
 
+.gtk-post-empty,
 .featured-post-empty {
 	display: none;
 }
 
+.gtk-post-single,
 .featured-post-single {
 	display: flex;
 	position: relative;
@@ -19,6 +22,7 @@
 	padding: 0 .5em 1.75em 0;
 }
 
+.remove-gtk,
 .remove-featured {
 	position: absolute;
 	bottom: .25em;
@@ -70,6 +74,7 @@ input.ui-autocomplete-input.open {
 	margin: 1em 0 .5em;
 }
 
+.gtk-post-single p,
 .featured-post-single p {
 	padding: 0 .5em;
 	width: 60%;
