@@ -23,4 +23,29 @@ jQuery( document ).ready( function( $ ) {
 
 	page_curation.bind( "sortstop", process_value );
 	$( ".page-curation input" ).on( "change", process_value );
+
+	let process_featured_posts = function( ) {
+		let post_ids = [];
+		featured_posts.find( ".featured-post-single" ).each( function() {
+			post_ids.push( $( this ).data( "featured-post-id" ) );
+		} );
+
+		$( "input[data-customize-setting-link='featured_posts']" ).attr( "value", post_ids ).trigger( "change" );
+	};
+	let featured_posts = $( ".selected-featured-posts" );
+
+	featured_posts.sortable( {
+		start: function( e, ui ) {
+			ui.placeholder.height( ui.item.height() );
+		}
+	} );
+
+	featured_posts.bind( "sortstop", process_featured_posts );
+
+	$( featured_posts ).on( "click", ".remove-featured", function( e ) {
+		e.preventDefault();
+		$( this ).parent().remove();
+		process_featured_posts();
+		featured_posts.append( "<div class=\"featured-post-empty\">No featured post selected for this area.</div>" );
+	} );
 } );

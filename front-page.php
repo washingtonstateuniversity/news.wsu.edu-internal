@@ -47,26 +47,18 @@ get_header();
 
 	$is_top_feature = false;
 	$is_river = false;
-	$featured_query = new WP_Query( array(
-		'posts_per_page' => 5,
-		'meta_query' => array(
-			array(
-				'key' => '_news_internal_featured',
-				'value' => 'yes',
-			),
-		),
-	) );
+	$featured_posts = WSU\News\Internal\Page_Curation\get_featured_posts( 'query' );
 
 	$skip_post_ids = array();
 
-	if ( $featured_query->have_posts() ) {
+	if ( $featured_posts->have_posts() ) {
 		?>
 		<section class="row single gutter pad-top news-features bottom-divider">
 			<div class="column one">
 				<div class="deck deck--featured">
 					<?php
-					while ( $featured_query->have_posts() ) {
-						$featured_query->the_post();
+					while ( $featured_posts->have_posts() ) {
+						$featured_posts->the_post();
 						$skip_post_ids[] = get_the_ID();
 						get_template_part( 'parts/card-content' );
 					}
@@ -76,7 +68,7 @@ get_header();
 		</section>
 		<?php
 	}
-	wp_reset_postdata();
+	wp_reset_postdata(); // $featured_posts is a \WP_Query object.
 
 	foreach ( WSU\News\Internal\Page_Curation\get_sections() as $section_slug => $front_section ) {
 		if ( 0 === (int) $front_section['count'] ) {
