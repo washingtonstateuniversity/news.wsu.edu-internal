@@ -89,9 +89,21 @@ class Featured_Posts_Control extends \WP_Customize_Control {
 					?>
 					<div class="featured-post-single" data-featured-post-id="<?php echo esc_attr( $post_ids[ $i ] ); ?>">
 						<p><?php echo esc_html( get_the_title( $post_ids[ $i ] ) ); ?></p>
-						<figure>
-							<img src="<?php echo esc_url( get_the_post_thumbnail_url( $post_ids[ $i ], 'spine-small_size' ) ); ?>" />
-						</figure>
+						<?php
+						if ( has_post_thumbnail( $post_ids[ $i ] ) ) {
+							?>
+							<figure>
+								<img src="<?php echo esc_url( get_the_post_thumbnail_url( $post_ids[ $i ], 'spine-small_size' ) ); ?>"/>
+							</figure>
+							<?php
+						} else {
+							?>
+							<div class="no-image">
+								<p>No image assigned</p>
+							</div>
+							<?php
+						}
+						?>
 					</div>
 					<?php
 				} else {

@@ -4,6 +4,7 @@
 }
 
 .featured-post-single {
+	display: flex;
 	border: 1px solid #e5e5e5;
 	background: #fcfcfc;
 	cursor: move;
@@ -12,8 +13,28 @@
 	padding: 0 .5em;
 }
 
+.featured-post-single figure {
+	width: 40%;
+	margin: 1em 0 .5em;
+}
+
 .featured-post-single p {
-	padding: 0;
+	padding: 0 .5em 0 0;
+	width: 80%;
+}
+
+.featured-post-single .no-image {
+	border: 1px solid #ccc;
+	width: 40%;
+	margin: 1em 0 .5em 0;
+	height: 52px;
+}
+
+.featured-post-single .no-image p {
+	margin-top: 0;
+	padding: .5em;
+	color: #393939;
+	text-align: center;
 }
 
 .page-curation li {
