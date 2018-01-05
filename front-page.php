@@ -62,9 +62,9 @@ get_header();
 	}
 
 	?>
-		<section class="row side-right gutter pad-top news-features">
-			<div class="column one">
-				<div class="deck">
+		<section class="row single gutter pad-top news-features">
+			<div class="column one multi-deck">
+				<div class="deck deck-features">
 					<?php
 					if ( $featured_posts->have_posts() ) {
 						while ( $featured_posts->have_posts() ) {
@@ -76,12 +76,7 @@ get_header();
 					wp_reset_postdata(); // $featured_posts is a \WP_Query object.
 				?>
 				</div>
-				<div class="deck deck--wsu-news">
-					<header class="deck-header card-categories">From WSU News</header>
-					<?php echo do_shortcode( '[wsuwp_json output="wsu-news" site="news.wsu.edu" count="3"]' ); ?>
-				</div>
-			</div>
-			<div class="column two">
+
 				<div class="deck deck--numbered-list">
 					<header class="deck-header">Good to Know</header>
 					<?php
@@ -96,6 +91,11 @@ get_header();
 					$is_good_to_know = false;
 					wp_reset_postdata();
 					?>
+				</div>
+
+				<div class="deck deck--wsu-news">
+					<header class="deck-header card-categories">From WSU News</header>
+					<?php echo do_shortcode( '[wsuwp_json output="wsu-news" site="news.wsu.edu" count="3"]' ); ?>
 				</div>
 			</div>
 		</section>
