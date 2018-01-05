@@ -37,4 +37,11 @@ jQuery( document ).ready( function( $ ) {
 	featured_posts.sortable();
 
 	featured_posts.bind( "sortstop", process_featured_posts );
+
+	$( featured_posts ).on( "click", ".remove-featured", function( e ) {
+		e.preventDefault();
+		$( this ).parent().remove();
+		process_featured_posts();
+		featured_posts.append( "<div class=\"featured-post-empty\">No featured post selected for this area.</div>" );
+	} );
 } );

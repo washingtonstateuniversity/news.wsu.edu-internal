@@ -3,6 +3,10 @@
 	margin-top: 15px;
 }
 
+.featured-post-empty {
+	display: none;
+}
+
 .featured-post-single {
 	display: flex;
 	position: relative;
