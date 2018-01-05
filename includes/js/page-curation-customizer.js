@@ -24,7 +24,7 @@ jQuery( document ).ready( function( $ ) {
 	page_curation.bind( "sortstop", process_value );
 	$( ".page-curation input" ).on( "change", process_value );
 
-	let process_featured_posts = function ( ) {
+	let process_featured_posts = function( ) {
 		let post_ids = [];
 		featured_posts.find( ".featured-post-single" ).each( function() {
 			post_ids.push( $( this ).data( "featured-post-id" ) );
