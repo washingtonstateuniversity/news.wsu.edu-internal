@@ -39,44 +39,6 @@ class Featured_Posts_Control extends \WP_Customize_Control {
 		<?php endif;
 		?>
 
-		<!-- These styles were copied directly from WordPress core and may need to be adjusted -->
-		<style>
-			input[type="text"].ui-autocomplete-loading {
-				background-image: url(../images/loading.gif); /* This definitely needs to be adjusted */
-				background-repeat: no-repeat;
-				background-position: right center;
-				visibility: visible;
-			}
-
-			input.ui-autocomplete-input.open {
-				border-bottom-color: transparent;
-			}
-
-			.ui-autocomplete {
-				z-index: 500110;
-				padding: 0;
-				margin: 0;
-				list-style: none;
-				position: absolute;
-				border: 1px solid #5b9dd9;
-				box-shadow: 0 1px 2px rgba( 30, 140, 190, 0.8 );
-				background-color: #fff;
-			}
-
-			.ui-autocomplete li {
-				margin-bottom: 0;
-				padding: 4px 10px;
-				white-space: nowrap;
-				text-align: left;
-				cursor: pointer;
-			}
-
-			/* Colors for the wplink toolbar autocomplete. */
-			.ui-autocomplete .ui-state-focus {
-				background-color: #ddd;
-			}
-		</style>
-
 		<div class="featured-post-selection">
 			<label for="featured-post-title">Find featured story</label>
 			<input id="featured-post-title" type="text" value="" />
