@@ -35,7 +35,7 @@ jQuery( document ).ready( function( $ ) {
 	let featured_posts = $( ".selected-featured-posts" );
 
 	featured_posts.sortable( {
-		start: function(e, ui){
+		start: function( e, ui ) {
 			ui.placeholder.height( ui.item.height() );
 		}
 	} );
