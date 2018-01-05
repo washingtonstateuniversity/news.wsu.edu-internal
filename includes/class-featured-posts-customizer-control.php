@@ -66,6 +66,7 @@ class Featured_Posts_Control extends \WP_Customize_Control {
 							<?php
 						}
 						?>
+						<button class="remove-featured">Remove</button>
 					</div>
 					<?php
 				} else {

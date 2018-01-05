@@ -5,12 +5,25 @@
 
 .featured-post-single {
 	display: flex;
+	position: relative;
+	flex-wrap: wrap;
 	border: 1px solid #e5e5e5;
 	background: #fcfcfc;
 	cursor: move;
 	color: #222;
 	margin-bottom: 1em;
-	padding: 0 .5em;
+	padding: 0 .5em 1.75em 0;
+}
+
+.remove-featured {
+	position: absolute;
+	bottom: .25em;
+	right: 0.75em;
+	width: 36%;
+	height: 25px;
+	margin: 0;
+	padding-right: 0;
+	padding-left: 0;
 }
 
 [type="text"].ui-autocomplete-loading {
@@ -49,18 +62,18 @@ input.ui-autocomplete-input.open {
 }
 
 .featured-post-single figure {
-	width: 40%;
+	width: 35%;
 	margin: 1em 0 .5em;
 }
 
 .featured-post-single p {
 	padding: 0 .5em 0 0;
-	width: 80%;
+	width: 60%;
 }
 
 .featured-post-single .no-image {
 	border: 1px solid #ccc;
-	width: 40%;
+	width: 35%;
 	margin: 1em 0 .5em 0;
 	height: 52px;
 }
@@ -70,6 +83,7 @@ input.ui-autocomplete-input.open {
 	padding: .5em;
 	color: #393939;
 	text-align: center;
+	width: auto;
 }
 
 .page-curation li {
