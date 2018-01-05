@@ -5,5 +5,5 @@ if ( is_front_page() ) {
 }
 ?>
 <header class="site-header">
-	<div class="site-title">WSU Insider beta</div>
+	<a href="https://news.wsu.edu/insider/" class="site-title">WSU Insider beta</a>
 </header>
