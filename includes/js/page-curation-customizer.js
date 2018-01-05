@@ -34,7 +34,11 @@ jQuery( document ).ready( function( $ ) {
 	};
 	let featured_posts = $( ".selected-featured-posts" );
 
-	featured_posts.sortable();
+	featured_posts.sortable( {
+		start: function(e, ui){
+			ui.placeholder.height( ui.item.height() );
+		}
+	} );
 
 	featured_posts.bind( "sortstop", process_featured_posts );
 
