@@ -15,15 +15,22 @@ html {
 .site-header {
 	background-color: #fff;
 	box-sizing: border-box;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: end;
+	    -ms-flex-pack: end;
+	        justify-content: flex-end;
 	margin-left: 198px;
 	padding: 2rem;
 }
 
 .site-title {
-	background-image: url(images/wsu-insider-beta.svg);
-	background-position: right;
+	background-image: url(images/wsu-insider-mark.svg);
 	background-repeat: no-repeat;
+	display: block;
 	height: 2rem;
+	width: 320px;
 	position: relative;
 	text-indent: -9999px;
 }
@@ -194,7 +201,7 @@ main figure > a {
 	-webkit-columns: auto;
 	        columns: auto;
 	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-	grid-gap: 2rem;
+	grid-column-gap: 2rem;
 }
 
 /* - allow aligning elements within an item - */
@@ -222,38 +229,38 @@ main figure > a {
 }
 
 /* featured item */
-.deck--featured .card:first-child {
+.deck--featured .card {
 	grid-column-start: 1;
 	grid-column-end: -1;
 }
 
-.deck--featured .card:first-child figure {
+.deck--featured .card figure {
 	float: right;
 	padding-left: 1rem;
 	width: 50%;
 }
 
-.deck--featured .card:first-child figure img {
+.deck--featured .card figure img {
 	width: 100%;
 }
 
-.deck--featured .card:first-child .card-title,
-.deck--featured .card:first-child .card-categories,
-.deck--featured .card:first-child .card-excerpt {
+.deck--featured .card .card-title,
+.deck--featured .card .card-categories,
+.deck--featured .card .card-excerpt {
 	display: block;
 	padding-right: 1rem;
 	width: 50%;
 }
 
-.deck--featured .card:first-child .card-excerpt {
+.deck--featured .card .card-excerpt {
 	font-size: 18px;
 }
 
-.deck--featured .card:first-child .card-title {
+.deck--featured .card .card-title {
 	line-height: 1.05;
 }
 
-main .deck--featured .card:first-child .card-title a:after {
+main .deck--featured .card .card-title a:after {
 	background-size: 45%;
 }
 
@@ -299,6 +306,24 @@ main .deck--featured .card:first-child .card-title a:after {
 	position: absolute;
 	bottom: 0;
 	left: 0;
+}
+
+/* --- deck header --- */
+.deck-header {
+	grid-column-start: 1;
+	grid-column-end: last;
+	margin: 3rem 0 1.5rem;
+}
+
+/* --- deck--numbered-list --- */
+.deck.deck--numbered-list {
+	display: block;
+	border-left: 1px solid rgba(0, 0, 0, .1);
+	padding-left: 1.5rem;
+}
+
+.deck--numbered-list .deck-header {
+	margin: 0 0 3rem;
 }
 
 /* --- home page --- */
@@ -584,6 +609,61 @@ main textarea {
 	        appearance: none;
 	box-shadow: none;
 	text-indent: 10px;
+}
+
+/* --- Good to know --- */
+.deck--numbered-list {
+	counter-reset: sheet-count;
+}
+
+.deck--numbered-list .deck-header {
+	color: #be000f;
+	font-size: 2.35rem;
+	font-style: italic;
+	font-weight: 900;
+}
+
+.deck--numbered-list .card-title,
+.deck--numbered-list .card-title a {
+	font-size: 1.25rem;
+	font-weight: 400;
+}
+
+.deck--numbered-list article {
+	padding-left: 3.5rem;
+	margin-bottom: 2rem;
+}
+
+.deck--numbered-list .card-title a:before {
+	counter-increment: sheet-count;
+	content: counter(sheet-count);
+	position: absolute;
+	left: 2.5rem;
+	height: 2.5rem;
+	width: 2.5rem;
+	background: #820c23;
+	border-radius: 2rem;
+	text-align: center;
+	color: #fff;
+	font-weight: 900;
+	font-size: 1.5rem;
+	padding-top: .3rem;
+}
+
+.deck--numbered-list article:nth-child(3) .card-title a:before {
+	background: #a60f2d;
+}
+
+.deck--numbered-list article:nth-child(4) .card-title a:before {
+	background: #be000f;
+}
+
+.deck--numbered-list article:nth-child(5) .card-title a:before {
+	background: #da1e00;
+}
+
+.deck--numbered-list article:nth-child(6) .card-title a:before {
+	background: #f95735;
 }
 
 /* - MailChimp embed - */
