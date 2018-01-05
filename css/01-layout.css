@@ -5,15 +5,18 @@ html {
 .site-header {
 	background-color: #fff;
 	box-sizing: border-box;
+	display: flex;
+	justify-content: flex-end;
 	margin-left: 198px;
 	padding: 2rem;
 }
 
 .site-title {
-	background-image: url(images/wsu-insider-beta.svg);
-	background-position: right;
+	background-image: url(images/wsu-insider-mark.svg);
 	background-repeat: no-repeat;
+	display: block;
 	height: 2rem;
+	width: 320px;
 	position: relative;
 	text-indent: -9999px;
 }
