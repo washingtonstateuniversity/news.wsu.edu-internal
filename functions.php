@@ -1,11 +1,11 @@
 <?php
 
-include_once __DIR__ . '/includes/theme-images.php';
-include_once __DIR__ . '/includes/content-syndicate.php';
-include_once __DIR__ . '/includes/page-curation.php';
-include_once __DIR__ . '/includes/page-curation-customizer.php';
-include_once __DIR__ . '/includes/featured-stories.php';
-include_once __DIR__ . '/includes/mailchimp.php';
+require_once __DIR__ . '/includes/theme-images.php';
+require_once __DIR__ . '/includes/content-syndicate.php';
+require_once __DIR__ . '/includes/page-curation.php';
+require_once __DIR__ . '/includes/page-curation-customizer.php';
+require_once __DIR__ . '/includes/featured-stories.php';
+require_once __DIR__ . '/includes/mailchimp.php';
 
 add_filter( 'spine_child_theme_version', 'internal_news_theme_version' );
 /**

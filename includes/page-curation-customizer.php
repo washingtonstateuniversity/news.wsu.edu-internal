@@ -178,7 +178,7 @@ function enqueue_scripts() {
  * @since 0.5.0
  */
 function enqueue_styles() {
-	wp_enqueue_style( 'page-curation-customizer',  esc_url( get_stylesheet_directory_uri() . '/includes/css/page-curation-customizer.css' ), '', spine_get_child_version() );
+	wp_enqueue_style( 'page-curation-customizer', esc_url( get_stylesheet_directory_uri() . '/includes/css/page-curation-customizer.css' ), '', spine_get_child_version() );
 }
 
 /**
