@@ -254,6 +254,27 @@ main .deck--featured .card .card-title a:after {
 }
 
 /* --- multi deck --- */
+.deck-features,
+.deck--wsu-news {
+	float: left;
+	width: 66%;
+}
+
+.deck--numbered-list {
+	float: right;
+	width: 34%;
+}
+
+@supports (display: grid) {
+
+	.deck-features,
+	.deck--wsu-news,
+	.deck--numbered-list {
+		float: none;
+		width: auto;
+	}
+}
+
 #binder .row.news-features .column.multi-deck {
 	display: grid;
 	grid-gap: 2rem;
@@ -267,6 +288,13 @@ main .deck--featured .card .card-title a:after {
 
 .deck.deck--wsu-news {
 	grid-area: news;
+}
+
+@media screen and (max-width: 800px) {
+
+	#binder .row.news-features .column.multi-deck {
+		grid-template-columns: 50% 50%;
+	}
 }
 
 @media screen and (max-width: 700px) {
