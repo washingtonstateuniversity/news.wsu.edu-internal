@@ -71,7 +71,7 @@ class Customizer_Control extends \WP_Customize_Control {
 		<ul class="page-curation">
 			<?php
 			foreach ( $section_settings as $slug => $settings ) {
-				$settings = $this->_apply_unset_defaults( $settings );
+				$settings = $this->apply_unset_defaults( $settings );
 				?>
 				<li id="section-<?php echo esc_attr( $slug ); ?>" class="page-curation-section">
 					<div class="section-title"><?php echo esc_html( $settings['name'] ); ?></div>
@@ -101,7 +101,7 @@ class Customizer_Control extends \WP_Customize_Control {
 	 *
 	 * @return array The modified setting with defaults as required.
 	 */
-	private function _apply_unset_defaults( $setting ) {
+	private function apply_unset_defaults( $setting ) {
 		$defaults = array(
 			'name' => 'Unknown',
 			'count' => 4,
