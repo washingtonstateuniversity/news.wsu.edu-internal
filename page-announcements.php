@@ -8,11 +8,17 @@
 		<div class="column one">
 			<div class="deck deck--list">
 				<?php
-				$announcements = wp_remote_get( 'https://news.wsu.edu/wp-json/insider/v1/announcements' );
-				if ( is_wp_error( $announcements ) ) {
-					$announcements = array();
-				} else {
-					$announcements = json_decode( wp_remote_retrieve_body( $announcements ) );
+				$announcements = wp_cache_get( 'announcements_feed' );
+				if ( ! $announcements ) {
+					$announcements = wp_remote_get( 'https://news.wsu.edu/wp-json/insider/v1/announcements' );
+
+					if ( is_wp_error( $announcements ) ) {
+						$announcements = array();
+						wp_cache_set( 'announcements_feed', $announcements, '', 60 );
+					} else {
+						$announcements = json_decode( wp_remote_retrieve_body( $announcements ) );
+						wp_cache_set( 'announcements_feed', $announcements, '', 7200 );
+					}
 				}
 
 				foreach ( $announcements as $announcement ) {
