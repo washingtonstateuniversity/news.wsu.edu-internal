@@ -1,8 +1,20 @@
 <?php
-global $is_top_feature, $is_river, $is_good_to_know;
+global $is_top_feature, $is_river, $is_good_to_know, $is_read_more;
 ?>
 <article class="card card--news">
-	<?php if ( ! is_category() && ! is_front_page() ) { ?>
+	<?php if ( is_front_page() && $is_top_feature ) { ?>
+	<span class="card-categories"><?php
+	$category_html = '';
+	foreach ( get_the_category() as $category ) {
+		$category_html .= ' ' . esc_html( $category->cat_name ) . ',';
+	}
+	$category_html = trim( $category_html );
+	$category_html = rtrim( $category_html, ',' );
+	echo $category_html; // @codingStandardsIgnoreLine
+	?></span>
+	<?php } ?>
+
+	<?php if ( ( ! is_category() && ! is_front_page() ) ) { ?>
 	<span class="card-categories"><?php
 	$category_html = '';
 	foreach ( get_the_category() as $category ) {
@@ -32,5 +44,9 @@ global $is_top_feature, $is_river, $is_good_to_know;
 	<div class="card-excerpt">
 		<?php the_excerpt(); ?>
 	</div>
+	<?php } ?>
+
+	<?php if ( $is_read_more ) { ?>
+	<a href="<?php the_permalink(); ?>" class="card-cta button">Read more</a>
 	<?php } ?>
 </article>
