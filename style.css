@@ -872,9 +872,10 @@ main .card-title a:after {
 }
 
 main .card-title a:after {
-	background-position: .1em;
+	background-position: .2em;
 	background-size: 70%;
 	margin: 0 0 -.05em .1em;
+	position: absolute;
 }
 
 article header time:before,
