@@ -55,7 +55,7 @@ function get_gtk_posts( $output = 'ids' ) {
 	$args = array(
 		'post_type' => 'post',
 		'post_status' => 'publish',
-		'posts_per_page' => 4,
+		'posts_per_page' => 5,
 	);
 
 	$gtk_post_ids = get_option( 'gtk_posts', false );
