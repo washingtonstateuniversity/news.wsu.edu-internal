@@ -5,7 +5,7 @@
  Author:         WSU University Communications
  Author URI:     https://web.wsu.edu
  Template:       spine
- Version:        0.5.4
+ Version:        0.6.1
 */
 
 html {
@@ -66,7 +66,7 @@ main section.bg-none {
 }
 
 .single-post #binder .single .column.one {
-	padding: 3rem 3rem 0;
+	padding: 0 3rem;
 }
 
 .single-post .article-container {
@@ -293,9 +293,9 @@ main .deck--featured .card .card-title a:after {
 
 #binder .row.news-features .column.multi-deck {
 	display: grid;
-	grid-gap: 2rem;
+	grid-gap: 1.5rem;
 	grid-template-areas: "feature cheat" "news cheat";
-	grid-template-columns: 66% 34%;
+	grid-template-columns: 75% 25%;
 }
 
 .card--features {
@@ -306,7 +306,7 @@ main .deck--featured .card .card-title a:after {
 	grid-area: news;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 850px) {
 
 	#binder .row.news-features .column.multi-deck {
 		grid-template-columns: 50% 50%;
@@ -369,7 +369,7 @@ main .deck--featured .card .card-title a:after {
 	display: block;
 	border-left: 1px solid rgba(0, 0, 0, .1);
 	grid-area: cheat;
-	padding: 0 2rem 0 1.5rem;
+	padding: 0 1rem 0 1.5rem;
 }
 
 .deck--numbered-list .deck-header {
@@ -536,12 +536,18 @@ h5 {
 }
 
 h1 {
-	font-size: 72px;
+	font-size: 2.8rem;
+	line-height: 1.1;
+}
+
+.category h1 {
+	font-size: 4.5rem;
 }
 
 h2,
 .deck--featured .card:first-child .card-title {
-	font-size: 40px;
+	font-size: 2rem;
+	line-height: 1.1;
 }
 
 header h2 {
@@ -569,12 +575,12 @@ h6 {
 @media screen and (max-width: 700px) {
 
 	h1 {
-		font-size: 3rem;
+		font-size: 2.25rem;
 	}
 
 	h2,
 	.deck--featured .card:first-child .card-title {
-		font-size: 2rem;
+		font-size: 1.8rem;
 	}
 
 	h3,
@@ -701,7 +707,7 @@ main textarea {
 
 .deck--numbered-list .deck-header {
 	color: #be000f;
-	font-size: 2.35rem;
+	font-size: 2rem;
 	font-style: italic;
 	font-weight: 900;
 }
@@ -840,6 +846,7 @@ main .card-title a:hover {
 
 .top-head p {
 	line-height: 1.5;
+	margin-left: .25rem;
 }
 
 .head-beta {

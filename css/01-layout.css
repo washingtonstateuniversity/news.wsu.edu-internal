@@ -52,7 +52,7 @@ main section.bg-none {
 }
 
 .single-post #binder .single .column.one {
-	padding: 3rem 3rem 0;
+	padding: 0 3rem;
 }
 
 .single-post .article-container {
@@ -277,9 +277,9 @@ main .deck--featured .card .card-title a:after {
 
 #binder .row.news-features .column.multi-deck {
 	display: grid;
-	grid-gap: 2rem;
+	grid-gap: 1.5rem;
 	grid-template-areas: "feature cheat" "news cheat";
-	grid-template-columns: 66% 34%;
+	grid-template-columns: 75% 25%;
 }
 
 .card--features {
@@ -290,7 +290,7 @@ main .deck--featured .card .card-title a:after {
 	grid-area: news;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 850px) {
 
 	#binder .row.news-features .column.multi-deck {
 		grid-template-columns: 50% 50%;
@@ -353,7 +353,7 @@ main .deck--featured .card .card-title a:after {
 	display: block;
 	border-left: 1px solid rgba(0, 0, 0, .1);
 	grid-area: cheat;
-	padding: 0 2rem 0 1.5rem;
+	padding: 0 1rem 0 1.5rem;
 }
 
 .deck--numbered-list .deck-header {
