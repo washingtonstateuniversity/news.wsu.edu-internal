@@ -51,9 +51,11 @@ get_header();
 					<?php
 					while ( $featured_posts->have_posts() ) {
 						$is_read_more = true;
+						$is_top_feature = true;
 						$featured_posts->the_post();
 						$skip_post_ids[] = get_the_ID();
 						get_template_part( 'parts/card-content' );
+						$is_top_feature = false;
 						$is_read_more = false;
 						break;
 					}
@@ -70,11 +72,13 @@ get_header();
 				<div class="deck deck-features">
 					<?php
 					if ( $featured_posts->have_posts() ) {
+						$is_top_feature = true;
 						while ( $featured_posts->have_posts() ) {
 							$featured_posts->the_post();
 							$skip_post_ids[] = get_the_ID();
 							get_template_part( 'parts/card-content' );
 						}
+						$is_top_feature = false;
 					}
 					wp_reset_postdata(); // $featured_posts is a \WP_Query object.
 				?>
