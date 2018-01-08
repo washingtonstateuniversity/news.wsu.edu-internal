@@ -1,7 +1,7 @@
 <?php
 
 get_header();
-global $is_top_feature, $is_river;
+global $is_top_feature, $is_river, $is_good_to_know;
 ?>
 	<main id="wsuwp-main" class="spine-category-index">
 
@@ -25,6 +25,7 @@ global $is_top_feature, $is_river;
 						$skip_post_id[] = get_post()->ID;
 						$is_top_feature = true;
 						$is_river = false;
+						$is_good_to_know = false;
 						get_template_part( 'parts/card-content' );
 						?>
 
