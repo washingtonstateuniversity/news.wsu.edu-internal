@@ -1,5 +1,5 @@
 <?php
-global $is_top_feature, $is_river, $is_good_to_know;
+global $is_top_feature, $is_river, $is_good_to_know, $is_read_more;
 ?>
 <article class="card card--news">
 	<?php if ( ! is_category() && ! is_front_page() ) { ?>
@@ -32,5 +32,9 @@ global $is_top_feature, $is_river, $is_good_to_know;
 	<div class="card-excerpt">
 		<?php the_excerpt(); ?>
 	</div>
+	<?php } ?>
+
+	<?php if ( $is_read_more ) { ?>
+	<a href="<?php the_permalink(); ?>" class="card-cta button">Read more</a>
 	<?php } ?>
 </article>
