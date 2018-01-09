@@ -39,7 +39,10 @@ function rest_search_featured( $request ) {
 
 	$results = new \WP_Query( array(
 		'post_type' => array( 'post' ),
-		'post_status' => 'publish',
+		'post_status' => array(
+			'publish',
+			'future',
+		),
 		'posts_per_page' => 20,
 		's' => sanitize_text_field( $request['term'] ),
 	) );

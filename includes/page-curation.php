@@ -54,7 +54,10 @@ function get_sections() {
 function get_gtk_posts( $output = 'ids' ) {
 	$args = array(
 		'post_type' => 'post',
-		'post_status' => 'publish',
+		'post_status' => array(
+			'publish',
+			'future',
+		),
 		'posts_per_page' => 5,
 	);
 
@@ -88,7 +91,10 @@ function get_gtk_posts( $output = 'ids' ) {
 function get_featured_posts( $output = 'ids' ) {
 	$args = array(
 		'post_type' => 'post',
-		'post_status' => 'publish',
+		'post_status' => array(
+			'publish',
+			'future',
+		),
 		'posts_per_page' => 4,
 	);
 
