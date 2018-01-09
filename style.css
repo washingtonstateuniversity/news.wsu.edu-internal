@@ -373,6 +373,7 @@ main .deck--featured .card .card-title a:after {
 }
 
 .deck--numbered-list .deck-header {
+	display: block;
 	margin: 0 0 3rem;
 }
 
