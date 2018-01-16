@@ -10,6 +10,11 @@ global $is_top_feature, $is_river, $is_good_to_know;
 		</header>
 		<?php
 
+		// Explicitly set globals - they're compared strictly in parts/card-content.php
+		$is_top_feature = false;
+		$is_good_to_know = false;
+		$is_river = false;
+
 		$skip_post_id = array();
 		if ( have_posts() ) {
 			?>
@@ -24,8 +29,6 @@ global $is_top_feature, $is_river, $is_good_to_know;
 						<?php
 						$skip_post_id[] = get_post()->ID;
 						$is_top_feature = true;
-						$is_river = false;
-						$is_good_to_know = false;
 						get_template_part( 'parts/card-content' );
 						?>
 
@@ -40,7 +43,7 @@ global $is_top_feature, $is_river, $is_good_to_know;
 		}
 
 		$is_top_feature = false;
-		$is_river = false;
+
 		$archive_query = new WP_Query( array(
 			'posts_per_page' => 20, // Start with a high number until pagination.
 			'category_name' => get_query_var( 'category_name' ),
