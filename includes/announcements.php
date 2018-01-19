@@ -329,3 +329,91 @@ function filter_archive_query( $wp_query ) {
 		$wp_query->set( 'posts_per_page', '-1' );
 	}
 }
+
+/**
+ * Generate the URLs used to view previous and next date archives.
+ *
+ * @since 0.7.0
+ *
+ * @param string $date
+ *
+ * @return array
+ */
+function get_date_archive_pagination_urls( $date ) {
+	$days = 1;
+
+	while ( $days <= 9 ) {
+		$previous_day = date( 'j', strtotime( $date ) - ( DAY_IN_SECONDS * $days ) );
+		$previous_month = date( 'm', strtotime( $date ) - ( DAY_IN_SECONDS * $days ) );
+		$previous_year = date( 'Y', strtotime( $date ) - ( DAY_IN_SECONDS * $days ) );
+
+		$previous_check = get_posts( array(
+			'post_type' => get_post_type_slug(),
+			'posts_per_page' => 1,
+			'fields' => 'ids',
+			'date_query' => array(
+				'year' => $previous_year,
+				'month' => $previous_month,
+				'day' => $previous_day,
+			),
+		) );
+
+		if ( 0 < count( $previous_check ) ) {
+			break;
+		}
+
+		$days++;
+	}
+
+	$days = 1;
+
+	while ( $days <= 9 ) {
+		if ( is_post_type_archive( get_post_type_slug() ) && ! is_day() ) {
+			$next_check = array();
+			break;
+		}
+
+		if ( strtotime( $date ) > ( time() - DAY_IN_SECONDS ) ) {
+			$next_check = array();
+			break;
+		}
+
+		$next_day = date( 'j', strtotime( $date ) + ( DAY_IN_SECONDS * $days ) );
+		$next_month = date( 'm', strtotime( $date ) + ( DAY_IN_SECONDS * $days ) );
+		$next_year = date( 'Y', strtotime( $date ) + ( DAY_IN_SECONDS * $days ) );
+
+		$next_check = get_posts( array(
+			'post_type' => get_post_type_slug(),
+			'posts_per_page' => 1,
+			'fields' => 'ids',
+			'date_query' => array(
+				'year' => $next_year,
+				'month' => $next_month,
+				'day' => $next_day,
+			),
+		) );
+
+		if ( 0 < count( $next_check ) ) {
+			break;
+		}
+
+		$days++;
+	}
+
+	if ( 0 !== count( $previous_check ) ) {
+		$previous_url = home_url( 'announcements/' . $previous_year . '/' . $previous_month . '/' . $previous_day );
+	} else {
+		$previous_url = false;
+	}
+
+	if ( 0 !== count( $next_check ) ) {
+		$next_url = home_url( 'announcements/' . $next_year . '/' . $next_month . '/' . $next_day );
+	} else {
+		$next_url = false;
+	}
+
+	return array(
+		'previous' => $previous_url,
+		'next' => $next_url,
+	);
+}

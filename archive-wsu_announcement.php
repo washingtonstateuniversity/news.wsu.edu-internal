@@ -11,7 +11,7 @@ $is_read_more = false;
 	<main id="wsuwp-main" class="spine-category-index">
 
 		<header class="page-header">
-			<h1><?php echo esc_html( 'Announcements Archive' ); ?></h1>
+			<h1><?php echo esc_html( ' Announcements ' . get_the_date() ); ?></h1>
 		</header>
 
 		<section class="row single gutter pad-top news-river">
@@ -36,13 +36,19 @@ $is_read_more = false;
 			</div>
 		</section>
 
+		<?php
+		$pagination = WSU\News\Internal\Announcements\get_date_archive_pagination_urls( get_the_date() );
+		?>
+
 		<footer class="main-footer archive-footer">
-			<section class="row side-right pager prevnext gutter">
+			<section class="row single pager prevnext gutter">
 				<div class="column one">
-					<?php echo paginate_links( $args ); // @codingStandardsIgnoreLine ?>
-				</div>
-				<div class="column two">
-					<!-- intentionally empty -->
+					<div class="pagination-previous">
+						<?php if ( $pagination['previous'] ) : ?><a href="<?php echo esc_url( $pagination['previous'] ); ?>">Previous Day</a><?php endif; ?>
+					</div>
+					<div class="pagination-next">
+						<?php if ( $pagination['next'] ) : ?><a href="<?php echo esc_url( $pagination['next'] ); ?>">Next Day</a><?php endif; ?>
+					</div>
 				</div>
 			</section><!--pager-->
 		</footer>
