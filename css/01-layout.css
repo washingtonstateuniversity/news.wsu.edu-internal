@@ -59,6 +59,7 @@ main section.bg-none {
 	padding-bottom: 0;
 }
 
+.single-wsu_announcement .article-container article,
 .single-post .article-container article {
 	width: 70%;
 }
@@ -114,6 +115,10 @@ figure img,
 
 .social-share-bar li:first-of-type {
 	margin-left: 0;
+}
+
+.single-wsu_announcement .wsu_announcement {
+	min-height: 50vh;
 }
 
 .single-post .article-body {
