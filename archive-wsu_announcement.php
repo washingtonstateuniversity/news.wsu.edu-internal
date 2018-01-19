@@ -20,27 +20,18 @@ $is_read_more = false;
 
 				<div class="deck deck--list">
 
-				<?php
+					<?php
 
-				if ( have_posts() ) {
-					while ( have_posts() ) {
-						the_post();
+					if ( have_posts() ) {
+						while ( have_posts() ) {
+							the_post();
 
-						get_template_part( 'parts/card-content' );
+							get_template_part( 'parts/card-content' );
+						}
 					}
-				}
 
-				/* @type WP_Query $wp_query */
-				global $wp_query;
+					?>
 
-				$big = 99164;
-				$args = array(
-					'base'         => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-					'format'       => 'page/%#%',
-					'total'        => $wp_query->max_num_pages, // Provide the number of pages this query expects to fill.
-					'current'      => max( 1, get_query_var( 'paged' ) ), // Provide either 1 or the page number we're on.
-				);
-				?>
 				</div>
 			</div>
 		</section>
