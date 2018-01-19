@@ -320,8 +320,8 @@ function filter_archive_query( $wp_query ) {
 		$date_query = array(
 			array(
 				'month' => date( 'n', current_time( 'timestamp' ) ),
-				'day' => date( 'j', current_time( 'timestamp' ) )
-			)
+				'day' => date( 'j', current_time( 'timestamp' ) ),
+			),
 		);
 		$wp_query->set( 'date_query', $date_query );
 		$wp_query->set( 'posts_per_page', '-1' );
