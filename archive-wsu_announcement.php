@@ -43,11 +43,13 @@ $is_read_more = false;
 		<footer class="main-footer archive-footer">
 			<section class="row single pager prevnext gutter">
 				<div class="column one">
-					<div class="pagination-previous">
-						<?php if ( $pagination['previous'] ) : ?><a href="<?php echo esc_url( $pagination['previous'] ); ?>">Previous Day</a><?php endif; ?>
-					</div>
-					<div class="pagination-next">
-						<?php if ( $pagination['next'] ) : ?><a href="<?php echo esc_url( $pagination['next'] ); ?>">Next Day</a><?php endif; ?>
+					<div class="pagination">
+						<div class="pagination-previous">
+							<?php if ( $pagination['previous'] ) : ?><a href="<?php echo esc_url( $pagination['previous'] ); ?>">Previous Day</a><?php endif; ?>
+						</div>
+						<div class="pagination-next">
+							<?php if ( $pagination['next'] ) : ?><a href="<?php echo esc_url( $pagination['next'] ); ?>">Next Day</a><?php endif; ?>
+						</div>
 					</div>
 				</div>
 			</section><!--pager-->

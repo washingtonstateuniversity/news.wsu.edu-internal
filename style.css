@@ -381,6 +381,26 @@ main .deck--featured .card .card-title a:after {
 	position: relative;
 }
 
+.pagination {
+	max-width: 584px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.pagination-next,
+.pagination-previous {
+	width: 50%;
+}
+
+.pagination-previous {
+	text-align: left;
+}
+
+.pagination-next {
+	text-align: right;
+}
+
 @media screen and (max-width: 693px) {
 
 	#binder .row.news-features .column.multi-deck {
@@ -446,6 +466,7 @@ main .bottom-divider {
 
 @media screen and (max-width: 693px) {
 
+	.pagination,
 	.single-post .article-container article {
 		width: 100%;
 	}
