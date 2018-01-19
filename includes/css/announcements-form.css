@@ -8,9 +8,20 @@
 	width: 100%;
 }
 
+.announcement-form label {
+	font-size: 1rem;
+	padding-bottom: .25em;
+}
+
 #wp-announcement-form-text-wrap,
 #announcement-form-title {
 	width: 640px;
+	margin-bottom: 1em;
+}
+
+#announcement-form-email,
+#announcement-form-title {
+	font-size: 1rem;
 }
 
 #announcement-form-email,
@@ -21,15 +32,6 @@
 /* Hide the honeypot */
 #announcement-other-wrap {
 	display: none;
-}
-
-.announcement-success {
-	width: 95%;
-	height: 25px;
-	background: #ececec;
-	display: block;
-	padding-left: 10px;
-	line-height: 25px;
 }
 
 .announcement-form-date-input {

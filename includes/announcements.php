@@ -244,6 +244,7 @@ function output_submission_form() {
 				'dfw'           => false,
 				'tinymce'       => array(
 					'theme_advanced_disable' => 'wp_more, fullscreen, wp_help',
+					'content_css' => get_stylesheet_directory_uri() . '/style.css',
 				),
 				'quicktags'     => false,
 			);
