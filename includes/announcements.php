@@ -171,7 +171,7 @@ function ajax_callback() {
 		$user_id = $user->ID;
 	}
 
-	$post_date = date( 'Y-m-d H:i:s', strtotime( $_POST['date'] ) ); // WPCS: Ok.
+	$post_date = date( 'Y-m-d H:i:s', strtotime( $_POST['date'] ) ); // WPCS: CSRF Ok.
 	$post_date_gmt = get_gmt_from_date( $post_date );
 
 	$post_data = array(
