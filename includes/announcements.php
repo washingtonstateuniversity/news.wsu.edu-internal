@@ -13,6 +13,7 @@ add_filter( 'manage_edit-' . get_post_type_slug() . '_columns', 'WSU\News\Intern
 add_action( 'wp_ajax_submit_announcement', 'WSU\News\Internal\Announcements\ajax_callback' );
 add_action( 'wp_ajax_nopriv_submit_announcement', 'WSU\News\Internal\Announcements\ajax_callback' );
 add_shortcode( 'wsu_announcement_form', 'WSU\News\Internal\Announcements\output_submission_form' );
+add_action( 'pre_get_posts', 'WSU\News\Internal\Announcements\filter_archive_query' );
 
 /**
  * Register the post type used for announcements.
@@ -268,4 +269,25 @@ function output_submission_form() {
 	ob_end_clean();
 
 	return $output;
+}
+
+/**
+ *
+ * @since 0.7.0
+ *
+ * @param \WP_Query $wp_query
+ */
+function filter_archive_query( $wp_query ) {
+	if ( ! $wp_query->is_post_type_archive( get_post_type_slug() ) ) {
+		return;
+	}
+
+	$date_query = array(
+		array(
+			'month' => date( 'n', current_time( 'timestamp' ) ),
+			'day' => date( 'j', current_time( 'timestamp' ) )
+		)
+	);
+	$wp_query->set( 'date_query', $date_query );
+	$wp_query->set( 'posts_per_page', '-1' );
 }
