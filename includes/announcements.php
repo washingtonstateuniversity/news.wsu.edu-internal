@@ -13,6 +13,7 @@ add_filter( 'manage_edit-' . get_post_type_slug() . '_columns', 'WSU\News\Intern
 add_action( 'wp_ajax_submit_announcement', 'WSU\News\Internal\Announcements\ajax_callback' );
 add_action( 'wp_ajax_nopriv_submit_announcement', 'WSU\News\Internal\Announcements\ajax_callback' );
 add_shortcode( 'wsu_announcement_form', 'WSU\News\Internal\Announcements\output_submission_form' );
+add_action( 'generate_rewrite_rules', 'WSU\News\Internal\Announcements\generate_date_archive_rewrite_rules', 10, 1 );
 add_action( 'pre_get_posts', 'WSU\News\Internal\Announcements\filter_archive_query' );
 
 /**
@@ -272,22 +273,59 @@ function output_submission_form() {
 }
 
 /**
+ * Generate day based archive rewrite rules for announcements.
+ *
+ * @since 0.7.0
+ *
+ * @param \WP_Rewrite $wp_rewrite
+ *
+ * @return \WP_Rewrite
+ */
+function generate_date_archive_rewrite_rules( $wp_rewrite ) {
+	$rules = array();
+
+	$post_type = get_post_type_object( get_post_type_slug() );
+
+	if ( false === $post_type->has_archive ) {
+		return $wp_rewrite;
+	}
+
+	$query = 'index.php?post_type=' . get_post_type_slug();
+	$rule = $post_type->has_archive . '/([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})';
+
+	$query .= '&year=' . $wp_rewrite->preg_index( 1 );
+	$query .= '&month=' . $wp_rewrite->preg_index( 2 );
+	$query .= '&day=' . $wp_rewrite->preg_index( 3 );
+
+	$rules[ $rule . '/?$' ] = $query;
+
+	$wp_rewrite->rules = $rules + $wp_rewrite->rules;
+
+	return $wp_rewrite;
+}
+
+/**
+ * Filter the main query so that all announcements for a given day are shown.
+ *
+ * Works with:
+ *    - insider.wsu.edu/announcements/ (current day)
+ *    - insider.wsu.edu/announcements/2018/01/19/ (single day)
  *
  * @since 0.7.0
  *
  * @param \WP_Query $wp_query
  */
 function filter_archive_query( $wp_query ) {
-	if ( ! $wp_query->is_post_type_archive( get_post_type_slug() ) ) {
-		return;
+	if ( $wp_query->is_post_type_archive( get_post_type_slug() ) && ! $wp_query->is_date() && $wp_query->is_main_query() ) {
+		$date_query = array(
+			array(
+				'month' => date( 'n', current_time( 'timestamp' ) ),
+				'day' => date( 'j', current_time( 'timestamp' ) )
+			)
+		);
+		$wp_query->set( 'date_query', $date_query );
+		$wp_query->set( 'posts_per_page', '-1' );
+	} elseif ( $wp_query->is_post_type_archive( get_post_type_slug() ) && $wp_query->is_date() && $wp_query->is_main_query() ) {
+		$wp_query->set( 'posts_per_page', '-1' );
 	}
-
-	$date_query = array(
-		array(
-			'month' => date( 'n', current_time( 'timestamp' ) ),
-			'day' => date( 'j', current_time( 'timestamp' ) )
-		)
-	);
-	$wp_query->set( 'date_query', $date_query );
-	$wp_query->set( 'posts_per_page', '-1' );
 }
