@@ -1,0 +1,43 @@
+.announcement-form form {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#announcement-submit-wrap,
+.announcement-form label {
+	width: 100%;
+}
+
+.announcement-form label {
+	font-size: 1rem;
+	padding-bottom: .25em;
+}
+
+#wp-announcement-form-text-wrap,
+#announcement-form-title {
+	width: 640px;
+	margin-bottom: 1em;
+}
+
+#announcement-form-email,
+#announcement-form-title {
+	font-size: 1rem;
+}
+
+#announcement-form-email,
+#announcement-form-date {
+	width: 330px;
+}
+
+/* Hide the honeypot */
+#announcement-other-wrap {
+	display: none;
+}
+
+.announcement-form-date-input {
+	width: 100px;
+	height: 20px;
+	line-height: 20px;
+	padding: 5px 10px;
+	font-size: 14px;
+}

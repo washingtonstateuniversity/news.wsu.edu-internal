@@ -59,6 +59,7 @@ main section.bg-none {
 	padding-bottom: 0;
 }
 
+.single-wsu_announcement .article-container article,
 .single-post .article-container article {
 	width: 70%;
 }
@@ -114,6 +115,10 @@ figure img,
 
 .social-share-bar li:first-of-type {
 	margin-left: 0;
+}
+
+.single-wsu_announcement .wsu_announcement {
+	min-height: 50vh;
 }
 
 .single-post .article-body {
@@ -365,6 +370,24 @@ main .deck--featured .card .card-title a:after {
 	position: relative;
 }
 
+.pagination {
+	max-width: 584px;
+	display: flex;
+}
+
+.pagination-next,
+.pagination-previous {
+	width: 50%;
+}
+
+.pagination-previous {
+	text-align: left;
+}
+
+.pagination-next {
+	text-align: right;
+}
+
 @media screen and (max-width: 693px) {
 
 	#binder .row.news-features .column.multi-deck {
@@ -406,6 +429,19 @@ main .deck--featured .card .card-title a:after {
 	margin-left: 10px;
 }
 
+/* TinyMCE on Announcements Submission */
+#tinymce {
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+}
+
+#tinymce p {
+	margin: 0;
+	padding: 1em;
+}
+
 /* Bottom section divider */
 main .bottom-divider {
 	padding-bottom: 0;
@@ -430,6 +466,7 @@ main .bottom-divider {
 
 @media screen and (max-width: 693px) {
 
+	.pagination,
 	.single-post .article-container article {
 		width: 100%;
 	}

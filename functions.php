@@ -5,6 +5,7 @@ require_once __DIR__ . '/includes/content-syndicate.php';
 require_once __DIR__ . '/includes/page-curation.php';
 require_once __DIR__ . '/includes/page-curation-customizer.php';
 require_once __DIR__ . '/includes/featured-stories.php';
+require_once __DIR__ . '/includes/announcements.php';
 require_once __DIR__ . '/includes/mailchimp.php';
 
 add_filter( 'spine_child_theme_version', 'internal_news_theme_version' );
