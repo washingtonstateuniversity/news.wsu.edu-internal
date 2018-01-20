@@ -693,7 +693,6 @@ figcaption {
 .article-footer a {
 	border-bottom: none;
 	color: #686868;
-	transition: border .3s ease;
 }
 
 .article-footer a:hover {
