@@ -317,9 +317,14 @@ function generate_date_archive_rewrite_rules( $wp_rewrite ) {
  * @param \WP_Query $wp_query
  */
 function filter_archive_query( $wp_query ) {
+	if ( is_admin() ) {
+		return;
+	}
+
 	if ( $wp_query->is_post_type_archive( get_post_type_slug() ) && ! $wp_query->is_date() && $wp_query->is_main_query() ) {
 		$date_query = array(
 			array(
+				'year' => date( 'Y', current_time( 'timestamp' ) ),
 				'month' => date( 'n', current_time( 'timestamp' ) ),
 				'day' => date( 'j', current_time( 'timestamp' ) ),
 			),
