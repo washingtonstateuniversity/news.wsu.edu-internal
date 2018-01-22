@@ -15,6 +15,7 @@ add_action( 'wp_ajax_nopriv_submit_announcement', 'WSU\News\Internal\Announcemen
 add_shortcode( 'wsu_announcement_form', 'WSU\News\Internal\Announcements\output_submission_form' );
 add_action( 'generate_rewrite_rules', 'WSU\News\Internal\Announcements\generate_date_archive_rewrite_rules', 10, 1 );
 add_action( 'pre_get_posts', 'WSU\News\Internal\Announcements\filter_archive_query' );
+add_filter( 'spine_get_title', 'WSU\News\Internal\Announcements\filter_page_title', 11, 3 );
 
 /**
  * Register the post type used for announcements.
@@ -422,4 +423,23 @@ function get_date_archive_pagination_urls( $date ) {
 		'previous' => $previous_url,
 		'next' => $next_url,
 	);
+}
+
+/**
+ * Filter the document title used for daily announcement archives.
+ *
+ * @since 0.7.2
+ *
+ * @param string $title
+ * @param string $site_part
+ * @param string $global_part
+ *
+ * @return string
+ */
+function filter_page_title( $title, $site_part, $global_part ) {
+	if ( is_post_type_archive( get_post_type_slug() ) && is_day() ) {
+		$title = get_the_date( 'F j, Y' ) . ' Announcements | ' . $site_part . $global_part;
+	}
+
+	return $title;
 }
