@@ -15,6 +15,7 @@ add_action( 'wp_ajax_nopriv_submit_announcement', 'WSU\News\Internal\Announcemen
 add_shortcode( 'wsu_announcement_form', 'WSU\News\Internal\Announcements\output_submission_form' );
 add_action( 'generate_rewrite_rules', 'WSU\News\Internal\Announcements\generate_date_archive_rewrite_rules', 10, 1 );
 add_action( 'pre_get_posts', 'WSU\News\Internal\Announcements\filter_archive_query' );
+add_filter( 'spine_get_title', 'WSU\News\Internal\Announcements\filter_page_title', 11, 3 );
 
 /**
  * Register the post type used for announcements.
@@ -337,6 +338,45 @@ function filter_archive_query( $wp_query ) {
 }
 
 /**
+ * Retrieve a list of posts to display from the most recent day
+ * that had announcements.
+ *
+ * For use as a backup when a current day does not have announcements.
+ *
+ * @since 0.7.2
+ *
+ * @return bool|\WP_Query
+ */
+function get_previous_day_archive_posts() {
+	$days = 1;
+	$date = time();
+
+	while ( $days <= 9 ) {
+		$previous_day = date( 'j', $date - ( DAY_IN_SECONDS * $days ) );
+		$previous_month = date( 'm', $date - ( DAY_IN_SECONDS * $days ) );
+		$previous_year = date( 'Y', $date - ( DAY_IN_SECONDS * $days ) );
+
+		$previous_posts = new \WP_Query( array(
+			'post_type' => get_post_type_slug(),
+			'posts_per_page' => -1,
+			'date_query' => array(
+				'year' => $previous_year,
+				'month' => $previous_month,
+				'day' => $previous_day,
+			),
+		) );
+
+		if ( $previous_posts->have_posts() ) {
+			return $previous_posts;
+		}
+
+		$days++;
+	}
+
+	return false;
+}
+
+/**
  * Generate the URLs used to view previous and next date archives.
  *
  * @since 0.7.0
@@ -407,13 +447,13 @@ function get_date_archive_pagination_urls( $date ) {
 	}
 
 	if ( 0 !== count( $previous_check ) ) {
-		$previous_url = home_url( 'announcements/' . $previous_year . '/' . $previous_month . '/' . $previous_day );
+		$previous_url = home_url( 'announcements/' . $previous_year . '/' . $previous_month . '/' . $previous_day . '/' );
 	} else {
 		$previous_url = false;
 	}
 
 	if ( 0 !== count( $next_check ) ) {
-		$next_url = home_url( 'announcements/' . $next_year . '/' . $next_month . '/' . $next_day );
+		$next_url = home_url( 'announcements/' . $next_year . '/' . $next_month . '/' . $next_day . '/' );
 	} else {
 		$next_url = false;
 	}
@@ -422,4 +462,23 @@ function get_date_archive_pagination_urls( $date ) {
 		'previous' => $previous_url,
 		'next' => $next_url,
 	);
+}
+
+/**
+ * Filter the document title used for daily announcement archives.
+ *
+ * @since 0.7.2
+ *
+ * @param string $title
+ * @param string $site_part
+ * @param string $global_part
+ *
+ * @return string
+ */
+function filter_page_title( $title, $site_part, $global_part ) {
+	if ( is_post_type_archive( get_post_type_slug() ) && is_day() ) {
+		$title = get_the_date( 'F j, Y' ) . ' Announcements | ' . $site_part . $global_part;
+	}
+
+	return $title;
 }

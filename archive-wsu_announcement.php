@@ -28,6 +28,16 @@ $is_read_more = false;
 
 							get_template_part( 'parts/card-content' );
 						}
+					} else {
+						$previous_query = WSU\News\Internal\Announcements\get_previous_day_archive_posts();
+						if ( $previous_query && $previous_query->have_posts() ) {
+							while ( $previous_query->have_posts() ) {
+								$previous_query->the_post();
+
+								get_template_part( 'parts/card-content' );
+							}
+						}
+						wp_reset_postdata();
 					}
 
 					?>
@@ -45,10 +55,10 @@ $is_read_more = false;
 				<div class="column one">
 					<div class="pagination">
 						<div class="pagination-previous">
-							<?php if ( $pagination['previous'] ) : ?><a href="<?php echo esc_url( $pagination['previous'] ); ?>">Previous Day</a><?php endif; ?>
+							<?php if ( $pagination['previous'] ) : ?><a href="<?php echo esc_url( $pagination['previous'] ); ?>">Previous day</a><?php endif; ?>
 						</div>
 						<div class="pagination-next">
-							<?php if ( $pagination['next'] ) : ?><a href="<?php echo esc_url( $pagination['next'] ); ?>">Next Day</a><?php endif; ?>
+							<?php if ( $pagination['next'] ) : ?><a href="<?php echo esc_url( $pagination['next'] ); ?>">Next day</a><?php endif; ?>
 						</div>
 					</div>
 				</div>
