@@ -28,6 +28,16 @@ $is_read_more = false;
 
 							get_template_part( 'parts/card-content' );
 						}
+					} else {
+						$previous_query = WSU\News\Internal\Announcements\get_previous_day_archive_posts();
+						if ( $previous_query && $previous_query->have_posts() ) {
+							while ( $previous_query->have_posts() ) {
+								$previous_query->the_post();
+
+								get_template_part( 'parts/card-content' );
+							}
+						}
+						wp_reset_postdata();
 					}
 
 					?>

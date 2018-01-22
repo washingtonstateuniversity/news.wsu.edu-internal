@@ -338,6 +338,46 @@ function filter_archive_query( $wp_query ) {
 }
 
 /**
+ * Retrieve a list of posts to display from the most recent day
+ * that had announcements.
+ *
+ * For use as a backup when a current day does not have announcements.
+ *
+ * @since 0.7.2
+ *
+ * @return bool|\WP_Query
+ */
+function get_previous_day_archive_posts() {
+	$days = 1;
+	$date = time();
+
+	while ( $days <= 9 ) {
+		$previous_day = date( 'j',  $date - ( DAY_IN_SECONDS * $days ) );
+		$previous_month = date( 'm', $date - ( DAY_IN_SECONDS * $days ) );
+		$previous_year = date( 'Y', $date - ( DAY_IN_SECONDS * $days ) );
+
+		$previous_posts = new \WP_Query( array(
+			'post_type' => get_post_type_slug(),
+			'posts_per_page' => -1,
+			'date_query' => array(
+				'year' => $previous_year,
+				'month' => $previous_month,
+				'day' => $previous_day,
+			),
+		) );
+
+		if ( $previous_posts->have_posts() ) {
+			return $previous_posts;
+			break;
+		}
+
+		$days++;
+	}
+
+	return false;
+}
+
+/**
  * Generate the URLs used to view previous and next date archives.
  *
  * @since 0.7.0
