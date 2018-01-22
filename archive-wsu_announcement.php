@@ -45,10 +45,10 @@ $is_read_more = false;
 				<div class="column one">
 					<div class="pagination">
 						<div class="pagination-previous">
-							<?php if ( $pagination['previous'] ) : ?><a href="<?php echo esc_url( $pagination['previous'] ); ?>">Previous Day</a><?php endif; ?>
+							<?php if ( $pagination['previous'] ) : ?><a href="<?php echo esc_url( $pagination['previous'] ); ?>">Previous day</a><?php endif; ?>
 						</div>
 						<div class="pagination-next">
-							<?php if ( $pagination['next'] ) : ?><a href="<?php echo esc_url( $pagination['next'] ); ?>">Next Day</a><?php endif; ?>
+							<?php if ( $pagination['next'] ) : ?><a href="<?php echo esc_url( $pagination['next'] ); ?>">Next day</a><?php endif; ?>
 						</div>
 					</div>
 				</div>
