@@ -14,7 +14,13 @@ $is_read_more = false;
 			<h1><?php echo esc_html( ' Announcements ' . get_the_date() ); ?></h1>
 		</header>
 
-		<section class="row single gutter pad-top news-river">
+		<section class="row single gutter">
+			<div class="column one">
+				<p>Submit an announcement: <a href="https://insider.wsu.edu/submit-announcement/">https://insider.wsu.edu/submit-announcement/</a>.</p>
+			</div>
+		</section>
+
+		<section class="row single gutter news-river">
 
 			<div class="column one">
 
