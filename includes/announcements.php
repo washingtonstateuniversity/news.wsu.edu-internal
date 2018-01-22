@@ -16,6 +16,7 @@ add_shortcode( 'wsu_announcement_form', 'WSU\News\Internal\Announcements\output_
 add_action( 'generate_rewrite_rules', 'WSU\News\Internal\Announcements\generate_date_archive_rewrite_rules', 10, 1 );
 add_action( 'pre_get_posts', 'WSU\News\Internal\Announcements\filter_archive_query' );
 add_filter( 'spine_get_title', 'WSU\News\Internal\Announcements\filter_page_title', 11, 3 );
+add_action( 'wp_ajax_copy_announcement_to_post', 'WSU\News\Internal\Announcements\ajax_copy_announcement_to_post' );
 
 /**
  * Register the post type used for announcements.
@@ -74,6 +75,7 @@ function register_post_type() {
  */
 function add_meta_boxes() {
 	add_meta_box( 'wsu_announcement_email', 'Announcement Submitted By:', 'WSU\News\Internal\Announcements\display_email_meta_box', get_post_type_slug(), 'side' );
+	add_meta_box( 'copy_to_post', 'Copy to Post', 'WSU\News\Internal\Announcements\display_copy_meta_box', get_post_type_slug(), 'side' );
 }
 
 /**
@@ -94,6 +96,116 @@ function display_email_meta_box( $post ) {
 	} else {
 		echo esc_html( $email );
 	}
+}
+
+/**
+ * Display a meta box that allows for an announcement to be copied to a
+ * post on WSU Insider.
+ *
+ * @since 0.8.0
+ *
+ * @param \WP_Post $post Current post object.
+ */
+function display_copy_meta_box( $post ) {
+	$status = get_post_meta( $post->ID, '_copied_post_id', true );
+	$post_link = false;
+
+	if ( $status ) {
+		$copied_post = get_post( $status );
+		if ( $copied_post && 'post' === $copied_post->post_type && 'trash' !== $copied_post->post_status ) {
+			$post_link = get_edit_post_link( $copied_post->ID );
+			?>
+			<div id="copied-posts">
+				<p><a href="<?php echo esc_url( $post_link ); ?>">Edit the post</a> that was copied from this announcement.</p>
+			</div>
+			<?php
+		} else {
+			delete_post_meta( $copied_post->ID, '_copied_post_id' );
+		}
+	}
+
+	if ( false === $post_link ) {
+		?>
+		<style>
+			#copy-post {
+				text-decoration: underline;
+				color: #0073aa;
+				transition-property: border, background, color;
+				transition-duration: .05s;
+				transition-timing-function: ease-in-out;
+				cursor: pointer;
+			}
+
+			#copy-post:hover {
+				color: #00a0d2;
+			}
+		</style>
+		<div id="copied-posts"></div>
+		<div class="copy-post-container">
+			<span id="copy-post" data-post-id="<?php echo esc_attr( $post->ID ); ?>">Copy this announcement</span> to a new post.
+		</div>
+		<script type="text/javascript">
+			(function( $, window ) {
+				$( "#copy-post" ).on( "click", function() {
+					let post_id = $( this ).data( "post-id" );
+					let copy_nonce = '<?php echo esc_js( wp_create_nonce( 'copy-post-nonce' ) ); ?>';
+
+					$.ajax( {
+						url: window.ajaxurl,
+						type: "POST",
+						data: {
+							action: "copy_announcement_to_post",
+							_ajax_nonce: copy_nonce,
+							post_id: post_id
+						}
+					} ).done( function( data ) {
+						if ( true === data.success ) {
+							$( "#copied-posts" ).html( "Copy successful. <a href='" + data.data + "'>Edit the new post</a>." );
+							$( ".copy-post-container").remove();
+						} else {
+							$( ".copy-post-container").append( "<p><strong>Copy unsuccessful.</strong> Error: " + data.data + "</p>" );
+						}
+					} );
+				} );
+			})( jQuery, window );
+		</script>
+		<?php
+	}
+}
+
+/**
+ * Handle an ajax request to copy an announcement to a new post.
+ *
+ * @since 0.8.0
+ */
+function ajax_copy_announcement_to_post() {
+	check_ajax_referer( 'copy-post-nonce' );
+
+	$post = get_post( absint( $_POST['post_id'] ) );
+
+	if ( ! $post || get_post_type_slug() !== $post->post_type ) {
+		wp_send_json_error( 'This is not an announcement.' );
+		wp_die();
+	}
+
+	$new_post = array(
+		'post_title' => $post->post_title,
+		'post_content' => $post->post_content,
+		'post_type' => 'post',
+		'post_status' => 'draft',
+	);
+	$created_post = wp_insert_post( $new_post );
+
+	if ( is_wp_error( $created_post ) ) {
+		wp_send_json_error( $created_post->get_error_message() );
+		wp_die();
+	}
+
+	$edit_post_link = get_edit_post_link( $created_post );
+	update_post_meta( $post->ID, '_copied_post_id', $created_post );
+
+	wp_send_json_success( $edit_post_link );
+	wp_die();
 }
 
 /**
