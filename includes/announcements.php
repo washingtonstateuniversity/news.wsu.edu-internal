@@ -407,13 +407,13 @@ function get_date_archive_pagination_urls( $date ) {
 	}
 
 	if ( 0 !== count( $previous_check ) ) {
-		$previous_url = home_url( 'announcements/' . $previous_year . '/' . $previous_month . '/' . $previous_day );
+		$previous_url = home_url( 'announcements/' . $previous_year . '/' . $previous_month . '/' . $previous_day . '/' );
 	} else {
 		$previous_url = false;
 	}
 
 	if ( 0 !== count( $next_check ) ) {
-		$next_url = home_url( 'announcements/' . $next_year . '/' . $next_month . '/' . $next_day );
+		$next_url = home_url( 'announcements/' . $next_year . '/' . $next_month . '/' . $next_day . '/' );
 	} else {
 		$next_url = false;
 	}
