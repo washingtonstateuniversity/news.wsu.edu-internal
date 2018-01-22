@@ -352,7 +352,7 @@ function get_previous_day_archive_posts() {
 	$date = time();
 
 	while ( $days <= 9 ) {
-		$previous_day = date( 'j',  $date - ( DAY_IN_SECONDS * $days ) );
+		$previous_day = date( 'j', $date - ( DAY_IN_SECONDS * $days ) );
 		$previous_month = date( 'm', $date - ( DAY_IN_SECONDS * $days ) );
 		$previous_year = date( 'Y', $date - ( DAY_IN_SECONDS * $days ) );
 
@@ -368,7 +368,6 @@ function get_previous_day_archive_posts() {
 
 		if ( $previous_posts->have_posts() ) {
 			return $previous_posts;
-			break;
 		}
 
 		$days++;
