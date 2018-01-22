@@ -692,6 +692,11 @@ figcaption {
 
 .article-footer a {
 	border-bottom: none;
+	color: #686868;
+}
+
+.article-footer a:hover {
+	border-bottom: 1px solid;
 }
 
 main a.button,
