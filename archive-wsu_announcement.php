@@ -14,12 +14,6 @@ $is_read_more = false;
 			<h1><?php echo esc_html( ' Announcements ' . get_the_date() ); ?></h1>
 		</header>
 
-		<section class="row single gutter">
-			<div class="column one">
-				<p>Submit an announcement: <a href="https://insider.wsu.edu/submit-announcement/">https://insider.wsu.edu/submit-announcement/</a>.</p>
-			</div>
-		</section>
-
 		<section class="row single gutter news-river">
 
 			<div class="column one">
@@ -57,7 +51,7 @@ $is_read_more = false;
 		?>
 
 		<footer class="main-footer archive-footer">
-			<section class="row single pager prevnext gutter">
+			<section class="row single pager prevnext gutter bottom-divider">
 				<div class="column one">
 					<div class="pagination">
 						<div class="pagination-previous">
@@ -69,6 +63,14 @@ $is_read_more = false;
 					</div>
 				</div>
 			</section><!--pager-->
+			<section class="row side-right pad-top gutter">
+				<div class="column one">
+					<h2>Submit an announcement</h2>
+					<p>Announcements is a free service available to the WSU community for posting notices of general University interest. It’s a way to share everything from upcoming activities and notable developments to employee awards, special events and much more. For questions or help with the submission form contact Brenda Campbell at <a href="mailto:bcampbell@wsu.edu">bcampbell@wsu.edu</a>.</p>
+					<a class="card-cta button" href="https://insider.wsu.edu/submit-announcement/">Submit Announcement</a>
+				</div>
+				<div class="column two"></div>
+			</section>
 		</footer>
 
 		<?php get_template_part( 'parts/footers' ); ?>
