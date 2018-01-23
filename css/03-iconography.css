@@ -79,3 +79,13 @@ svg path {
 figcaption {
 	background: url(images/icons/photo.svg) 2px 12px / 14px no-repeat;
 }
+
+.pagination-previous a {
+	background: url(images/icons/arrow-left.svg) left top / 1.2em no-repeat;
+	padding-left: 1.5em;
+}
+
+.pagination-next a {
+	background: url(images/icons/arrow-right.svg) right top / 1.2em no-repeat;
+	padding-right: 1.5em;
+}
