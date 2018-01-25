@@ -11,7 +11,10 @@ $is_read_more = false;
 	<main id="wsuwp-main" class="spine-category-index">
 
 		<header class="page-header">
-			<h1><?php echo esc_html( ' Announcements ' . get_the_date() ); ?></h1>
+			<h1>Announcements</h1>
+			<div class="description">
+				<p><?php echo esc_html( get_the_date() ); ?></p>
+			</div>
 		</header>
 
 		<section class="row single gutter news-river">

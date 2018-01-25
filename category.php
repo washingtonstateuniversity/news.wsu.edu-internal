@@ -7,6 +7,9 @@ global $is_top_feature, $is_river, $is_good_to_know;
 
 		<header class="page-header">
 			<h1><?php echo esc_html( single_cat_title( '', false ) ); ?></h1>
+			<?php if ( category_description() ) { ?>
+			<div class="description"><?php echo category_description(); ?></div>
+			<?php } ?>
 		</header>
 		<?php
 
