@@ -10,34 +10,24 @@ if ( ! empty( $spine_social_options['twitter'] ) ) {
 	$twitter_handle = 'wsupullman';
 }
 ?>
-<div class="social-share-bar">
-	<div>
-		<span>Let's Share</span>
-		<ul>
-			<li class="linkedin">
-				<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo esc_url( $post_share_url ); ?>&amp;summary=<?php echo esc_attr( $post_share_title ); ?>&amp;source=undefined" target="_blank">
-					<span class="screen-reader-text">Share on Linkedin</span>
-					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">
-						<use xlink:href="#social-media-icon_linkedin" />
-					</svg>
-				</a>
-			</li>
-			<li class="twitter">
-				<a href="https://twitter.com/intent/tweet?text=<?php echo esc_attr( $post_share_title ); ?>&amp;url=<?php echo esc_url( $post_share_url ); ?>&amp;via=<?php echo esc_attr( $twitter_handle ); ?>" target="_blank">
-					<span class="screen-reader-text">Share on Twitter</span>
-					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="16">
-						<use xlink:href="#social-media-icon_twitter" />
-					</svg>
-				</a>
-			</li>
-			<li class="facebook">
-				<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo esc_url( $post_share_url ); ?>" target="_blank">
-					<span class="screen-reader-text">Share on Facebook</span>
-					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">
-						<use xlink:href="#social-media-icon_facebook" />
-					</svg>
-				</a>
-			</li>
-		</ul>
-	</div>
+<div class="card-share">
+	<p>Let's Share</p>
+	<a href="<?php echo esc_url( 'https://www.linkedin.com/shareArticle?mini=true&amp;url=' . $post_share_url . '&amp;summary=' . $post_share_title ); ?>">
+		<span class="screen-reader-text">Share this article on Linkedin</span>
+		<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="16" height="16">
+			<use xlink:href="#social-media-icon_linkedin" fill="#007bb6"/>
+		</svg>
+	</a>
+	<a href="<?php echo esc_url( 'https://twitter.com/intent/tweet?text=' . $post_share_title . '&amp;url=' . $post_share_url . '&amp;via=' . $twitter_handle ); ?>">
+		<span class="screen-reader-text">Share on Twitter</span>
+		<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="16" height="16" viewBox="0 -2 20 20">
+			<use xlink:href="#social-media-icon_twitter" fill="#00aced"/>
+		</svg>
+	</a>
+	<a href="<?php echo esc_url( 'https://www.facebook.com/sharer/sharer.php?u=' . $post_share_url ); ?>">
+		<span class="screen-reader-text">Share on Facebook</span>
+		<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="16" height="16">
+			<use xlink:href="#social-media-icon_facebook" fill="#3b5998"/>
+		</svg>
+	</a>
 </div>
