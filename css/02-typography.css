@@ -35,8 +35,11 @@ h1 {
 	line-height: 1.1;
 }
 
-.category h1 {
+.category h1,
+.post-type-archive-wsu_announcement h1 {
 	font-size: 4.5rem;
+	line-height: 1;
+	padding-bottom: 0;
 }
 
 h2,
@@ -355,4 +358,13 @@ main .card-title a:hover {
 
 .pagination a {
 	border-bottom: none;
+}
+
+/* --- archive descriptions --- */
+.page-header .description {
+	color: #da1e00;
+	font-size: .8em;
+	font-weight: 400;
+	letter-spacing: .1em;
+	text-transform: uppercase;
 }
