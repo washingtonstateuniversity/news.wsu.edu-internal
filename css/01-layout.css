@@ -76,45 +76,16 @@ figure img,
 	display: block;
 }
 
-.social-share-bar,
-.social-share-bar ul,
-.social-share-bar li,
-.social-share-bar li a {
-	height: auto;
-	line-height: normal;
-	width: auto;
+.article-footer {
+	position: static;
 }
 
-.social-share-bar {
-	bottom: 0;
+.card-share {
 	margin-right: -3rem;
 	position: absolute;
-	right: -43%;
-	text-align: right;
-}
-
-.social-share-bar div {
-	display: inline-block;
-	text-align: left;
-}
-
-.social-share-bar div > span {
-	display: block;
-	margin: 5px 3px;
-}
-
-.social-share-bar ul {
-	background: #f2f2f2;
-	display: inline-block;
-	padding: 12px 20px;
-}
-
-.social-share-bar li {
-	margin-left: 16px;
-}
-
-.social-share-bar li:first-of-type {
-	margin-left: 0;
+	right: 48px;
+	top: 0;
+	z-index: 1;
 }
 
 .single-wsu_announcement .wsu_announcement {
@@ -320,6 +291,11 @@ main .deck--featured .card .card-title a:after {
 
 	.featured-image figcaption {
 		margin-left: 1.5rem;
+	}
+
+	.card-share {
+		margin-top: calc(-3rem - 1.6em);
+		top: auto;
 	}
 }
 
