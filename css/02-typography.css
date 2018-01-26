@@ -206,6 +206,11 @@ main input[type="submit"]:focus {
 	color: #fff;
 }
 
+main .mce-toolbar .mce-btn button:hover {
+	background: none;
+	border: none;
+}
+
 main input[type="email"],
 main input[type="password"],
 main input[type="text"],
