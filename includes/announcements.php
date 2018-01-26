@@ -359,7 +359,7 @@ function output_submission_form() {
 					'toolbar1' => 'bold italic bullist numlist link',
 					'content_css' => get_stylesheet_directory_uri() . '/style.css',
 					'valid_styles' => '{ "*": "" }', // Disable inline styles.
-					'valid_elements' => 'a[href],strong/b,em/i,p,ul,ol,li' // Allow only a subset of HTML elements.
+					'valid_elements' => 'a[href],strong/b,em/i,p,ul,ol,li', // Allow only a subset of HTML elements.
 				),
 				'quicktags'     => false,
 			);
