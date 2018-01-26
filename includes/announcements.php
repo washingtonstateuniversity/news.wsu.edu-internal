@@ -353,11 +353,13 @@ function output_submission_form() {
 				'textarea_name' => 'announcement-text',
 				'textarea_rows' => 15,
 				'editor_class'  => 'announcement-form-input',
-				'teeny'         => false,
+				'teeny'         => true,
 				'dfw'           => false,
 				'tinymce'       => array(
-					'theme_advanced_disable' => 'wp_more, fullscreen, wp_help',
+					'toolbar1' => 'bold italic bullist numlist link',
 					'content_css' => get_stylesheet_directory_uri() . '/style.css',
+					'valid_styles' => '{ "*": "" }', // Disable inline styles.
+					'valid_elements' => 'a[href],strong/b,em/i,p,ul,ol,li' // Allow only a subset of HTML elements.
 				),
 				'quicktags'     => false,
 			);
