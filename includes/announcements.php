@@ -274,9 +274,14 @@ function ajax_callback() {
 	}
 
 	$title = $_POST['title']; // WPCS: CSRF Ok. Sanitized in wp_insert_post().
-	$text  = str_replace( '&nbsp;', '', $_POST['text'] ); // TinyMCE strips HTML, but not these.
-	$text  = trim( $text ); // Stripping HTML from pasted content leaves a lot of surrounding whitespace!
-	$text  = wp_kses_post( $text );
+
+	// TinyMCE strips HTML, but not non-breaking spaces.
+	$text = str_replace( '&nbsp;', '', $_POST['text'] ); // // WPCS: CSRF Ok. Sanitized in wp_kses_post.
+
+	// Stripping HTML from pasted content leaves a lot of surrounding whitespace!
+	$text = trim( $text );
+
+	$text = wp_kses_post( $text );
 	$email = sanitize_email( $_POST['email'] );
 
 	// If a websubmission user exists, we'll use that user ID.
