@@ -17,6 +17,7 @@ add_action( 'generate_rewrite_rules', 'WSU\News\Internal\Announcements\generate_
 add_action( 'pre_get_posts', 'WSU\News\Internal\Announcements\filter_archive_query' );
 add_filter( 'spine_get_title', 'WSU\News\Internal\Announcements\filter_page_title', 11, 3 );
 add_action( 'wp_ajax_copy_announcement_to_post', 'WSU\News\Internal\Announcements\ajax_copy_announcement_to_post' );
+add_filter( 'nav_menu_css_class', 'WSU\News\Internal\Announcements\filter_nav_menu_classes', 11, 3 );
 
 /**
  * Register the post type used for announcements.
@@ -449,6 +450,32 @@ function filter_archive_query( $wp_query ) {
 	} elseif ( $wp_query->is_post_type_archive( get_post_type_slug() ) && $wp_query->is_date() && $wp_query->is_main_query() ) {
 		$wp_query->set( 'posts_per_page', '-1' );
 	}
+}
+
+/**
+ * Add the `active` class to the Announcements item in site navigation
+ * when viewing an announcements archive page.
+ *
+ * @param array     $classes
+ * @param \WP_Post  $item
+ * @param \stdClass $args
+ *
+ * @return array
+ */
+function filter_nav_menu_classes( $classes, $item, $args ) {
+	if ( 'site' !== $args->menu ) {
+		return $classes;
+	}
+
+	if ( 'custom' !== $item->type || 'Announcements' !== $item->title ) {
+		return $classes;
+	}
+
+	if ( ! is_post_type_archive( get_post_type_slug() ) ) {
+		return $classes;
+	}
+
+	return array( 'active' );
 }
 
 /**
