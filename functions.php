@@ -17,7 +17,7 @@ add_filter( 'spine_child_theme_version', 'internal_news_theme_version' );
  * @return string
  */
 function internal_news_theme_version() {
-	return '0.8.3';
+	return '0.8.4';
 }
 
 add_action( 'wp_enqueue_scripts', 'internal_news_enqueue_scripts' );
