@@ -443,6 +443,7 @@ main .bottom-divider {
 @media screen and (max-width: 693px) {
 
 	.pagination,
+	.single-wsu_announcement .article-container article,
 	.single-post .article-container article {
 		width: 100%;
 	}
