@@ -274,7 +274,9 @@ function ajax_callback() {
 	}
 
 	$title = $_POST['title']; // WPCS: CSRF Ok. Sanitized in wp_insert_post().
-	$text  = wp_kses_post( $_POST['text'] );
+	$text  = str_replace( '&nbsp;', '', $_POST['text'] ); // TinyMCE strips HTML, but not these.
+	$text  = trim( $text ); // Stripping HTML from pasted content leaves a lot of surrounding whitespace!
+	$text  = wp_kses_post( $text );
 	$email = sanitize_email( $_POST['email'] );
 
 	// If a websubmission user exists, we'll use that user ID.
@@ -353,13 +355,15 @@ function output_submission_form() {
 				'textarea_name' => 'announcement-text',
 				'textarea_rows' => 15,
 				'editor_class'  => 'announcement-form-input',
-				'teeny'         => true,
+				'teeny'         => false,
 				'dfw'           => false,
 				'tinymce'       => array(
-					'toolbar1' => 'bold italic bullist numlist link',
-					'content_css' => get_stylesheet_directory_uri() . '/style.css',
-					'valid_styles' => '{ "*": "" }', // Disable inline styles.
+					'toolbar1'       => 'bold italic bullist numlist link',
+					'toolbar2'       => '',
+					'content_css'    => get_stylesheet_directory_uri() . '/style.css',
+					'valid_styles'   => '{ "*": "" }', // Disable inline styles.
 					'valid_elements' => 'a[href],strong/b,em/i,p,ul,ol,li', // Allow only a subset of HTML elements.
+					'paste_as_text'  => true,
 				),
 				'quicktags'     => false,
 			);
