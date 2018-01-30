@@ -594,6 +594,10 @@ h6 {
 
 @media screen and (max-width: 700px) {
 
+	.post-type-archive-wsu_announcement h1 {
+		font-size: 11vw;
+	}
+
 	h1 {
 		font-size: 2.25rem;
 	}
