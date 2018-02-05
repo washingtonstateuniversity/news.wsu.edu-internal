@@ -67,7 +67,7 @@ get_header();
 	}
 
 	?>
-		<section class="row single gutter pad-top news-features">
+		<section class="row single gutter pad-top news-features bottom-divider">
 			<div class="column one multi-deck">
 				<div class="deck deck-features">
 					<?php
