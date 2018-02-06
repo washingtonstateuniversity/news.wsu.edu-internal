@@ -420,7 +420,7 @@ function generate_date_archive_rewrite_rules( $wp_rewrite ) {
 	$rule = $post_type->has_archive . '/([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})';
 
 	$query .= '&year=' . $wp_rewrite->preg_index( 1 );
-	$query .= '&month=' . $wp_rewrite->preg_index( 2 );
+	$query .= '&monthnum=' . $wp_rewrite->preg_index( 2 );
 	$query .= '&day=' . $wp_rewrite->preg_index( 3 );
 
 	$rules[ $rule . '/?$' ] = $query;
