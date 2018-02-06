@@ -5,7 +5,7 @@
  Author:         WSU University Communications
  Author URI:     https://web.wsu.edu
  Template:       spine
- Version:        0.8.4
+ Version:        0.8.5
 */
 
 html {
@@ -800,10 +800,12 @@ main textarea {
 	background: #a60f2d;
 }
 
+.deck--numbered-list article:nth-child(8) .card-title a:before,
 .deck--numbered-list article:nth-child(4) .card-title a:before {
 	background: #be000f;
 }
 
+.deck--numbered-list article:nth-child(7) .card-title a:before,
 .deck--numbered-list article:nth-child(5) .card-title a:before {
 	background: #da1e00;
 }
