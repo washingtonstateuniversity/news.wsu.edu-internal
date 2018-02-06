@@ -420,7 +420,7 @@ function generate_date_archive_rewrite_rules( $wp_rewrite ) {
 	$rule = $post_type->has_archive . '/([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})';
 
 	$query .= '&year=' . $wp_rewrite->preg_index( 1 );
-	$query .= '&month=' . $wp_rewrite->preg_index( 2 );
+	$query .= '&monthnum=' . $wp_rewrite->preg_index( 2 );
 	$query .= '&day=' . $wp_rewrite->preg_index( 3 );
 
 	$rules[ $rule . '/?$' ] = $query;
@@ -450,8 +450,8 @@ function filter_archive_query( $wp_query ) {
 		$date_query = array(
 			array(
 				'year' => date( 'Y', current_time( 'timestamp' ) ),
-				'month' => date( 'n', current_time( 'timestamp' ) ),
-				'day' => date( 'j', current_time( 'timestamp' ) ),
+				'month' => date( 'm', current_time( 'timestamp' ) ),
+				'day' => date( 'd', current_time( 'timestamp' ) ),
 			),
 		);
 		$wp_query->set( 'date_query', $date_query );
@@ -502,7 +502,7 @@ function get_previous_day_archive_posts() {
 	$date = time();
 
 	while ( $days <= 9 ) {
-		$previous_day = date( 'j', $date - ( DAY_IN_SECONDS * $days ) );
+		$previous_day = date( 'd', $date - ( DAY_IN_SECONDS * $days ) );
 		$previous_month = date( 'm', $date - ( DAY_IN_SECONDS * $days ) );
 		$previous_year = date( 'Y', $date - ( DAY_IN_SECONDS * $days ) );
 
@@ -539,7 +539,7 @@ function get_date_archive_pagination_urls( $date ) {
 	$days = 1;
 
 	while ( $days <= 9 ) {
-		$previous_day = date( 'j', strtotime( $date ) - ( DAY_IN_SECONDS * $days ) );
+		$previous_day = date( 'd', strtotime( $date ) - ( DAY_IN_SECONDS * $days ) );
 		$previous_month = date( 'm', strtotime( $date ) - ( DAY_IN_SECONDS * $days ) );
 		$previous_year = date( 'Y', strtotime( $date ) - ( DAY_IN_SECONDS * $days ) );
 
@@ -574,7 +574,7 @@ function get_date_archive_pagination_urls( $date ) {
 			break;
 		}
 
-		$next_day = date( 'j', strtotime( $date ) + ( DAY_IN_SECONDS * $days ) );
+		$next_day = date( 'd', strtotime( $date ) + ( DAY_IN_SECONDS * $days ) );
 		$next_month = date( 'm', strtotime( $date ) + ( DAY_IN_SECONDS * $days ) );
 		$next_year = date( 'Y', strtotime( $date ) + ( DAY_IN_SECONDS * $days ) );
 
