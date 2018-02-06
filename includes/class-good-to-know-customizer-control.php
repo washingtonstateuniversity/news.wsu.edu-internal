@@ -46,7 +46,7 @@ class Good_To_Know_Control extends \WP_Customize_Control {
 
 		<div class="selected-gtk-posts">
 			<?php
-			for ( $i = 0; $i <= 4; $i++ ) {
+			for ( $i = 0; $i <= 6; $i++ ) {
 				if ( isset( $post_ids[ $i ] ) ) {
 					?>
 					<div class="gtk-post-single" data-gtk-post-id="<?php echo esc_attr( $post_ids[ $i ] ); ?>">
