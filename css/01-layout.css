@@ -175,6 +175,7 @@ main figure > a {
 	column-span: none;
 	margin-bottom: 1rem;
 	padding-bottom: .25rem;
+	max-width: 100%;
 }
 
 .card-image {
