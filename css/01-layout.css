@@ -365,6 +365,11 @@ main .deck--featured .card .card-title a:after {
 	text-align: right;
 }
 
+.archive-footer nav li {
+	display: inline-block;
+	padding: 0 .2em;
+}
+
 @media screen and (max-width: 693px) {
 
 	#binder .row.news-features .column.multi-deck {

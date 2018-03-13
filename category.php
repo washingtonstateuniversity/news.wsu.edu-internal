@@ -102,16 +102,36 @@ $page = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 		}
 
 		$args = array(
-			'base'         => str_replace( 99164, '%#%', esc_url( get_pagenum_link( 99164 ) ) ),
-			'format'       => 'page/%#%',
-			'total'        => $archive_query->max_num_pages, // Provide the number of pages this query expects to fill.
-			'current'      => max( 1, get_query_var( 'paged' ) ), // Provide either 1 or the page number we're on.
+			'base'               => str_replace( 99164, '%#%', esc_url( get_pagenum_link( 99164 ) ) ),
+			'format'             => 'page/%#%',
+			'total'              => $archive_query->max_num_pages, // Provide the number of pages this query expects to fill.
+			'type'               => 'array',
+			'current'            => max( 1, get_query_var( 'paged' ) ), // Provide either 1 or the page number we're on.
+			'prev_text'          => 'Previous <span class="screen-reader-text">page</span>',
+			'next_text'          => 'Next <span class="screen-reader-text">page</span>',
+			'before_page_number' => '<span class="screen-reader-text">Page </span>',
 		);
 		?>
 		<footer class="main-footer archive-footer">
 			<section class="row side-right pager prevnext gutter">
 				<div class="column one">
-					<?php echo paginate_links( $args ); // @codingStandardsIgnoreLine ?>
+					<?php
+					$paginate_links = paginate_links( $args );
+
+					if ( ! empty( $paginate_links ) ) {
+						?>
+						<nav role="navigation" aria-label="Pagination navigation">
+							<ul>
+								<?php
+								foreach ( $paginate_links as $paginate_link ) {
+									echo '<li>' . $paginate_link . '</li>'; // @codingStandardsIgnoreLine
+								}
+								?>
+							</ul>
+						</nav>
+						<?php
+					}
+					?>
 				</div>
 				<div class="column two">
 					<!-- intentionally empty -->
