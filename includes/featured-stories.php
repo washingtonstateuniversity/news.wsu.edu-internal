@@ -16,15 +16,18 @@ function filter_query_for_featured_posts( $query ) {
 		return;
 	}
 
-	// The most recent featured story displays on the top of every paginated
-	// category archive page.
+	// Always short-circuit the main category query to look for one post.
 	$query->set( 'posts_per_page', 1 );
-	$query->set( 'meta_query', array(
-		array(
-			'key' => '_news_internal_featured',
-			'value' => 'yes',
-		),
-	) );
+
+	// A category's latest featured story displays only on the first page of that category archive.
+	if ( 0 === absint( get_query_var( 'paged', 0 ) ) ) {
+		$query->set( 'meta_query', array(
+			array(
+				'key' => '_news_internal_featured',
+				'value' => 'yes',
+			),
+		) );
+	}
 }
 
 /**
