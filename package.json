@@ -18,6 +18,6 @@
     "grunt-phpcs": "^0.4.0",
     "grunt-postcss": "^0.9.0",
     "grunt-stylelint": "^0.9.0",
-    "stylelint": "^9.1.1"
+    "stylelint": "^9.1.2"
   }
 }
