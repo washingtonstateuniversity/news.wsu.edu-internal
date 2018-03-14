@@ -2,6 +2,8 @@
 
 get_header();
 global $is_top_feature, $is_river, $is_good_to_know;
+
+$page = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 ?>
 	<main id="wsuwp-main" class="spine-category-index">
 
@@ -19,7 +21,9 @@ global $is_top_feature, $is_river, $is_good_to_know;
 		$is_river = false;
 
 		$skip_post_id = array();
-		if ( have_posts() ) {
+
+		// Display the category's most recent featured story on the category's first page.
+		if ( have_posts() && 1 === $page ) {
 			?>
 			<section class="row single gutter pad-top news-features">
 
@@ -51,6 +55,7 @@ global $is_top_feature, $is_river, $is_good_to_know;
 			'posts_per_page' => 20, // Start with a high number until pagination.
 			'category_name' => get_query_var( 'category_name' ),
 			'post__not_in' => $skip_post_id,
+			'paged' => absint( $page ),
 		) );
 
 		if ( $archive_query->have_posts() ) {
@@ -96,21 +101,37 @@ global $is_top_feature, $is_river, $is_good_to_know;
 			<?php
 		}
 
-		/* @type WP_Query $wp_query */
-		global $wp_query;
-
-		$big = 99164;
 		$args = array(
-			'base'         => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-			'format'       => 'page/%#%',
-			'total'        => $wp_query->max_num_pages, // Provide the number of pages this query expects to fill.
-			'current'      => max( 1, get_query_var( 'paged' ) ), // Provide either 1 or the page number we're on.
+			'base'               => str_replace( 99164, '%#%', esc_url( get_pagenum_link( 99164 ) ) ),
+			'format'             => 'page/%#%',
+			'total'              => $archive_query->max_num_pages, // Provide the number of pages this query expects to fill.
+			'type'               => 'array',
+			'current'            => max( 1, get_query_var( 'paged' ) ), // Provide either 1 or the page number we're on.
+			'prev_text'          => 'Previous <span class="screen-reader-text">page</span>',
+			'next_text'          => 'Next <span class="screen-reader-text">page</span>',
+			'before_page_number' => '<span class="screen-reader-text">Page </span>',
 		);
 		?>
 		<footer class="main-footer archive-footer">
 			<section class="row side-right pager prevnext gutter">
 				<div class="column one">
-					<?php echo paginate_links( $args ); // @codingStandardsIgnoreLine ?>
+					<?php
+					$paginate_links = paginate_links( $args );
+
+					if ( ! empty( $paginate_links ) ) {
+						?>
+						<nav role="navigation" aria-label="Pagination navigation">
+							<ul>
+								<?php
+								foreach ( $paginate_links as $paginate_link ) {
+									echo '<li>' . $paginate_link . '</li>'; // @codingStandardsIgnoreLine
+								}
+								?>
+							</ul>
+						</nav>
+						<?php
+					}
+					?>
 				</div>
 				<div class="column two">
 					<!-- intentionally empty -->
