@@ -229,6 +229,27 @@ function wsuwp_json_output( $content, $data, $atts ) {
 		ob_end_clean();
 	}
 
+	// Handle the output of content syndicate items from WSU Events.
+	if ( 'wsu-events' === $atts['output'] ) {
+		ob_start();
+
+		foreach ( $data as $content ) {
+			?>
+			<article class="card card--event">
+				<div class="card-date"><?php echo esc_html( date( $atts['date_format'], strtotime( $content->start_date ) ) ); ?>
+					<span class="card-time"><?php echo esc_html( date( 'g:i a', strtotime( $content->start_date ) ) ); ?> - <?php echo esc_html( date( 'g:i a', strtotime( $content->end_date ) ) ); ?></span>
+				</div>
+				<header class="card-title">
+					<a href="<?php echo esc_url( $content->link ); ?>"><?php echo esc_html( $content->title ); ?></a>
+				</header>
+			</article>
+			<?php
+		}
+
+		$content = ob_get_contents();
+		ob_end_clean();
+	}
+
 	return $content;
 }
 
