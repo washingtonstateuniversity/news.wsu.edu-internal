@@ -15,7 +15,7 @@ $description = '';
 
 if ( is_home() ) {
 	$main_class = 'spine-main-index';
-	$title =  single_post_title( '', false );
+	$title = single_post_title( '', false );
 } elseif ( is_author() ) {
 	$main_class = 'spine-author-index';
 	$title = get_the_author();
