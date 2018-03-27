@@ -344,7 +344,8 @@ input#mce-EMAIL {
 }
 
 /* --- Content syndicate cards --- */
-main .card-categories {
+main .card-categories,
+.card--event .card-date {
 	color: #da1e00;
 	display: block;
 	font-size: .9rem;
@@ -368,6 +369,13 @@ main .card-title a:hover {
 	display: block;
 	font-size: .9rem;
 	line-height: 1.5;
+}
+
+.card-time {
+	color: initial;
+	font-size: .9em;
+	font-weight: 300;
+	text-transform: none;
 }
 
 .card-excerpt {
@@ -400,6 +408,21 @@ main .card-title a:hover {
 
 .pagination a {
 	border-bottom: none;
+}
+
+/* --- Homepage events feed --- */
+.card--event .card-title {
+	font-size: .9em;
+	line-height: 1.35;
+}
+
+.card--event .card-title a {
+	font-weight: 400;
+}
+
+.header-link {
+	font-size: .9em;
+	font-weight: 300;
 }
 
 /* --- archive descriptions --- */

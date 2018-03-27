@@ -20,10 +20,12 @@ html {
 .site-header {
 	background-color: #fff;
 	box-sizing: border-box;
+	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
-	-ms-flex-pack: end;
-	    justify-content: flex-end;
+	-webkit-box-pack: end;
+	    -ms-flex-pack: end;
+	        justify-content: flex-end;
 	margin-left: 198px;
 	padding: 2rem;
 }
@@ -183,6 +185,14 @@ main figure > a {
 	grid-column-gap: 2rem;
 }
 
+.deck--wsu-events {
+	padding: 0 2rem;
+	grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+	grid-template-rows: -webkit-max-content;
+	grid-template-rows: max-content;
+	margin-left: -2rem;
+}
+
 /* - allow aligning elements within an item - */
 .card {
 	-webkit-column-span: none;
@@ -198,6 +208,11 @@ main figure > a {
 
 .card-date {
 	margin-bottom: .5rem;
+}
+
+.card-time {
+	display: block;
+	margin: .25rem 0 .75rem;
 }
 
 .card-categories {
@@ -246,7 +261,8 @@ main .deck--featured .card .card-title a:after {
 
 /* --- multi deck --- */
 .deck-features,
-.deck--wsu-news {
+.deck--wsu-news,
+.deck--wsu-events {
 	float: left;
 	width: 66%;
 }
@@ -260,6 +276,7 @@ main .deck--featured .card .card-title a:after {
 
 	.deck-features,
 	.deck--wsu-news,
+	.deck--wsu-events,
 	.deck--numbered-list {
 		float: none;
 		width: auto;
@@ -344,6 +361,10 @@ main .deck--featured .card .card-title a:after {
 	margin: 3rem 0 1.5rem;
 }
 
+.deck--wsu-events .deck-header h2 {
+	margin-bottom: 0;
+}
+
 /* --- deck--numbered-list --- */
 .deck--numbered-list {
 	display: block;
@@ -363,6 +384,7 @@ main .deck--featured .card .card-title a:after {
 
 .pagination {
 	max-width: 584px;
+	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
 }
@@ -398,6 +420,10 @@ main .deck--featured .card .card-title a:after {
 		padding: 2rem;
 	}
 
+	.deck.deck--wsu-events {
+		margin: 0 -2rem;
+	}
+
 	.news-features .deck-features article:nth-child(3) {
 		display: none;
 	}
@@ -424,6 +450,11 @@ main .deck--featured .card .card-title a:after {
 
 #mc_embed_signup_scroll input[type="submit"] {
 	margin-left: 10px;
+}
+
+/* --- utilities --- */
+.bg-gray {
+	background: rgba(0, 0, 0, .05);
 }
 
 /* TinyMCE on Announcements Submission */
@@ -871,7 +902,8 @@ input#mce-EMAIL {
 }
 
 /* --- Content syndicate cards --- */
-main .card-categories {
+main .card-categories,
+.card--event .card-date {
 	color: #da1e00;
 	display: block;
 	font-size: .9rem;
@@ -895,6 +927,13 @@ main .card-title a:hover {
 	display: block;
 	font-size: .9rem;
 	line-height: 1.5;
+}
+
+.card-time {
+	color: initial;
+	font-size: .9em;
+	font-weight: 300;
+	text-transform: none;
 }
 
 .card-excerpt {
@@ -927,6 +966,21 @@ main .card-title a:hover {
 
 .pagination a {
 	border-bottom: none;
+}
+
+/* --- Homepage events feed --- */
+.card--event .card-title {
+	font-size: .9em;
+	line-height: 1.35;
+}
+
+.card--event .card-title a {
+	font-weight: 400;
+}
+
+.header-link {
+	font-size: .9em;
+	font-weight: 300;
 }
 
 /* --- archive descriptions --- */
