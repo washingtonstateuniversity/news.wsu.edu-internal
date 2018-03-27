@@ -20,12 +20,10 @@ html {
 .site-header {
 	background-color: #fff;
 	box-sizing: border-box;
-	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-pack: end;
-	    -ms-flex-pack: end;
-	        justify-content: flex-end;
+	-ms-flex-pack: end;
+	    justify-content: flex-end;
 	margin-left: 198px;
 	padding: 2rem;
 }
@@ -384,7 +382,6 @@ main .deck--featured .card .card-title a:after {
 
 .pagination {
 	max-width: 584px;
-	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
 }
