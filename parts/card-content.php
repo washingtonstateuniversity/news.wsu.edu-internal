@@ -14,7 +14,7 @@ global $is_top_feature, $is_river, $is_good_to_know, $is_read_more;
 	?></span>
 	<?php } ?>
 
-	<?php if ( ( ! is_category() && ! is_front_page() ) ) { ?>
+	<?php if ( ( ! is_archive() && ! is_home() && ! is_front_page() ) ) { ?>
 	<span class="card-categories"><?php
 	$category_html = '';
 	foreach ( get_the_category() as $category ) {
