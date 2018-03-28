@@ -105,7 +105,7 @@ get_header();
 						<h2>Upcoming events</h2>
 						<a href="https://calendar.wsu.edu/" class="header-link">calendar.wsu.edu</a>
 					</header>
-					<?php echo do_shortcode( '[wsuwp_events output="wsu-events" date_format="F j" site="calendar.wsu.edu" count="3" tag="insider"]' ); ?>
+					<?php echo do_shortcode( '[wsuwp_events output="wsu-events" date_format="F j" site="calendar.wsu.edu" count="4" tag="insider"]' ); ?>
 				</div>
 			</div>
 		</section>
