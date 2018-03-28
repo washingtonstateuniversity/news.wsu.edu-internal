@@ -122,7 +122,7 @@ function wsu_news_redirect_publication_id() {
 	}
 	//pattern:
 	//http://news.wsu.edu/pages/publications.asp?Action=Detail&PublicationID=36331&TypeID=1
-	if ( isset( $_GET['PublicationID'] ) && isset( $_GET['Action'] ) && 'Detail' === $_GET['Action'] && 0 !== absint( $_GET['PublicationID'] ) ) {
+	if ( isset( $_GET['PublicationID'] ) && isset( $_GET['Action'] ) && 'Detail' === $_GET['Action'] && 0 !== absint( $_GET['PublicationID'] ) ) { // WPCS: CSRF Ok.
 		$publication_id = absint( $_GET['PublicationID'] );
 		$post_id = $wpdb->get_var( $wpdb->prepare( "SELECT post_id FROM wp_postmeta WHERE meta_key = '_publication_id' AND meta_value = %s", $publication_id ) );
 		if ( 0 !== absint( $post_id ) ) {
@@ -134,8 +134,8 @@ function wsu_news_redirect_publication_id() {
 	//http://news.wsu.edu/articles/36828/1/New-cyber-security-firm-protects-Seattle-businesses
 	$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
-	if ( strpos( $actual_link,'/articles/')>-1 ) {
-		$urlparts = explode('/',$actual_link);
+	if ( strpos( $actual_link, '/articles/' ) > -1 ) {
+		$urlparts = explode( '/', $actual_link );
 		$publication_id = absint( $urlparts[4] );
 		$post_id = $wpdb->get_var( $wpdb->prepare( "SELECT post_id FROM wp_postmeta WHERE meta_key = '_publication_id' AND meta_value = %s", $publication_id ) );
 		if ( 0 !== absint( $post_id ) ) {
@@ -143,7 +143,6 @@ function wsu_news_redirect_publication_id() {
 			exit;
 		}
 	}
-	return;
 }
 
 add_shortcode( 'wsu_news_valentine', 'wsu_news_display_valentine_shortcode' );
