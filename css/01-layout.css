@@ -170,13 +170,6 @@ main figure > a {
 	grid-column-gap: 2rem;
 }
 
-.deck--wsu-events {
-	padding: 0 2rem;
-	grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-	grid-template-rows: max-content;
-	margin-left: -2rem;
-}
-
 /* - allow aligning elements within an item - */
 .card {
 	column-span: none;
@@ -264,6 +257,10 @@ main .deck--featured .card .card-title a:after {
 		float: none;
 		width: auto;
 	}
+
+	.deck--wsu-events {
+		align-self: baseline;
+	}
 }
 
 #binder .row.news-features .column.multi-deck {
@@ -271,6 +268,7 @@ main .deck--featured .card .card-title a:after {
 	grid-gap: 1.5rem;
 	grid-template-areas: "feature cheat" "news cheat";
 	grid-template-columns: 75% 25%;
+	grid-template-rows: max-content;
 }
 
 .card--features {
@@ -348,8 +346,12 @@ main .deck--featured .card .card-title a:after {
 	margin: 3rem 0 1.5rem;
 }
 
-.deck--wsu-events .deck-header h2 {
-	margin-bottom: 0;
+/* --- deck with a button --- */
+.deck .button {
+	grid-column-start: 1;
+	grid-column-end: -1;
+	display: inline;
+	width: max-content;
 }
 
 /* --- deck--numbered-list --- */
@@ -403,14 +405,6 @@ main .deck--featured .card .card-title a:after {
 		border: none;
 		margin: 0 -2rem;
 		padding: 2rem;
-	}
-
-	.deck.deck--wsu-events {
-		margin: 0 -2rem;
-	}
-
-	.news-features .deck-features article:nth-child(3) {
-		display: none;
 	}
 }
 
