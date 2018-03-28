@@ -91,3 +91,20 @@ function internal_news_register_masthead_svg() {
 
 	wsu_register_inline_svg( 'masthead', $masthead );
 }
+
+add_filter( 'wsuwp_taxonomy_metabox_taxonomies', 'wsu_news_select2_taxonomies' );
+/**
+ * Remove tags from the Select2 interface used with WSU University Taxonomy.
+ *
+ * @param array $taxonomies Taxonomies to include in the Select2 interface.
+ */
+function wsu_news_select2_taxonomies( $post_types ) {
+	$taxonomies = array(
+		'wsuwp_university_org',
+		'wsuwp_university_location',
+		'wsuwp_university_category',
+		'category',
+	);
+
+	return $taxonomies;
+}
