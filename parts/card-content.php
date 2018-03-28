@@ -24,7 +24,7 @@ if ( is_front_page() && $is_top_feature ) {
 ?>
 <article class="card card--news<?php echo esc_attr( $card_class ); ?>">
 	<?php if ( is_front_page() && $is_top_feature ) { ?>
-	<span class="card-categories"><?php	echo $category_html; // @codingStandardsIgnoreLine ?></span>
+	<span class="card-categories"><?php echo $category_html; // @codingStandardsIgnoreLine ?></span>
 	<?php } ?>
 
 	<?php if ( ( ! is_archive() && ! is_home() && ! is_front_page() ) ) { ?>
