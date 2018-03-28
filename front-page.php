@@ -100,12 +100,12 @@ get_header();
 					?>
 				</div>
 
-				<div class="deck deck--wsu-events bg-gray">
+				<div class="deck deck--wsu-events">
 					<header class="deck-header">
 						<h2>Upcoming events</h2>
-						<a href="https://calendar.wsu.edu/" class="header-link">calendar.wsu.edu</a>
 					</header>
-					<?php echo do_shortcode( '[wsuwp_events output="wsu-events" date_format="F j" site="calendar.wsu.edu" count="4" tag="insider"]' ); ?>
+					<?php echo do_shortcode( '[wsuwp_events output="wsu-events" date_format="F j" site="calendar.wsu.edu" count="3" tag="insider" cache_bust="1"]' ); ?>
+					<a href="https://calendar.wsu.edu" class="button">View all upcoming events</a>
 				</div>
 			</div>
 		</section>
