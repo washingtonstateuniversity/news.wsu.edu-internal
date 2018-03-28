@@ -292,6 +292,10 @@ main .deck--featured .card .card-title a:after {
 	grid-area: feature;
 }
 
+.deck-features .card--multi-category {
+	margin-top: -1em;
+}
+
 .deck.deck--wsu-news {
 	grid-area: news;
 }

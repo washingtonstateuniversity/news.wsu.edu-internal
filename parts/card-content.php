@@ -1,17 +1,30 @@
 <?php
 global $is_top_feature, $is_river, $is_good_to_know, $is_read_more;
-?>
-<article class="card card--news">
-	<?php if ( is_front_page() && $is_top_feature ) { ?>
-	<span class="card-categories"><?php
-	$category_html = '';
+
+$card_class = '';
+if ( is_front_page() && $is_top_feature ) {
+	$category_html = array();
 	foreach ( get_the_category() as $category ) {
-		$category_html .= ' ' . esc_html( $category->cat_name ) . ',';
+		$category_html[] = esc_html( $category->cat_name );
 	}
-	$category_html = trim( $category_html );
-	$category_html = rtrim( $category_html, ',' );
-	echo $category_html; // @codingStandardsIgnoreLine
-	?></span>
+
+	// Mark cards with multiple categories so that proper spacing can be applied.
+	if ( 1 < count( $category_html ) ) {
+		$card_class = ' card--multi-category';
+	}
+
+	// Enforce a maximum of 2 displayed categories on featured items.
+	if ( 2 < count( $category_html ) ) {
+		$category_html = array_slice( $category_html, 0, 2 );
+	}
+
+	$category_html = array_map( 'trim', $category_html );
+	$category_html = implode( ',<br />', $category_html );
+}
+?>
+<article class="card card--news<?php echo esc_attr( $card_class ); ?>">
+	<?php if ( is_front_page() && $is_top_feature ) { ?>
+	<span class="card-categories"><?php echo $category_html; // @codingStandardsIgnoreLine ?></span>
 	<?php } ?>
 
 	<?php if ( ( ! is_archive() && ! is_home() && ! is_front_page() ) ) { ?>
