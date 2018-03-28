@@ -278,7 +278,7 @@ main .deck--featured .card .card-title a:after {
 }
 
 .deck-features .card--multi-category {
-	margin-top: -1em;
+	margin-top: -.9em;
 }
 
 .deck.deck--wsu-news {
