@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/includes/theme-images.php';
+require_once __DIR__ . '/includes/taxonomy.php';
 require_once __DIR__ . '/includes/content-syndicate.php';
 require_once __DIR__ . '/includes/page-curation.php';
 require_once __DIR__ . '/includes/page-curation-customizer.php';
