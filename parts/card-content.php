@@ -3,8 +3,15 @@ global $is_top_feature, $is_river, $is_good_to_know, $is_read_more;
 
 $card_class = '';
 if ( is_front_page() && $is_top_feature ) {
+	$default_category = absint( get_option( 'default_category' ) );
+
 	$category_html = array();
 	foreach ( get_the_category() as $category ) {
+		// Don't show the default category (Uncategorized) on features.
+		if ( $default_category === $category->cat_ID ) {
+			continue;
+		}
+
 		$category_html[] = esc_html( $category->cat_name );
 	}
 
