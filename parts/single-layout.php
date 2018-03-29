@@ -5,17 +5,16 @@
 	<div class="column one">
 
 		<?php
-		$default_category = absint( get_option( 'default_category' ) );
 		$post_categories = wp_get_post_categories( get_the_ID() );
 
 		// Output a category list if categories are assigned and if the default category is not the only category.
-		if ( $post_categories && ! ( 1 === count( $post_categories ) && $default_category !== $post_categories[0] ) ) {
+		if ( $post_categories && ! ( 1 === count( $post_categories ) && \WSU\News\Internal\Taxonomy\is_term_clerical( $post_categories[0] ) ) ) {
 			?>
 			<ul>
 			<?php
 			foreach ( $post_categories as $category ) {
 				// Don't show the default category (Uncategorized) on features.
-				if ( $default_category === $category ) {
+				if ( \WSU\News\Internal\Taxonomy\is_term_clerical( $category ) ) {
 					continue;
 				}
 				?>

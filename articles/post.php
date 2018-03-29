@@ -72,17 +72,20 @@
 
 	<?php
 	// Display site level categories attached to the post.
-	$default_category = absint( get_option( 'default_category' ) );
 	$categories = get_the_category();
 
-	if ( has_category() && ! ( 1 === count( $categories ) && $default_category === $categories[0]->cat_ID ) ) {
+	$output_categories = array();
+	// Trim categories considered clerical.
+	foreach ( $categories as $category ) {
+		if ( ! \WSU\News\Internal\Taxonomy\is_term_clerical( $category->cat_ID ) ) {
+			$output_categories[] = $category;
+		}
+	}
+
+	if ( 0 < count( $output_categories ) ) {
 		echo '<dl class="categorized">';
 		echo '<dt><span class="categorized-default">Categorized</span></dt>';
-		foreach ( $categories as $category ) {
-			// Don't show the default category (Uncategorized) on features.
-			if ( $default_category === $category->cat_ID ) {
-				continue;
-			}
+		foreach ( $output_categories as $category ) {
 			echo '<dd><a href="' . esc_url( get_category_link( $category->cat_ID ) ) . '">' . esc_html( $category->cat_name ) . '</a></dd>';
 		}
 		echo '</dl>';

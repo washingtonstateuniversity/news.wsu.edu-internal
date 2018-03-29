@@ -8,7 +8,7 @@ if ( is_front_page() && $is_top_feature ) {
 	$category_html = array();
 	foreach ( get_the_category() as $category ) {
 		// Don't show the default category (Uncategorized) on features.
-		if ( $default_category === $category->cat_ID ) {
+		if ( \WSU\News\Internal\Taxonomy\is_term_clerical( $category->cat_ID ) ) {
 			continue;
 		}
 
