@@ -7,11 +7,16 @@
 		<?php
 		$post_categories = wp_get_post_categories( get_the_ID() );
 
-		if ( $post_categories ) {
+		// Output a category list if categories are assigned and if the default category is not the only category.
+		if ( $post_categories && ! ( 1 === count( $post_categories ) && \WSU\News\Internal\Taxonomy\is_term_clerical( $post_categories[0] ) ) ) {
 			?>
 			<ul>
 			<?php
 			foreach ( $post_categories as $category ) {
+				// Don't show the default category (Uncategorized) on features.
+				if ( \WSU\News\Internal\Taxonomy\is_term_clerical( $category ) ) {
+					continue;
+				}
 				?>
 				<li>
 					<a href="<?php echo esc_url( get_category_link( $category ) ); ?>"><?php echo esc_html( get_cat_name( $category ) ); ?></a>
