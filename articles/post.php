@@ -72,10 +72,17 @@
 
 	<?php
 	// Display site level categories attached to the post.
-	if ( has_category() ) {
+	$default_category = absint( get_option( 'default_category' ) );
+	$categories = get_the_category();
+
+	if ( has_category() && ! ( 1 === count( $categories ) && $default_category === $categories[0]->cat_ID ) ) {
 		echo '<dl class="categorized">';
 		echo '<dt><span class="categorized-default">Categorized</span></dt>';
-		foreach ( get_the_category() as $category ) {
+		foreach ( $categories as $category ) {
+			// Don't show the default category (Uncategorized) on features.
+			if ( $default_category === $category->cat_ID ) {
+				continue;
+			}
 			echo '<dd><a href="' . esc_url( get_category_link( $category->cat_ID ) ) . '">' . esc_html( $category->cat_name ) . '</a></dd>';
 		}
 		echo '</dl>';
