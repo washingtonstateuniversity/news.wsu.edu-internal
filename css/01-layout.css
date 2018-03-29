@@ -350,7 +350,7 @@ main .deck--featured .card .card-title a:after {
 .deck .button {
 	grid-column-start: 1;
 	grid-column-end: -1;
-	display: inline;
+	display: inline-block;
 	width: max-content;
 }
 
