@@ -408,6 +408,47 @@ main .deck--featured .card .card-title a:after {
 	}
 }
 
+/* --- site footer --- */
+.site-footer {
+	margin-top: 1rem;
+}
+
+.site-footer .deck {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.site-footer .card {
+	flex: 1;
+}
+
+.site-footer .card--nav {
+	display: flex;
+	flex-wrap: wrap;
+	min-width: 250px;
+}
+
+.site-footer .card--mark {
+	max-width: 300px;
+	min-width: 200px;
+}
+
+@media screen and (max-width: 550px) {
+
+	.site-footer .card {
+		flex: 1 100%;
+		margin: 0 auto;
+	}
+
+	.site-footer .card--nav {
+		justify-content: center;
+	}
+
+	.site-footer .card--mark {
+		margin-top: 4rem;
+	}
+}
+
 /* --- home page --- */
 .home .top-head {
 	padding-top: 3.5rem;
@@ -417,18 +458,25 @@ main .deck--featured .card .card-title a:after {
 	padding-top: 2rem;
 }
 
-.bg-none #mc_embed_signup {
+#mc_embed_signup {
 	background: none;
-	text-align: center;
+	text-align: right;
 }
 
 #mc_embed_signup form {
-	margin-top: -.5rem;
-	padding: 0 0 0 2rem;
+	padding: 0;
+}
+
+#mc_embed_signup_scroll {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: flex-end;
 }
 
 #mc_embed_signup_scroll input[type="submit"] {
-	margin-left: 10px;
+	height: 40px;
+	margin: 0 0 0 .25rem;
 }
 
 /* --- utilities --- */
@@ -530,5 +578,3 @@ main .bottom-divider {
 		max-width: 1168px;
 	}
 }
-
-/* --- river - vertical list of cards --- */
