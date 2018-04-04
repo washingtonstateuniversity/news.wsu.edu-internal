@@ -70,6 +70,11 @@ h6 {
 	font-size: 18px;
 }
 
+strong,
+b {
+	font-weight: 400;
+}
+
 @media screen and (max-width: 700px) {
 
 	.post-type-archive-wsu_announcement h1 {
@@ -93,7 +98,7 @@ h6 {
 
 .insider-description {
 	color: #767676;
-	font-size: .8em;
+	font-size: .9em;
 }
 
 .sub-call {
@@ -246,8 +251,9 @@ main textarea {
 
 .deck--numbered-list .card-title,
 .deck--numbered-list .card-title a {
-	font-size: 1.25rem;
+	font-size: 1.125rem;
 	font-weight: 400;
+	line-height: 1.25;
 }
 
 .deck--numbered-list article {
@@ -265,6 +271,7 @@ main textarea {
 	background: #820c23;
 	border-radius: 2rem;
 	text-align: center;
+	top: -.4rem;
 	color: #fff;
 	font-weight: 900;
 	font-size: 1.5rem;

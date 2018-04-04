@@ -131,14 +131,28 @@ figure.alignnone {
 	padding: 12px;
 }
 
-.single-post .article-body p:last-of-type:after {
+.single-post .article-body > p:last-child,
+.single-post .article-body > ul:last-child > li:last-child {
+	position: relative;
+}
+
+.single-post .article-body > p:last-child:after,
+.single-post .article-body > ul:last-child > li:last-child:after {
 	background: #a60f2d;
 	content: "";
 	display: inline-block;
-	height: 15px;
+	height: .8em;
 	margin-left: .5em;
-	width: 15px;
-	vertical-align: middle;
+	position: absolute;
+	width: .8em;
+}
+
+.single-post .article-body > p:last-child:after {
+	bottom: 1.3em;
+}
+
+.single-post .article-body > ul:last-child > li:last-child:after {
+	bottom: .6em;
 }
 
 .single-post .article-footer {
@@ -609,6 +623,11 @@ main .bottom-divider {
 	}
 }
 
+/* Hide the featured image on the "WSU Photo Year in Review" post */
+.postid-164577 .featured-image {
+	display: none;
+}
+
 main {
 	color: #191919;
 	font: 400 18px/28px "Source Sans Pro", sans-serif;
@@ -681,6 +700,11 @@ h6 {
 	font-size: 18px;
 }
 
+strong,
+b {
+	font-weight: 400;
+}
+
 @media screen and (max-width: 700px) {
 
 	.post-type-archive-wsu_announcement h1 {
@@ -704,7 +728,7 @@ h6 {
 
 .insider-description {
 	color: #767676;
-	font-size: .8em;
+	font-size: .9em;
 }
 
 .sub-call {
@@ -859,8 +883,9 @@ main textarea {
 
 .deck--numbered-list .card-title,
 .deck--numbered-list .card-title a {
-	font-size: 1.25rem;
+	font-size: 1.125rem;
 	font-weight: 400;
+	line-height: 1.25;
 }
 
 .deck--numbered-list article {
@@ -878,6 +903,7 @@ main textarea {
 	background: #820c23;
 	border-radius: 2rem;
 	text-align: center;
+	top: -.4rem;
 	color: #fff;
 	font-weight: 900;
 	font-size: 1.5rem;
