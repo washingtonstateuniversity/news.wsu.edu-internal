@@ -119,14 +119,28 @@ figure.alignnone {
 	padding: 12px;
 }
 
-.single-post .article-body p:last-of-type:after {
+.single-post .article-body > p:last-child,
+.single-post .article-body > ul:last-child > li:last-child {
+	position: relative;
+}
+
+.single-post .article-body > p:last-child:after,
+.single-post .article-body > ul:last-child > li:last-child:after {
 	background: #a60f2d;
 	content: "";
 	display: inline-block;
-	height: 15px;
+	height: .8em;
 	margin-left: .5em;
-	width: 15px;
-	vertical-align: middle;
+	position: absolute;
+	width: .8em;
+}
+
+.single-post .article-body > p:last-child:after {
+	bottom: 1.3em;
+}
+
+.single-post .article-body > ul:last-child > li:last-child:after {
+	bottom: .6em;
 }
 
 .single-post .article-footer {
@@ -577,4 +591,9 @@ main .bottom-divider {
 		width: calc(100vw - 198px - 20px); /* 100vw - Spine width - <main> left border width */
 		max-width: 1168px;
 	}
+}
+
+/* Hide the featured image on the "WSU Photo Year in Review" post */
+.postid-164577 .featured-image {
+	display: none;
 }

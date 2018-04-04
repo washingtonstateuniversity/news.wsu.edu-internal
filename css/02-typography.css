@@ -1,12 +1,13 @@
 main {
 	color: #191919;
-	font: 300 18px/28px "Source Sans Pro", sans-serif;
+	font: 400 18px/28px "Source Sans Pro", sans-serif;
 }
 
 main a {
 	border-bottom: 1px solid #da1e00;
 	color: #191919;
-	font-weight: 400;
+	font-weight: 600;
+	text-decoration: none;
 	transition: color .3s ease;
 }
 
@@ -70,6 +71,11 @@ h6 {
 	font-size: 18px;
 }
 
+strong,
+b {
+	font-weight: 600;
+}
+
 @media screen and (max-width: 700px) {
 
 	.post-type-archive-wsu_announcement h1 {
@@ -93,7 +99,7 @@ h6 {
 
 .insider-description {
 	color: #767676;
-	font-size: .8em;
+	font-size: .9em;
 }
 
 .sub-call {
@@ -105,7 +111,6 @@ figcaption {
 	color: #717171;
 	font-size: .7em;
 	font-style: italic;
-	font-weight: 400;
 	letter-spacing: .02em;
 	line-height: normal;
 	padding: .75rem 1rem .75rem 1.4rem;
@@ -114,7 +119,6 @@ figcaption {
 .primary-categories ul {
 	list-style: none;
 	font-size: 15px;
-	font-weight: 400;
 	padding: 0;
 	text-transform: uppercase;
 }
@@ -122,6 +126,7 @@ figcaption {
 .primary-categories a {
 	color: #da1e00;
 	border: none;
+	font-weight: 400;
 }
 
 .primary-categories a:hover {
@@ -131,7 +136,6 @@ figcaption {
 .article-header hgroup.source {
 	color: #191919;
 	font-size: 14px;
-	font-weight: 400;
 	padding: 0;
 	text-transform: none;
 }
@@ -173,6 +177,7 @@ figcaption {
 .article-footer a {
 	border-bottom: none;
 	color: #686868;
+	font-weight: 400;
 }
 
 .article-footer a:hover {
@@ -247,8 +252,9 @@ main textarea {
 
 .deck--numbered-list .card-title,
 .deck--numbered-list .card-title a {
-	font-size: 1.25rem;
+	font-size: 1.125rem;
 	font-weight: 400;
+	line-height: 1.25;
 }
 
 .deck--numbered-list article {
@@ -266,6 +272,7 @@ main textarea {
 	background: #820c23;
 	border-radius: 2rem;
 	text-align: center;
+	top: -.4rem;
 	color: #fff;
 	font-weight: 900;
 	font-size: 1.5rem;
@@ -349,7 +356,6 @@ main .card-categories,
 	color: #da1e00;
 	display: block;
 	font-size: .9rem;
-	font-weight: 400;
 	line-height: 1.25;
 	text-transform: uppercase;
 }
@@ -372,15 +378,13 @@ main .card-title a:hover {
 }
 
 .card-time {
-	color: initial;
+	color: #767676;
 	font-size: .9em;
-	font-weight: 300;
 	text-transform: none;
 }
 
 .card-excerpt {
 	font-size: 1rem;
-	font-weight: 400;
 }
 
 /* --- home page styles --- */
@@ -420,16 +424,10 @@ main .card-title a:hover {
 	font-weight: 400;
 }
 
-.header-link {
-	font-size: .9em;
-	font-weight: 300;
-}
-
 /* --- archive descriptions --- */
 .page-header .description {
 	color: #da1e00;
 	font-size: .8em;
-	font-weight: 400;
 	letter-spacing: .1em;
 	text-transform: uppercase;
 }
@@ -443,7 +441,7 @@ main .card-title a:hover {
 
 .site-footer nav a {
 	border-color: rgba(255, 255, 255, .5);
-	font-weight: 300;
+	font-weight: 400;
 }
 
 .site-footer nav ul li:first-child {
@@ -452,5 +450,5 @@ main .card-title a:hover {
 
 .site-footer nav ul li:first-child a {
 	border: none;
-	font-weight: 700;
+	font-weight: 900;
 }
