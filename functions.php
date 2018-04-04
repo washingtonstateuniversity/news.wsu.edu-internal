@@ -18,7 +18,7 @@ add_filter( 'spine_child_theme_version', 'internal_news_theme_version' );
  * @return string
  */
 function internal_news_theme_version() {
-	return '0.10.0';
+	return '0.10.1';
 }
 
 add_action( 'wp_enqueue_scripts', 'internal_news_enqueue_scripts' );
@@ -28,7 +28,7 @@ add_action( 'wp_enqueue_scripts', 'internal_news_enqueue_scripts' );
  * @since 0.0.1
  */
 function internal_news_enqueue_scripts() {
-	wp_enqueue_style( 'source_sans_pro', '//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,900,900i' );
+	wp_enqueue_style( 'source_sans_pro', '//fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i,900,900i' );
 
 }
 
