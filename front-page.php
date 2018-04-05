@@ -5,7 +5,7 @@ get_header();
 
 <main>
 	<div>
-		<section class="row halves gutter top-head bottom-divider">
+		<section class="row single gutter top-head bottom-divider">
 			<div class="column one">
 				<svg id="wsu-insider-coug-head-mark" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 266.4 48.71">
 					<defs/>
@@ -18,8 +18,6 @@ get_header();
 					</g>
 				</svg>
 				<p class="insider-description">News and information for faculty, staff, and the WSU Community</p>
-			</div>
-			<div class="column two">
 			</div>
 		</section>
 	<?php

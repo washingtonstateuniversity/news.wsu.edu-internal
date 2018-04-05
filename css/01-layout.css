@@ -5,6 +5,8 @@ html {
 /* - home main mark - */
 #wsu-insider-coug-head-mark {
 	margin-top: -1rem;
+	width: 100%;
+	max-width: 552px;
 }
 
 .site-header {
