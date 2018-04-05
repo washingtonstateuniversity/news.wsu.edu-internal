@@ -5,7 +5,7 @@ get_header();
 
 <main>
 	<div>
-		<section class="row halves gutter top-head bottom-divider">
+		<section class="row single gutter top-head bottom-divider">
 			<div class="column one">
 				<svg id="wsu-insider-coug-head-mark" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 266.4 48.71">
 					<defs/>
@@ -17,20 +17,7 @@ get_header();
 						<path class="cls-2" d="M2.43 13.91h6.64l1.36 10.71c.27 2.57.57 5.13.83 7.7h.15c.45-2.57.91-5.17 1.36-7.7l2.34-10.71h5.43l2.34 10.71c.45 2.46.91 5.1 1.36 7.7h.15c.27-2.6.57-5.21.83-7.7l1.36-10.71h6.19l-4.08 24.52h-8.22l-1.89-9.73c-.38-1.89-.68-3.93-.9-5.74h-.16c-.26 1.81-.52 3.85-.9 5.74l-1.81 9.73H6.73zM32.46 35.38l3.7-4.46a10 10 0 0 0 5.74 2.38c2 0 2.79-.64 2.79-1.73s-1.25-1.57-3.32-2.38l-3.06-1.28a7.26 7.26 0 0 1-4.94-6.83c0-4.19 3.77-7.62 9.13-7.62a11.77 11.77 0 0 1 8.15 3.28l-3.24 4.07A8.09 8.09 0 0 0 42.5 19c-1.58 0-2.56.57-2.56 1.66s1.39 1.58 3.62 2.45l3 1.17c3.05 1.21 4.79 3.32 4.79 6.72 0 4.15-3.47 7.84-9.58 7.84a14.26 14.26 0 0 1-9.31-3.46zM53.22 26.59V13.91h6.49v13.43c0 4.38 1.13 6 3.69 6s3.78-1.58 3.78-6V13.91h6.26v12.68c0 8.37-3.17 12.29-10 12.29S53.22 35 53.22 26.59zM85.18 13.91h6.49v24.52h-6.49zM95.22 13.91h6.64l5.43 10.94 2.34 5.51h.15A88.54 88.54 0 0 1 109 21v-7.09h6.19v24.52h-6.69l-5.43-11-2.34-5.43h-.15a92.26 92.26 0 0 1 .83 9.36v7.09h-6.19zM117.18 35.38l3.69-4.46a10 10 0 0 0 5.74 2.38c2 0 2.79-.64 2.79-1.73s-1.24-1.55-3.32-2.38l-3-1.28a7.25 7.25 0 0 1-5-6.83c0-4.19 3.78-7.62 9.13-7.62a11.75 11.75 0 0 1 8.15 3.28l-3.24 4.07a8.09 8.09 0 0 0-4.91-1.81c-1.58 0-2.56.56-2.56 1.66s1.39 1.58 3.62 2.45l3 1.17c3.04 1.25 4.73 3.36 4.73 6.72 0 4.15-3.47 7.84-9.58 7.84a14.21 14.21 0 0 1-9.24-3.46zM138.08 13.91h6.49v24.52h-6.49zM148.12 13.91h7.24c7.47 0 12.6 3.47 12.6 12.15s-5.13 12.37-12.22 12.37h-7.62zM155 33.23c3.55 0 6.34-1.44 6.34-7.17s-2.79-6.95-6.34-6.95h-.38v14.12zM170 13.91h15.85v5.43h-9.36v3.85h8v5.43h-8V33h9.74v5.43H170zM189.06 13.91h9.28c5.29 0 9.81 1.81 9.81 7.92a7.51 7.51 0 0 1-4 7.09l5.32 9.51h-7.24L198 30.21h-2.49v8.22h-6.49zm8.83 11.17c2.57 0 3.93-1.14 3.93-3.25S200.46 19 197.89 19h-2.34v6z"/>
 					</g>
 				</svg>
-				<p class="insider-description">News and information for faculty and staff throughout the WSU system</p>
-			</div>
-			<div class="column two">
-				<div id="mc_embed_signup">
-					<form action="//wsu.us3.list-manage.com/subscribe/post?u=02b3cd67989caec2eec47f036&amp;id=21d653f16c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-						<div id="mc_embed_signup_scroll">
-							<label for="mce-EMAIL">Sign up for the WSU Insider daily email</label>
-							<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
-							<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-							<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_02b3cd67989caec2eec47f036_21d653f16c" tabindex="-1" value=""></div>
-							<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
-						</div>
-					</form>
-				</div>
+				<p class="insider-description">News and information for faculty, staff, and the WSU Community</p>
 			</div>
 		</section>
 	<?php
@@ -106,6 +93,22 @@ get_header();
 					</header>
 					<?php echo do_shortcode( '[wsuwp_events output="wsu-events" date_format="F j" site="calendar.wsu.edu" count="3" tag="insider" cache_bust="1"]' ); ?>
 					<a href="https://calendar.wsu.edu" class="button">View all upcoming events</a>
+				</div>
+			</div>
+		</section>
+
+		<section class="row single gutter pad-top bg-none">
+			<div class="column one">
+				<div id="mc_embed_signup">
+					<form action="//wsu.us3.list-manage.com/subscribe/post?u=02b3cd67989caec2eec47f036&amp;id=21d653f16c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
+						<div id="mc_embed_signup_scroll">
+							<label for="mce-EMAIL">Sign up for the WSU Insider daily email</label>
+							<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required="">
+							<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+							<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_02b3cd67989caec2eec47f036_21d653f16c" tabindex="-1" value=""></div>
+							<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+						</div>
+					</form>
 				</div>
 			</div>
 		</section>
