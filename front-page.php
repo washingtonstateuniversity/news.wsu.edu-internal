@@ -147,6 +147,7 @@ get_header();
 		wp_reset_postdata();
 	}
 
+	get_template_part( 'parts/footers' );
 	?>
 	</div>
 </main>

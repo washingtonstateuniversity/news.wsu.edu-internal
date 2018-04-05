@@ -162,3 +162,12 @@ function wsu_news_display_valentine_shortcode( $args ) {
 
 	return $content;
 }
+
+add_action( 'after_setup_theme', 'wsu_news_register_sidebar' );
+/**
+ * Register the navigation menus used by the theme.
+ */
+function wsu_news_register_sidebar() {
+	register_nav_menu( 'footer-one', 'Footer One' );
+	register_nav_menu( 'footer-two', 'Footer Two' );
+}

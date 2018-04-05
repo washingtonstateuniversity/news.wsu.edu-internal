@@ -433,9 +433,17 @@ main .card-title a:hover {
 }
 
 /* --- site footer --- */
+.site-footer nav .nav-group {
+	margin-right: 2rem;
+}
+
+.site-footer nav .nav-group header {
+	font-size: .8em;
+	font-weight: 900;
+}
+
 .site-footer nav ul {
 	font-size: .8em;
-	margin-right: 2rem;
 	padding: 0;
 }
 
@@ -450,5 +458,4 @@ main .card-title a:hover {
 
 .site-footer nav ul li:first-child a {
 	border: none;
-	font-weight: 900;
 }

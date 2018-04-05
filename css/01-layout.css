@@ -443,6 +443,7 @@ main .deck--featured .card .card-title a:after {
 }
 
 .site-footer .card--mark {
+	margin-left: auto;
 	max-width: 300px;
 	min-width: 200px;
 }
