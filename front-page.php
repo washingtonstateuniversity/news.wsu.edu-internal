@@ -3,7 +3,7 @@ get_header();
 
 ?>
 
-<main>
+<main id="wsuwp-main">
 	<div>
 		<section class="row single gutter top-head bottom-divider">
 			<div class="column one">
