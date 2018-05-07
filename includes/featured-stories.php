@@ -12,7 +12,7 @@ add_action( 'manage_post_posts_custom_column', 'WSU\News\Internal\Featured_Stori
  * @param \WP_Query $query
  */
 function filter_query_for_featured_posts( $query ) {
-	if ( ! $query->is_main_query() || ! $query->is_category() ) {
+	if ( is_admin() || ! $query->is_main_query() || ! $query->is_category() ) {
 		return;
 	}
 
