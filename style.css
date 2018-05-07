@@ -5,7 +5,7 @@
  Author:         WSU University Communications
  Author URI:     https://web.wsu.edu
  Template:       spine
- Version:        0.10.4
+ Version:        0.10.5
 */
 
 html {
@@ -193,16 +193,14 @@ main figure > a {
 /* CSS Grid */
 .deck {
 	display: grid;
-	-webkit-columns: auto;
-	        columns: auto;
+	columns: auto;
 	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
 	grid-column-gap: 2rem;
 }
 
 /* - allow aligning elements within an item - */
 .card {
-	-webkit-column-span: none;
-	        column-span: none;
+	column-span: none;
 	margin-bottom: 1rem;
 	padding-bottom: .25rem;
 	max-width: 100%;
