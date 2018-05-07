@@ -457,8 +457,9 @@ main .deck--featured .card .card-title a:after {
 		margin: 0 auto;
 	}
 
-	.site-footer .card--nav {
-		justify-content: center;
+	.site-footer nav .nav-group {
+		margin: 0 0 1rem;
+		width: 100%;
 	}
 
 	.site-footer .card--mark {
