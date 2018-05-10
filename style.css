@@ -1187,4 +1187,135 @@ figcaption {
 	background: url(images/icons/arrow-right.svg) right top / 1.2em no-repeat;
 	padding-right: 1.5em;
 }
+
+/* Temporary CSS for the slideshow on
+   https://news.wsu.edu/2018/05/07/wsu-commencement-ceremonies/ */
+
+/* --- slider --- */
+.postid-169763 .camp-slider-wrap h2 {
+	background: #f2f2f2;
+	margin-top: 3.75rem;
+	padding-top: 1.25rem;
+	padding-bottom: 1.25rem;
+	padding-left: 3rem;
+}
+
+.postid-169763 .camp-slider .video-wrap-inner {
+	margin: 0;
+}
+
+.postid-169763 .camp-slider-wrap {
+	background: #fff;
+	position: relative;
+	margin-bottom: 7rem;
+}
+
+.postid-169763 .camp-slider-wrap p {
+	margin-top: 2rem;
+}
+
+.postid-169763 .camp-slider-wrap section > .column {
+	border-top: 1px solid #981e32;
+}
+
+.postid-169763 .camp-slider p {
+	line-height: 1.65;
+	font-size: .85rem;
+}
+
+.postid-169763 .camp-slider .column {
+	padding: 0 2rem;
+}
+
+.postid-169763 .camp-slider-wrap section.row.single > .column.one {
+	max-width: 80%;
+	padding: 0 5rem;
+}
+
+.postid-169763 ul.camp-slider {
+	list-style: none;
+	padding: 0;
+	margin: 2rem 0 0;
+}
+
+.postid-169763 .sss {
+	height: 0;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	display: block;
+}
+
+.postid-169763 .ssslide {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+	overflow: hidden;
+}
+
+.postid-169763 .ssslide img {
+	max-width: 100%;
+	height: auto;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	display: block;
+}
+
+.postid-169763 .sssnext,
+.postid-169763 .sssprev {
+	width: 25px;
+	height: 100%;
+	margin: 0;
+	position: absolute;
+	top: 0;
+}
+
+.postid-169763 .sssprev {
+	left: -1.8rem;
+	background: url(https://magazine.wsu.edu/wp-content/themes/wsu-magazine-theme/images/left-arrow_icon.svg) no-repeat;
+	background-position: 10px;
+}
+
+.postid-169763 .sssnext {
+	right: -1.8rem;
+	background: url(https://magazine.wsu.edu/wp-content/themes/wsu-magazine-theme/images/right-arrow_icon.svg) no-repeat;
+	background-position: 5px;
+}
+
+.postid-169763 .sssprev:hover,
+.postid-169763 .sssnext:hover {
+	cursor: pointer;
+}
+
+/* --- 2018 spring commencement pgs --- */
+.postid-169763 h2 {
+	position: relative;
+	left: -48px;
+}
+
+.postid-169763 figure.featured-image img {
+	max-width: 300px !important;
+}
+
+/* --- media queries --- */
+@media only screen and (max-width: 850px) {
+
+	.postid-169763 .camp-slider-wrap section.row.single > .column.one {
+		max-width: 100%;
+		padding: 0 5rem;
+	}
+
+	.postid-169763 .camp-slider .halves .column {
+		width: 100% !important;
+	}
+
+	.postid-169763 .camp-slider .halves .column.one {
+		margin-bottom: 1.5rem;
+	}
+}
 /*# sourceMappingURL=style.css.map */
