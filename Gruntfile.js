@@ -41,12 +41,17 @@ module.exports = function( grunt ) {
 
 		jscs: {
 			scripts: {
-				src: [ "Gruntfile.js", "includes/js/*.js" ],
+				src: [
+					"Gruntfile.js",
+					"includes/js/*.js",
+					"src/block/**/*.js"
+				],
 				options: {
 					preset: "jquery",
 					requireCamelCaseOrUpperCaseIdentifiers: false, // We rely on name_name too much to change them all.
 					maximumLineLength: 250,
-					validateIndentation: "\t"
+					validateIndentation: "\t",
+					fix: true
 				}
 			}
 		},
@@ -65,7 +70,10 @@ module.exports = function( grunt ) {
 				}
 			},
 			admin_scripts: {
-				src: [ "includes/js/*.js" ],
+				src: [
+					"includes/js/*.js",
+					"src/block/**/*.js"
+				],
 				options: {
 					bitwise: true,
 					curly: true,

@@ -29,7 +29,23 @@ add_action( 'wp_enqueue_scripts', 'internal_news_enqueue_scripts' );
  */
 function internal_news_enqueue_scripts() {
 	wp_enqueue_style( 'source_sans_pro', '//fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i,900,900i' );
+}
 
+add_action( 'wp_enqueue_scripts', 'news_commencement_enqueue', 99 );
+/**
+ * Enqueue the scripts and styles used for the slideshow on a specific
+ * commencement post.
+ *
+ * https://news.wsu.edu/2018/05/07/wsu-commencement-ceremonies/
+ *
+ * @since 0.10.7
+ */
+function news_commencement_enqueue() {
+	// Temporary styles and script for slideshow on commencement.
+	if ( is_single() && 169763 === get_post()->ID ) {
+		wp_enqueue_style( 'news-slideshow', get_stylesheet_directory_uri() . '/src/block/slideshow/style.css' );
+		wp_enqueue_script( 'news-slideshow', get_stylesheet_directory_uri() . '/src/block/slideshow/index.js', array( 'jquery' ), internal_news_theme_version(), true );
+	}
 }
 
 add_action( 'wp_footer', 'internal_news_social_media_icons' );
