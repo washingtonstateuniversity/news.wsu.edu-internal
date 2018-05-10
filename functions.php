@@ -29,7 +29,52 @@ add_action( 'wp_enqueue_scripts', 'internal_news_enqueue_scripts' );
  */
 function internal_news_enqueue_scripts() {
 	wp_enqueue_style( 'source_sans_pro', '//fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i,900,900i' );
+}
 
+add_action( 'wp_enqueue_scripts', 'news_commencement_enqueue', 99 );
+/**
+ * Enqueue the scripts and styles used for the slideshow on a specific
+ * commencement post.
+ *
+ * https://news.wsu.edu/2018/05/07/wsu-commencement-ceremonies/
+ *
+ * @since 0.11.0
+ */
+function news_commencement_enqueue() {
+	// Temporary styles and script for slideshow on commencement.
+	if ( is_single() && 169763 === get_post()->ID ) {
+		wp_enqueue_style( 'news-slideshow', get_stylesheet_directory_uri() . '/src/block/slideshow/style.css' );
+		wp_enqueue_script( 'news-slideshow', get_stylesheet_directory_uri() . '/src/block/slideshow/index.js', array( 'jquery' ), internal_news_theme_version(), true );
+	}
+}
+
+add_filter( 'all_plugins', 'news_filter_available_plugins', 10 );
+/**
+ * Remove Custom JavaScript from the available plugins.
+ *
+ * All JavaScript goes through GitHub for WSU News.
+ *
+ * @since 0.11.0
+ *
+ * @param array $plugins
+ * @return array
+ */
+function news_filter_available_plugins( $plugins ) {
+	unset( $plugins['custom-javascript-editor/custom-javascript-editor.php'] );
+
+	return $plugins;
+}
+
+add_action( 'after_setup_theme', 'news_remove_edit_css' );
+/**
+ * Stop Edit CSS from loading.
+ *
+ * All CSS goes through GitHub for WSU News.
+ *
+ * @since 0.11.0
+ */
+function news_remove_edit_css() {
+	remove_action( 'init', array( 'WSU_Custom_CSS', 'init' ) );
 }
 
 add_action( 'wp_footer', 'internal_news_social_media_icons' );
