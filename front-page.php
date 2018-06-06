@@ -91,8 +91,8 @@ get_header();
 					<header class="deck-header">
 						<h2>Upcoming events</h2>
 					</header>
-					<?php echo do_shortcode( '[wsuwp_events output="wsu-events" date_format="F j" site="calendar.wsu.edu" count="3" tag="insider" cache_bust="1"]' ); ?>
-					<a href="https://calendar.wsu.edu" class="button">View all upcoming events</a>
+					<?php echo do_shortcode( '[wsuwp_events output="wsu-events" date_format="F j" site="events.wsu.edu" count="3" featured="true" cache_bust="20180606"]' ); ?>
+					<a href="https://events.wsu.edu" class="button">View all upcoming events</a>
 				</div>
 			</div>
 		</section>
