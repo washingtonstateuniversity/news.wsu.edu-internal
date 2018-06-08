@@ -164,7 +164,7 @@ function wsuwp_json_output( $content, $data, $atts ) {
 					</span>
 					<?php } ?>
 					<?php if ( ! empty( $content->thumbnail ) ) : ?>
-					<?php $image_url = get_image_url( $content, $atts ); ?>
+						<?php $image_url = get_image_url( $content, $atts ); ?>
 					<figure class="card-image">
 						<a href="<?php echo esc_url( $content->link ); ?>"><img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $content->featured_media->alt_text ); ?>"></a>
 					</figure>
