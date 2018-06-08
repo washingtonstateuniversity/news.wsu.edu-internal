@@ -18,7 +18,7 @@ add_filter( 'spine_child_theme_version', 'internal_news_theme_version' );
  * @return string
  */
 function internal_news_theme_version() {
-	return '0.11.1';
+	return '0.11.2';
 }
 
 add_action( 'wp_enqueue_scripts', 'internal_news_enqueue_scripts' );
@@ -215,4 +215,53 @@ add_action( 'after_setup_theme', 'wsu_news_register_sidebar' );
 function wsu_news_register_sidebar() {
 	register_nav_menu( 'footer-one', 'Footer One' );
 	register_nav_menu( 'footer-two', 'Footer Two' );
+}
+
+add_filter( 'mce_buttons', 'wsu_news_filter_mce_buttons' );
+/**
+ * Filter the buttons presented in the top row of TinyMCE.
+ *
+ * @since 0.11.2
+ *
+ * @param array $buttons
+ * @return array
+ */
+function wsu_news_filter_mce_buttons( $buttons ) {
+	$remove_buttons = array(
+		'wp_more',
+	);
+
+	foreach ( $buttons as $button_key => $button_value ) {
+		if ( in_array( $button_value, $remove_buttons, true ) ) {
+			unset( $buttons[ $button_key ] );
+		}
+	}
+
+	return $buttons;
+}
+
+add_filter( 'mce_buttons_2', 'wsu_news_filter_mce_buttons_2' );
+/**
+ * Filter the buttons presented in the bottom row of TinyMCE.
+ *
+ * @since 0.11.2
+ *
+ * @param array $buttons
+ * @return array
+ */
+function wsu_news_filter_mce_buttons_2( $buttons ) {
+	$remove_buttons = array(
+		'underline',
+		'forecolor',
+		'outdent',
+		'indent',
+	);
+
+	foreach ( $buttons as $button_key => $button_value ) {
+		if ( in_array( $button_value, $remove_buttons, true ) ) {
+			unset( $buttons[ $button_key ] );
+		}
+	}
+
+	return $buttons;
 }

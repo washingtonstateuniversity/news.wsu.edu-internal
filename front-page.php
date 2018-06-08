@@ -68,7 +68,7 @@ get_header();
 						$is_top_feature = false;
 					}
 					wp_reset_postdata(); // $featured_posts is a \WP_Query object.
-				?>
+					?>
 				</div>
 
 				<div class="deck deck--numbered-list">
