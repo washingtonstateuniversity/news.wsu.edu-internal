@@ -5,7 +5,7 @@
  Author:         WSU University Communications
  Author URI:     https://web.wsu.edu
  Template:       spine
- Version:        0.11.3
+ Version:        0.11.4
 */
 
 html {
@@ -131,6 +131,12 @@ figure.alignnone {
 	float: left;
 	margin: 0 1em 1em 0;
 	padding: 12px;
+}
+
+figure.alignright {
+	float: right;
+	margin-left: 1em;
+	margin-right: 0;
 }
 
 .single-post .article-body > p:last-child,
