@@ -121,6 +121,12 @@ figure.alignnone {
 	padding: 12px;
 }
 
+figure.alignright {
+	float: right;
+	margin-left: 1em;
+	margin-right: 0;
+}
+
 .single-post .article-body > p:last-child,
 .single-post .article-body > ul:last-child > li:last-child {
 	position: relative;
