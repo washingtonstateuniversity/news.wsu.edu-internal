@@ -179,12 +179,12 @@ main figure > a {
 
 /* --- blockquote styles to be used as a pullquote --- */
 blockquote {
-    background-color:#f2f2f2; 
-    padding-top:1em; 
-    padding-left:2em; 
-    padding-right:2em; 
-    margin-bottom:1.5em; 
-    margin-top:.5em;
+	background-color: #f2f2f2;
+	padding-top: 1em;
+	padding-left: 2em;
+	padding-right: 2em;
+	margin-bottom: 1.5em;
+	margin-top: .5em;
 }
 
 /* --- Content syndicate cards --- */
