@@ -145,7 +145,7 @@ figure.alignright {
 }
 
 .single-post .article-body > p:last-child:after,
-.single-post .article-body > ul:last-child > li:last-child > p:last-child:after {
+.single-post .article-body > ul:last-child > li:last-child:after {
 	background: #a60f2d;
 	content: "";
 	display: inline-block;
@@ -162,12 +162,6 @@ figure.alignright {
 
 .single-post .article-body > ul:last-child > li:last-child:after {
 	bottom: .6em;
-}
-
-/* --- remove red square at end of content --- */
-.single-post .endless .article-body > p:last-child:after,
-.single-post .endless .article-body > ul:last-child > li:last-child > p:last-child:after {
-	display:none;
 }
 
 .single-post .article-footer {
