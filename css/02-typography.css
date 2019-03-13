@@ -76,6 +76,14 @@ b {
 	font-weight: 600;
 }
 
+/* --- byline style for posts --- */
+.byline {
+	color: #717171;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 1.5em;
+	padding-bottom: .25em;
+}
+
 @media screen and (max-width: 700px) {
 
 	.post-type-archive-wsu_announcement h1 {
