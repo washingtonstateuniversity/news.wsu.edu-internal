@@ -145,12 +145,13 @@ figure.alignright {
 }
 
 .single-post .article-body > p:last-child:after,
-.single-post .article-body > ul:last-child > li:last-child:after {
+.single-post .article-body > ul:last-child > li:last-child > p:last-child:after {
 	background: #a60f2d;
 	content: "";
 	display: inline-block;
 	height: .8em;
 	margin-left: .5em;
+	margin-top: .3em;
 	position: absolute;
 	width: .8em;
 }
@@ -161,6 +162,12 @@ figure.alignright {
 
 .single-post .article-body > ul:last-child > li:last-child:after {
 	bottom: .6em;
+}
+
+/* --- remove red square at end of content --- */
+.single-post .endless .article-body > p:last-child:after,
+.single-post .endless .article-body > ul:last-child > li:last-child > p:last-child:after {
+	display:none;
 }
 
 .single-post .article-footer {
@@ -192,11 +199,17 @@ main figure > a {
 /* --- blockquote styles to be used as a pullquote --- */
 blockquote {
 	background-color: #f2f2f2;
-	padding-top: 1em;
+	padding-top: 1.5em;
 	padding-left: 2em;
 	padding-right: 2em;
 	margin-bottom: 1.5em;
 	margin-top: .5em;
+}
+
+@media screen and (min-width: 659px) {
+	blockquote {
+		width: 100% !important;
+	}
 }
 
 /* --- Content syndicate cards --- */
@@ -722,6 +735,14 @@ h6 {
 strong,
 b {
 	font-weight: 600;
+}
+
+/* --- byline style for posts --- */
+.byline {
+	color: #717171;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 1.5em;
+	padding-bottom: .25em;
 }
 
 @media screen and (max-width: 700px) {
