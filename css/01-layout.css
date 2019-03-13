@@ -194,7 +194,7 @@ blockquote {
 	margin-top: .5em;
 }
 
-@media screen and (min-width: 659px) {
+@media screen and (max-width: 659px) {
 	blockquote {
 		width: 100% !important;
 	}
