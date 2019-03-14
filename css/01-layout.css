@@ -195,6 +195,12 @@ blockquote {
 }
 
 /* --- custom breakpoints for pullquotes or other items --- */
+@media screen and (max-width: 1300px) {
+	.full1300 {
+		width: 100% !important;
+	}
+}
+
 @media screen and (max-width: 1200px) {
 	.full1200 {
 		width: 100% !important;
