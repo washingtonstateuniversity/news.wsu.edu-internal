@@ -206,6 +206,31 @@ blockquote {
 	}
 }
 
+/* --- custom breakpoints for pullquotes or other items --- */
+@media screen and (max-width: 1200px) {
+	.full1200 {
+		width: 100% !important;
+	}
+}
+
+@media screen and (max-width: 990px) {
+	.full990 {
+		width: 100% !important;
+	}
+}
+
+@media screen and (max-width: 660px) {
+	.full660 {
+		width: 100% !important;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	.full320 {
+		width: 100% !important;
+	}
+}
+
 /* --- Content syndicate cards --- */
 
 /* CSS Grid fallback */
