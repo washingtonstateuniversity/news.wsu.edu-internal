@@ -656,3 +656,16 @@ main .bottom-divider {
 .postid-164577 .featured-image {
 	display: none;
 }
+
+/* --- custom TablePress styles --- */
+.tablepress tfoot th, 
+.tablepress thead th {
+	background-color:#5d686f;
+	color:#fff;
+	font-weight:400;
+}
+
+.tablepress tfoot th:hover, 
+.tablepress thead th:hover {
+	background-color:#43474a;
+}
