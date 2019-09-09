@@ -189,6 +189,7 @@ blockquote {
 }
 
 @media screen and (max-width: 659px) {
+
 	blockquote {
 		width: 100% !important;
 	}
@@ -196,30 +197,35 @@ blockquote {
 
 /* --- custom breakpoints for pullquotes or other items --- */
 @media screen and (max-width: 1300px) {
+
 	.full1300 {
 		width: 100% !important;
 	}
 }
 
 @media screen and (max-width: 1200px) {
+
 	.full1200 {
 		width: 100% !important;
 	}
 }
 
 @media screen and (max-width: 990px) {
+
 	.full990 {
 		width: 100% !important;
 	}
 }
 
 @media screen and (max-width: 660px) {
+
 	.full660 {
 		width: 100% !important;
 	}
 }
 
 @media screen and (max-width: 320px) {
+
 	.full320 {
 		width: 100% !important;
 	}
@@ -660,12 +666,12 @@ main .bottom-divider {
 /* --- custom TablePress styles --- */
 .tablepress tfoot th, 
 .tablepress thead th {
-	background-color:#5d686f;
-	color:#fff;
-	font-weight:400;
+	background-color: #5d686f;
+	color: #fff;
+	font-weight: 400;
 }
 
 .tablepress tfoot th:hover, 
 .tablepress thead th:hover {
-	background-color:#43474a;
+	background-color: #43474a;
 }
