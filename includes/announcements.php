@@ -56,6 +56,7 @@ function register_post_type() {
 		),
 		'capability_type'    => 'post',
 		'has_archive'        => 'announcements',
+		'taxonomies'         => array( 'category' ),
 		'hierarchical'       => false,
 		'menu_position'      => 5,
 		'supports'           => array( 'title', 'editor', 'thumbnail' ),
