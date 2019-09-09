@@ -59,7 +59,7 @@ function register_post_type() {
 		'taxonomies'         => array( 'category' ),
 		'hierarchical'       => false,
 		'menu_position'      => 5,
-		'supports'           => array( 'title', 'editor', 'thumbnail' ),
+		'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
 		'show_in_rest'       => true,
 		'rest_base'          => 'announcements',
 	);
