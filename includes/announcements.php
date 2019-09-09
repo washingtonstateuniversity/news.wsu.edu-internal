@@ -58,7 +58,7 @@ function register_post_type() {
 		'has_archive'        => 'announcements',
 		'hierarchical'       => false,
 		'menu_position'      => 5,
-		'supports'           => array( 'title', 'editor' ),
+		'supports'           => array( 'title', 'editor', 'thumbnail' ),
 		'show_in_rest'       => true,
 		'rest_base'          => 'announcements',
 	);
