@@ -119,9 +119,10 @@ get_header();
 		}
 
 		$section_query = new WP_Query( array(
+			'post_type'      => array( 'post', 'wsu_announcement' ),
 			'posts_per_page' => (int) $front_section['count'],
-			'category_name' => $section_slug,
-			'post__not_in' => $skip_post_ids,
+			'category_name'  => $section_slug,
+			'post__not_in'   => $skip_post_ids,
 		) );
 
 		if ( $section_query->have_posts() ) {
