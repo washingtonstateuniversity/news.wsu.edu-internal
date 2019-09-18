@@ -30,4 +30,7 @@ if ( ! empty( $spine_social_options['twitter'] ) ) {
 			<use xlink:href="#social-media-icon_facebook" fill="#3b5998"/>
 		</svg>
 	</a>
+	<a href="mailto:?subject=<?php echo $post_share_title;?>&amp;body=Check out this WSU Insider story: <?php echo $post_share_url; ?>">
+ 		 <img src="http://png-2.findicons.com/files/icons/573/must_have/48/mail.png"  aria-hidden="true" width="16" height="16" viewBox="0 -2 20 20">
+	</a>
 </div>
