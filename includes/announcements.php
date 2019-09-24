@@ -459,7 +459,7 @@ function filter_archive_query( $wp_query ) {
 		$wp_query->set( 'posts_per_page', '-1' );
 	} elseif ( $wp_query->is_post_type_archive( get_post_type_slug() ) && $wp_query->is_date() && $wp_query->is_main_query() ) {
 		$wp_query->set( 'posts_per_page', '-1' );
-	} elseif ( ! is_admin() && $wp_query->is_main_query() && is_category() ) {
+	} elseif ( $wp_query->is_main_query() && is_category() ) {
 		$wp_query->set( 'post_type', array( 'post', 'wsu_announcement' ) );
 	}
 }
