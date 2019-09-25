@@ -53,9 +53,10 @@ $page = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 
 		$archive_query = new WP_Query( array(
 			'posts_per_page' => 20, // Start with a high number until pagination.
-			'category_name' => get_query_var( 'category_name' ),
-			'post__not_in' => $skip_post_id,
-			'paged' => absint( $page ),
+			'category_name'  => get_query_var( 'category_name' ),
+			'post__not_in'   => $skip_post_id,
+			'paged'          => absint( $page ),
+			'post_type'      => array( 'post', 'wsu_announcement' ),
 		) );
 
 		if ( $archive_query->have_posts() ) {
