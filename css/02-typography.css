@@ -82,8 +82,24 @@ b {
 	border-bottom: 1px solid #ccc;
 	margin-bottom: 1.5em;
 	padding-bottom: .25em;
-	display: inline-block;
+	display: flex;
 	padding-right: .3em;
+}
+
+/* --- add left double quote to paragraph for posts --- */
+p.quote:before {
+    display: block;
+    font-size: 700%;
+    content: "“";
+    height: 1px;
+    margin-left: -0.55em;
+    position:relative;
+    top: 40px;
+    color: #ccc;
+}
+
+p.quote {
+    padding-left:55px;
 }
 
 @media screen and (max-width: 700px) {
