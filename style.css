@@ -5,7 +5,7 @@
  Author:         WSU University Communications
  Author URI:     https://web.wsu.edu
  Template:       spine
- Version:        1.0.1
+ Version:        1.0.2
 */
 
 html {
@@ -201,6 +201,7 @@ blockquote {
 }
 
 @media screen and (max-width: 659px) {
+
 	blockquote {
 		width: 100% !important;
 	}
@@ -208,30 +209,35 @@ blockquote {
 
 /* --- custom breakpoints for pullquotes or other items --- */
 @media screen and (max-width: 1300px) {
+
 	.full1300 {
 		width: 100% !important;
 	}
 }
 
 @media screen and (max-width: 1200px) {
+
 	.full1200 {
 		width: 100% !important;
 	}
 }
 
 @media screen and (max-width: 990px) {
+
 	.full990 {
 		width: 100% !important;
 	}
 }
 
 @media screen and (max-width: 660px) {
+
 	.full660 {
 		width: 100% !important;
 	}
 }
 
 @media screen and (max-width: 320px) {
+
 	.full320 {
 		width: 100% !important;
 	}
@@ -684,6 +690,19 @@ main .bottom-divider {
 	display: none;
 }
 
+/* --- custom TablePress styles --- */
+.tablepress tfoot th,
+.tablepress thead th {
+	background-color: #5d686f;
+	color: #fff;
+	font-weight: 400;
+}
+
+.tablepress tfoot th:hover,
+.tablepress thead th:hover {
+	background-color: #43474a;
+}
+
 main {
 	color: #191919;
 	font: 400 18px/28px "Source Sans Pro", sans-serif;
@@ -768,8 +787,25 @@ b {
 	border-bottom: 1px solid #ccc;
 	margin-bottom: 1.5em;
 	padding-bottom: .25em;
-	display: inline-block;
+	display: -ms-flexbox;
+	display: flex;
 	padding-right: .3em;
+}
+
+/* --- add left double quote to paragraph for posts --- */
+p.quote:before {
+    display: block;
+    font-size: 700%;
+    content: "“";
+    height: 1px;
+    margin-left: -0.55em;
+    position:relative;
+    top: 40px;
+    color: #ccc;
+}
+
+p.quote {
+    padding-left:55px;
 }
 
 @media screen and (max-width: 700px) {
@@ -1251,18 +1287,4 @@ figcaption {
 	background: url(images/icons/arrow-right.svg) right top / 1.2em no-repeat;
 	padding-right: 1.5em;
 }
-
-/* --- custom TablePress styles --- */
-.tablepress tfoot th, 
-.tablepress thead th {
-	background-color:#5d686f;
-	color:#fff;
-	font-weight:400;
-}
-
-.tablepress tfoot th:hover, 
-.tablepress thead th:hover {
-	background-color:#43474a;
-}
-
 /*# sourceMappingURL=style.css.map */
