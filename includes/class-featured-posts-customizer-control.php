@@ -83,7 +83,7 @@ class Featured_Posts_Control extends \WP_Customize_Control {
 		<input type="hidden" <?php $this->link(); ?> value="<?php echo esc_attr( implode( ',', $post_ids ) ); ?>"/>
 
 		<script>
-			jQuery( function() {
+			jQuery( function( $ ) {
 				var featured_post_input = $( "#featured-post-title" );
 				featured_post_input.autocomplete( {
 					source: "<?php echo esc_js( get_rest_url( get_current_blog_id(), '/insider/v1/featured' ) ); ?>",
