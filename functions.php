@@ -9,6 +9,22 @@ require_once __DIR__ . '/includes/featured-stories.php';
 require_once __DIR__ . '/includes/announcements.php';
 require_once __DIR__ . '/includes/mailchimp.php';
 
+function internal_news_add_sidebars() {
+	register_sidebar(
+		array(
+			'name'          => 'Homepage Right',
+			'id'            => 'home-right',
+			'description'   => 'Widgets in this area will be shown on the homepage.',
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '<h2 class="widgettitle">',
+			'after_title'   => '</h2>',
+		)
+	);
+}
+
+add_action( 'widgets_init', 'internal_news_add_sidebars' );
+
 add_filter( 'spine_child_theme_version', 'internal_news_theme_version' );
 /**
  * Provides a theme version for use in cache busting.

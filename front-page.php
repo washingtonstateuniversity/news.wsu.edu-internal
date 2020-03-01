@@ -72,6 +72,9 @@ get_header();
 				</div>
 
 				<div class="deck deck--numbered-list">
+					<?php if ( is_active_sidebar( 'home-right' ) ) : ?>
+						<?php dynamic_sidebar( 'home-right' ); ?>
+					<?php endif; ?>
 					<header class="deck-header">Good to Know</header>
 					<?php
 					$gtk_posts = WSU\News\Internal\Page_Curation\get_gtk_posts( 'query' );
