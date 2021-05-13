@@ -1,7 +1,10 @@
 <?php
 global $is_top_feature, $is_river, $is_good_to_know, $is_read_more;
 
-$card_class = '';
+$card_id = get_the_ID();
+
+$card_class = 'card-' . $card_id;
+
 if ( is_front_page() && $is_top_feature ) {
 	$default_category = absint( get_option( 'default_category' ) );
 
