@@ -28,6 +28,15 @@ if ( is_front_page() && $is_top_feature ) {
 	$category_html = array_map( 'trim', $category_html );
 	$category_html = implode( ',<br />', $category_html );
 }
+
+$item_cats = get_the_category();
+
+foreach ( $item_cats as $item_cat ) {
+
+	$card_class .= ' category-' . $item_cat->slug;
+
+}
+
 ?>
 <article class="card card--news<?php echo esc_attr( $card_class ); ?>">
 	<?php if ( is_front_page() && $is_top_feature ) { ?>
