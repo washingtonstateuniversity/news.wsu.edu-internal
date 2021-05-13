@@ -3,7 +3,7 @@ global $is_top_feature, $is_river, $is_good_to_know, $is_read_more;
 
 $card_id = get_the_ID();
 
-$card_class = 'card-' . $card_id;
+$card_class = ' card-' . $card_id;
 
 if ( is_front_page() && $is_top_feature ) {
 	$default_category = absint( get_option( 'default_category' ) );
@@ -20,7 +20,7 @@ if ( is_front_page() && $is_top_feature ) {
 
 	// Mark cards with multiple categories so that proper spacing can be applied.
 	if ( 1 < count( $category_html ) ) {
-		$card_class = ' card--multi-category';
+		$card_class .= ' card--multi-category';
 	}
 
 	// Enforce a maximum of 2 displayed categories on featured items.
